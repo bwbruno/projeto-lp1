@@ -13,11 +13,12 @@ template<class CLASSE>
 class OperacoesCSV {
 	private:
 		std::map<int, CLASSE> lista; ///< Lista de tratadores
-        std::string enderecoArquivo;
+        std::string enderecoArquivo; ///< Endereço do arquivo
 
 	public:
-		///@name Construtores e destrutor
-		///@{
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
 		
 		//! @brief Construtor padrão não inicializa nenhum dos atributos
 		OperacoesCSV();
@@ -26,25 +27,33 @@ class OperacoesCSV {
 		//! @param linha endereço do arquivo CSV
 		OperacoesCSV(std::string enderecoArquivo);
 		
-		///@}
-		///@name Getters
-		///@{
+		//---------------------------------------------------------------------- ///@}
+		/// @name Getters
+		//---------------------------------------------------------------------- ///@{
         
-        //! Retorna o tipo do funcionario de acordo com a linha do arquivo CSV
+        //! @brief 
+        std::map<int, CLASSE> getLista();
+
+        //---------------------------------------------------------------------- ///@}
+		/// @name Setters
+		//---------------------------------------------------------------------- ///@{
+
+        void setLista(std::map<int, CLASSE> l);
+        
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos utilitários
+		//---------------------------------------------------------------------- ///@{
+		
+        void inserirLinha(CLASSE classe);
+		
+        //! @brief Retorna o tipo do funcionario de acordo com a linha do arquivo CSV
 		//! @param linha endereço do arquivo CSV
         std::string getTipoDaLinha(std::string linha);
 
-        std::map<int, CLASSE> getLista();
-
-        void inserirMap(std::map<int, CLASSE> lista);
-        void inserirLinha(CLASSE classe);
-		
-		///@}
-		///@name Métodos
-		///@{
-		
+        //! @brief 
         void print();
-		///@}
+
+		//---------------------------------------------------------------------- ///@{
 };
 
 template <class CLASSE>
@@ -97,14 +106,14 @@ void OperacoesCSV<CLASSE>::print(){
 }
 
 template <class CLASSE>
-void OperacoesCSV<CLASSE>::inserirMap(std::map<int, CLASSE> lista){
+void OperacoesCSV<CLASSE>::setLista(std::map<int, CLASSE> l){
 
     std::ofstream of;
 	of.open(enderecoArquivo.c_str());
 	
     if(of.is_open()){
         typename std::map<int, CLASSE>::iterator it;
-        for (it = lista.begin(); it != lista.end(); ++it)
+        for (it = l.begin(); it != l.end(); ++it)
             of << it->second.getStringFormatoCSV();
 
 	} else {

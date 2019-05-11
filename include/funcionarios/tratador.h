@@ -12,10 +12,11 @@ class Tratador : public Funcionario {
 		int nivel_de_seguranca; ///< Indica quais animais o tratador pode tratar.
 
 	public:
-		///@name Construtor e destrutor
-		///@{
-		
-		//! @brief Construtor padrão seta os valores nulos da função limpar()
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+ 
+		//! @brief O construtor padrão instancia o tratador com a função limpar() já aplicada
 		//! @see limpar()
 		Tratador();
 
@@ -40,43 +41,44 @@ class Tratador : public Funcionario {
 		//! @param linhaCSV linha do arquivo CSV
 		Tratador(std::string linhaCSV);
 		
-		///@}
-		///@name Métodos getters
-		///@{
+		//---------------------------------------------------------------------- ///@}
+		/// @name Getters
+		//---------------------------------------------------------------------- ///@{
 		
 		//! @brief Retorna o 'nível de segurança' do tratador.
-		/*!
-		 * O nivel de segurança é um inteiro[0, 2], onde:
-		 *  - 0 (indica que pode manipular aves)
-		 *  - 1 (indica que pode tratar aves, mamíferos e répteis)
-		 *  - 2 (pode manipular animais venenosos ou perigosos)
-		 */
-		//! @return inteiro[0, 2]
 		int getNivelDeSeguranca();
 		
-		///@}
-		///@name Métodos setters
-		///@{
-		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Setters
+		//---------------------------------------------------------------------- ///@{
+ 
 		//! @brief Seta o 'nível de segurança' do tratador
 		/*!
-		 * O nivel de segurança é um inteiro[0, 2], onde:
+		 * O nivel de segurança deve ser um inteiro[0, 2], onde:
 		 *  - 0 (indica que pode manipular aves)
 		 *  - 1 (indica que pode tratar aves, mamíferos e répteis)
 		 *  - 2 (pode manipular animais venenosos ou perigosos)
-		 * Caso o 'nds' não seja um inteiro[0, 2], a função retorna -1;
 		 */
+		//! @exception Excecao caso não seja uma das anteriores.
 		//! @param nds nível de segurança do tratador
 		void setNivelDeSeguranca(int nds);
 		
-		///@}
-		///@name Métodos
-		///@{
-		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
 		//! @brief Seta 'espaço' em todos os atributos do tipo string e '-1' em todos os de tipo numérico
 		//! @note Ajuda na hora de imprimir a classe na tela, mesmo que não tenha todos os atributos já definidos.
 		//! @see operator<<()
 		void limpar();
+		
+		std::string getTipo();
+
+		std::string getStringFormatoCSV();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
 		
 		//! @brief Operador de inserção da classe. Só insere um atributo por vez.
 		/**
@@ -96,15 +98,6 @@ class Tratador : public Funcionario {
 
 		//! @brief Operador de extração da classe.
 		friend std::ostream& operator<< (std::ostream &o, Tratador const t);
-
-		//! @brief Grava no arquivo CSV informado, 'todos os valores da classe'
-		//! @exception "Erro ao abrir arquivo para cadastro." caso o arquivo não exista ou haja alguma falha de execução
-		//! @param enderecoArquivo endereco do arquivo CSV
-		void inserirCSV(std::string enderecoArquivo);
-		
-		std::string getTipo();
-
-		std::string getStringFormatoCSV();
 
 		///@}
 };

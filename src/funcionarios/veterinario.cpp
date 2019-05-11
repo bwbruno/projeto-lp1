@@ -2,13 +2,17 @@
 
 using namespace std;
 
+// ------------------------------------------------------------------------
+//		Construtores e destrutor
+// ------------------------------------------------------------------------
+
 Veterinario::Veterinario(){
 	limpar();
 }
 
 Veterinario::Veterinario(string linhaCSV){
 	
-	// linhaCSV = "1;Tratador;João Alberto;007.404.200-98;45;AB;-;Répteis e Aves;;1;"
+	// Veterinario v("1;Veterinario;Daniel Oscar;123.456.789-10;30;O;+;Felinos;CRMV-GO 0406;;")
 	string tmp;
 	istringstream tratadorStream(linhaCSV);
 	
@@ -25,20 +29,27 @@ Veterinario::Veterinario(string linhaCSV){
 	getline(tratadorStream, especialidade, ';'); 
 	getline(tratadorStream, crmv, ';'); 
 	getline(tratadorStream, tmp, ';');
-	//total++;
 }
 
-void Veterinario::limpar(){
-	id = -1;
-	nome = "";
-	cpf = "";
-	idade = -1;
-	tipo_sanguineo = ' ';
-	fator_rh = ' ';
-	especialidade = ' ';
-	crmv = "";
-	contador_cin = 1;
+// ------------------------------------------------------------------------
+//		Getters
+// ------------------------------------------------------------------------
+
+string Veterinario::getCRMV(){
+	return crmv;
 }
+
+// ------------------------------------------------------------------------
+//		Setters
+// ------------------------------------------------------------------------
+
+void Veterinario::setCRMV(string c){
+	crmv = c;
+}
+
+// ------------------------------------------------------------------------
+//		Operadores
+// ------------------------------------------------------------------------
 
 istream& operator>> (istream &i, Veterinario &t) {
 	t.contador_cin++;
@@ -108,12 +119,31 @@ ostream& operator<< (ostream &o, Veterinario const t) {
 	return o;
 }
 
+// ------------------------------------------------------------------------
+//		Métodos utilitários
+// ------------------------------------------------------------------------
+
+void Veterinario::limpar(){
+	id = -1;
+	nome = "";
+	cpf = "";
+	idade = -1;
+	tipo_sanguineo = ' ';
+	fator_rh = ' ';
+	especialidade = ' ';
+	crmv = "";
+	contador_cin = 1;
+}
+
+string Veterinario::getTipo(){
+	return "Veterinario";
+}
 
 string Veterinario::getStringFormatoCSV(){
 
 	stringstream ss;
 	ss << id << ";";
-	ss << "Veterinario" << ";";
+	ss << getTipo() << ";";
 	ss << nome << ";";
 	ss << cpf << ";";
 	ss << idade << ";";
@@ -124,8 +154,4 @@ string Veterinario::getStringFormatoCSV(){
 	ss << ";";
 	ss << endl;
 	return ss.str();
-}
-
-string Veterinario::getTipo(){
-	return "Veterinario";
 }

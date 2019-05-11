@@ -2,13 +2,17 @@
 
 using namespace std;
 
+// ------------------------------------------------------------------------
+//		Construtores e destrutor
+// ------------------------------------------------------------------------
+
 Tratador::Tratador(){
 	limpar();
 }
 
 Tratador::Tratador(string linhaCSV){
 	
-	// linhaCSV = "1;Tratador;João Alberto;007.404.200-98;45;AB;-;Répteis e Aves;;1;"
+	// Tratador t("1;Tratador;João Alberto;007.404.200-98;45;AB;-;Répteis e Aves;;1;")
 	string tmp;
 	istringstream tratadorStream(linhaCSV);
 	
@@ -26,8 +30,19 @@ Tratador::Tratador(string linhaCSV){
 	getline(tratadorStream, tmp, ';'); 
 	getline(tratadorStream, tmp, ';');
 	nivel_de_seguranca = atoi(tmp.c_str());
-	//total++;
 }
+
+// ------------------------------------------------------------------------
+//		Getters
+// ------------------------------------------------------------------------
+
+int Tratador::getNivelDeSeguranca(){
+	return nivel_de_seguranca;
+}
+
+// ------------------------------------------------------------------------
+//		Setters
+// ------------------------------------------------------------------------
 
 void Tratador::setNivelDeSeguranca(int nds){
 	if(!((0 <= nds)&&(nds <= 2))) //Se nds não estiver entre 0 e 2
@@ -36,17 +51,9 @@ void Tratador::setNivelDeSeguranca(int nds){
 		nivel_de_seguranca = nds;
 }
 
-void Tratador::limpar(){
-	id = -1;
-	nome = "";
-	cpf = "";
-	idade = -1;
-	tipo_sanguineo = ' ';
-	fator_rh = ' ';
-	especialidade = ' ';
-	nivel_de_seguranca = -1;
-	contador_cin = 1;
-}
+// ------------------------------------------------------------------------
+//		Operadores
+// ------------------------------------------------------------------------
 
 istream& operator>> (istream &i, Tratador &t) {
 	t.contador_cin++;
@@ -118,11 +125,32 @@ ostream& operator<< (ostream &o, Tratador const t) {
 	return o;
 }
 
+// ------------------------------------------------------------------------
+//		Métodos utilitários
+// ------------------------------------------------------------------------
+
+void Tratador::limpar(){
+	id = -1;
+	nome = "";
+	cpf = "";
+	idade = -1;
+	tipo_sanguineo = ' ';
+	fator_rh = ' ';
+	especialidade = ' ';
+	nivel_de_seguranca = -1;
+	contador_cin = 1;
+}
+
+
+string Tratador::getTipo(){
+	return "Tratador";
+}
+
 string Tratador::getStringFormatoCSV(){
 
 	stringstream ss;
 	ss << id << ";";
-	ss << "Tratador" << ";";
+	ss << getTipo() << ";";
 	ss << nome << ";";
 	ss << cpf << ";";
 	ss << idade << ";";
@@ -133,9 +161,4 @@ string Tratador::getStringFormatoCSV(){
 	ss << nivel_de_seguranca << ";";
 	ss << endl;
 	return ss.str();
-}
-
-
-string Tratador::getTipo(){
-	return "Tratador";
 }

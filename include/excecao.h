@@ -10,29 +10,34 @@ class Excecao : public std::exception {
 		std::string mensagem;
 
     public:
+        //---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
 		Excecao();
 		Excecao(const std::string m);
+        Excecao(const Excecao &e);
 		~Excecao() throw ();
+    
+        //---------------------------------------------------------------------- ///@}
+		/// @name Getters
+		//---------------------------------------------------------------------- ///@{
+        const std::string getMensagem() const;
 
-    Excecao(const Excecao &e);
-    const std::string getMensagem() const;
-		void setMensagem(std::string m);
-		void limparMensagem();
-		void printMensagem();
-		Excecao& operator= (Excecao const &e);
+        //---------------------------------------------------------------------- ///@}
+		/// @name Setters
+		//---------------------------------------------------------------------- ///@{
+        void setMensagem(std::string m);
+
+        //---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+        Excecao& operator= (Excecao const &e);
+
+        //---------------------------------------------------------------------- ///@}
+		/// @name Métodos utilitários
+		//---------------------------------------------------------------------- ///@{
+        void limparMensagem();
+        void printMensagem();
 };
-
-template <typename CLASSE>
-std::istream& tipoInvalido(std::istream &i, CLASSE classe, Excecao &e){	
-	while(i.fail()){
-		i.clear();
-		i.ignore(__INT_MAX__, '\n');
-		e.setMensagem("Valor inválido. Insira um valor númerico.");
-	//	p.printPainel();
-		i >> classe;
-	}
-	return i;
-}
-
 
 #endif // __EXCECAO_H__
