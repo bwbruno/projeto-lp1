@@ -20,6 +20,9 @@ class Tratador : public Funcionario {
 		//! @see limpar()
 		Tratador();
 
+		//! @brief O construtor padrão instancia o tratador a partir do id informado e a partir do id e arquivo CSV informados
+		Tratador(int id);
+
 		//! @brief Esse construtor instancia o tratador com os valores de uma linha de um arquivo CSV
 		/**
 		 * @code

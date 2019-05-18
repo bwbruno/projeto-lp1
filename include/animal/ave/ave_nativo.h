@@ -5,20 +5,12 @@
 #include "animal_silvestre/animal_nativo.h"
 
 /// Classe AveNativo
-/**
- * Detailed description starts here.
- */
 class AveNativo : public Ave, AnimalNativo {
 	public:
 		/// Construtor de AveNativo sem parâmetros.
-		/**
-		*  Detailed description starts here.
-		*/
 		AveNativo();
+		
 		/// Destrutor de AveNativo.
-		/**
-		*  A more elaborate description of the destructor.
-		*/
 		~AveNativo();
 };
 

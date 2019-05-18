@@ -40,7 +40,7 @@ void consultar(std::string enderecoArquivo, std::deque<std::string> caminho){
 				throw Excecao("Valor inválido. Insira um valor númerico.");
 			}
 
-            painelDetalhes(selecao, lista, caminho);
+            painelDetalhes(selecao, csv, caminho);
 		}
 		catch(Excecao& e){
 			consulta.setExcecao(e);
@@ -51,13 +51,7 @@ void consultar(std::string enderecoArquivo, std::deque<std::string> caminho){
 }
 
 template <typename CLASSE>
-void painelDetalhes(int id, std::map<int, CLASSE> &lista, std::deque<std::string> caminho){
-
-    typename std::map<int, CLASSE>::iterator it;
-    it = lista.find(id);
-
-    if(it == lista.end())
-        throw Excecao("O id informado é inválido. Tente novamente."); 
+void painelDetalhes(int id, OperacoesCSV<CLASSE> &csv, std::deque<std::string> caminho){
     
     caminho.push_back("DETALHES");
 	std::string titulo = "DETALHES";	
@@ -70,7 +64,7 @@ void painelDetalhes(int id, std::map<int, CLASSE> &lista, std::deque<std::string
 		try{
 			std::cout << detalhes;
 
-            std::cout << it->second;
+            std::cout << csv.consultar(id);
         
             std::cout << "\nPARA VOLTAR INSIRA O NÚMERO ZERO [0]: ";
             std::cin >> selecao;
@@ -84,7 +78,7 @@ void painelDetalhes(int id, std::map<int, CLASSE> &lista, std::deque<std::string
 
 		}
 		catch(Excecao& e){
-			detalhes.setExcecao(e);
+			throw Excecao("O id informado é inválido. Tente novamente.");
 		}
 			
 	}

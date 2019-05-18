@@ -12,54 +12,49 @@
  * origem desses animais.
  */
 class AnimalNativo : public AnimalSilvestre {
-	public:
-		/// Construtor de AnimalNativo sem parâmetros.
-		/**
-		*  Detailed description starts here.
-		*/
-		AnimalNativo();
-		/// Construtor de AnimalNativo com parâmetros.
-		/**
-		*  Detailed description starts here.
-		*/
-		AnimalNativo(std::string UO, std::string auth);
-		/// Destrutor de AnimalNativo.
-		/**
-		*  A more elaborate description of the destructor.
-		*/
-		~AnimalNativo();
-		
-		
-		///@name Getter
-		///@{
-		//! @brief Esse método permite que o usuário verifique a UF de origem.
-
-		//! @brief Esse método permite que o usuário verifique a UF de origem.
-		std::string getUf_Origem();
-		
-		//! @brief Esse método permite que o usuário verifique a Autorização.
-		std::string getAutorizacao();
-		
-		///@}
-		///@name Método setter
-		///@{
-		
-		//! @brief Esse método permite que o usuário especifique a UF de origem. 
-		//! @param UO 
-		void setUf_Origem(std::string UO);
-		//! @brief Esse método permite que o usuário especifique a Autorização.
-		//! @param auth 
-		void setAutorizacao(std::string auth);
-		///@}
-		 
-		
-		
-		
-
 	protected:
 		std::string uf_origem; ///< Estado de origem
 		std::string autorizacao; ///< Autorização do IBAMA
 		
+	public:
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+ 
+		/// Construtor de AnimalNativo sem parâmetros.
+		AnimalNativo();
+
+		/// Construtor de AnimalNativo com parâmetros.
+		AnimalNativo(std::string UO, std::string auth);
+		
+		/// Destrutor de AnimalNativo.
+		~AnimalNativo();
+		
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Getters
+		//---------------------------------------------------------------------- ///@{
+ 
+		//! @brief Retorna a UF de origem.
+		std::string getUf_Origem();
+		
+		//! @brief Retorna a Autorização.
+		std::string getAutorizacao();
+		
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Setters
+		//---------------------------------------------------------------------- ///@{
+
+		//! @brief Seta a UF de origem. 
+		//! @param UO 
+		void setUf_Origem(std::string UO);
+
+		//! @brief Seta a Autorização.
+		//! @param auth 
+		void setAutorizacao(std::string auth);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __ANIMAL_NATIVO_H__

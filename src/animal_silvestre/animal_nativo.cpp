@@ -1,26 +1,43 @@
 #include "animal_silvestre/animal_nativo.h"
 
+using namespace std;
+
+// ------------------------------------------------------------------------
+//		Construtores e destrutor
+// ------------------------------------------------------------------------
+
 AnimalNativo::AnimalNativo(){
     uf_origem = "UF de origem não definida";
     autorizacao = "Sem autorização";
 }
 
-AnimalNativo::AnimalNativo(std::string UO, std::string auth){
+AnimalNativo::AnimalNativo(string UO, string auth){
     uf_origem = UO;
     autorizacao = auth;
 }
 
-std::string AnimalNativo::getUf_Origem(){
+
+// ------------------------------------------------------------------------
+//		Getters
+// ------------------------------------------------------------------------
+
+string AnimalNativo::getUf_Origem(){
     return uf_origem;
 }
 
-void AnimalNativo::setUf_Origem(std::string UO){
-    uf_origem = UO;
-}
-std::string AnimalNativo::getAutorizacao(){
+string AnimalNativo::getAutorizacao(){
     return autorizacao;
 }
 
-void AnimalNativo::setAutorizacao(std::string auth){
+
+// ------------------------------------------------------------------------
+//		Setters
+// ------------------------------------------------------------------------
+
+void AnimalNativo::setUf_Origem(string UO){
+    uf_origem = UO;
+}
+
+void AnimalNativo::setAutorizacao(string auth){
     autorizacao = auth;
 }

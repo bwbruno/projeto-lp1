@@ -10,6 +10,7 @@
 #include "painel/painel.h"
 #include "crud/cadastrar.h"
 #include "crud/consultar.h"
+#include "crud/remover.h"
 #include "funcionario/tratador.h"
 #include "funcionario/veterinario.h"
 
@@ -49,7 +50,7 @@ void painelFuncionarios(std::string titulo, std::deque<std::string> caminho){
 				cadastrar<FUNCIONARIO>("csv/funcionarios.csv", caminho);
 
 			} else if(opcao == "2"){
-				// FAZER
+				remover<FUNCIONARIO>("csv/funcionarios.csv", caminho, painel.getTitulo());
 
 			} else if(opcao == "3"){
 				// FAZER

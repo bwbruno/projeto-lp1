@@ -1,17 +1,33 @@
 #include "animal_silvestre/animal_silvestre.h"
 
+using namespace std;
+
+// ------------------------------------------------------------------------
+//		Construtores e destrutor
+// ------------------------------------------------------------------------
+
 AnimalSilvestre::AnimalSilvestre(){
     autorizacao_ibama = 'NULL';
 }
 
-AnimalSilvestre::AnimalSilvestre(std::string auth){
+AnimalSilvestre::AnimalSilvestre(string auth){
     autorizacao_ibama = auth;
 }
 
-std::string AnimalSilvestre::getAutorizacao_Ibama(){
+
+// ------------------------------------------------------------------------
+//		Getters
+// ------------------------------------------------------------------------
+
+string AnimalSilvestre::getAutorizacao_Ibama(){
     return autorizacao_ibama;
 }
 
-void AnimalSilvestre::setAutorizacao_Ibama(std::string auth){
+
+// ------------------------------------------------------------------------
+//		Setters
+// ------------------------------------------------------------------------
+
+void AnimalSilvestre::setAutorizacao_Ibama(string auth){
     autorizacao_ibama = auth;
 }

@@ -1,4 +1,4 @@
-all: main.o excecao.o utilitarios.o painel.o funcionario.o tratador.o veterinario.o operacoes_csv.o cadastrar.o consultar.o paineis.o
+all: main.o excecao.o utilitarios.o painel.o funcionario.o tratador.o veterinario.o paineis.o
 	g++ -Wall -ansi -pedantic -g -o ./bin/program.out ./build/*.o
 
 main.o:
@@ -21,15 +21,6 @@ tratador.o:
 
 veterinario.o:
 	g++ -c ./src/funcionario/veterinario.cpp -I ./include -o ./build/veterinario.o
-
-operacoes_csv.o:
-	g++ -c ./src/crud/operacoes_csv.cpp -I ./include -o ./build/operacoes_csv.o
-
-cadastrar.o:
-	g++ -c ./src/crud/cadastrar.cpp -I ./include -o ./build/cadastrar.o
-
-consultar.o:
-	g++ -c ./src/crud/consultar.cpp -I ./include -o ./build/consultar.o
 
 paineis.o:
 	g++ -c ./src/paineis.cpp -I ./include -o ./build/paineis.o

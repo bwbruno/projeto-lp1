@@ -50,11 +50,17 @@ class OperacoesCSV {
 		//! @param linha endereço do arquivo CSV
         std::string getTipoDaLinha(std::string linha);
 
+        std::string getIDDaLinha(std::string linha);
+
         //! @brief 
         void print();
 
+        CLASSE consultar(int id);
+
 		//---------------------------------------------------------------------- ///@{
 };
+
+
 
 template <class CLASSE>
 OperacoesCSV<CLASSE>::OperacoesCSV(std::string ea){
@@ -86,6 +92,14 @@ std::string OperacoesCSV<CLASSE>::getTipoDaLinha(std::string linha){
     std::string tipo;
     std::istringstream ss(linha);
     getline(ss, tipo, ';');
+    getline(ss, tipo, ';');
+    return tipo;
+}
+
+template <class CLASSE>
+std::string OperacoesCSV<CLASSE>::getIDDaLinha(std::string linha){
+    std::string tipo;
+    std::istringstream ss(linha);
     getline(ss, tipo, ';');
     return tipo;
 }
@@ -134,6 +148,19 @@ void OperacoesCSV<CLASSE>::inserirLinha(CLASSE classe){
 		throw Excecao("Erro ao abrir arquivo para escrita.");
 	}
     
+}
+
+template <class CLASSE>
+CLASSE OperacoesCSV<CLASSE>::consultar(int id){
+    
+    typename std::map<int, CLASSE>::iterator it;
+    it = lista.find(id);
+
+    if(it == lista.end())
+        throw Excecao("O id informado é inválido. Tente novamente."); 
+
+    return it->second;
+
 }
 
 #endif // __OPERACOES_CSV_H__

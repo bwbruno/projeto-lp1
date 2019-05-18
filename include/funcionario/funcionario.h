@@ -51,6 +51,7 @@ class Funcionario{
 		//! @note Útil para saber quais atributos já foram definidos ou não
 		int getContadorCin();
 		
+
 		//---------------------------------------------------------------------- ///@}
 		/// @name Setters
 		//---------------------------------------------------------------------- ///@{
@@ -100,6 +101,7 @@ class Funcionario{
 		//! @brief Seta um valor no contador de chamadas do operador de inserção da classe
 		//! @param c valor
 		void setContadorCin(int c);
+
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos utilitários

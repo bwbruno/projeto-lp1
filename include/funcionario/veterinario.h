@@ -16,6 +16,9 @@ class Veterinario : public Funcionario {
 		//! @see limpar()
 		Veterinario();
 
+		//! @brief O construtor padrão instancia o veterinario a partir do id e arquivo CSV informados
+		Veterinario(int id);
+
 		//! @brief Esse construtor instancia o veterinário com os valores de uma linha de um arquivo CSV
 		/**
 		 * @code

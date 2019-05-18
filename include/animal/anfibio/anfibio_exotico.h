@@ -4,21 +4,13 @@
 #include "animal/anfibio/anfibio.h"
 #include "animal_silvestre/animal_exotico.h"
 
-/// Classe AnfibioExotico
-/**
- * Detailed description starts here.
- */
+/// Anfibio Exotico
 class AnfibioExotico : public Anfibio, AnimalExotico {
 	public:
 		/// Construtor de AnfibioExotico sem parâmetros.
-		/**
-		*  Detailed description starts here.
-		*/
 		AnfibioExotico();
+
 		/// Destrutor de AnfibioExotico.
-		/**
-		*  A more elaborate description of the destructor.
-		*/
 		~AnfibioExotico();
 };
 
