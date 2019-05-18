@@ -28,7 +28,7 @@ void painelPrincipal(){
 			gerenciar.setResposta(opcao);
 
 			if(opcao == "1"){
-				// FAZER
+				painelAnimais(caminho);
 			} else if(opcao == "2"){
 				painelFuncionarios(caminho);
 			}
@@ -83,8 +83,8 @@ void painelFuncionarios(deque<string> caminho){
 
 }
 
-/*
 
+// Animais ---------------------------
 void painelAnimais(deque<string> caminho){
 	caminho.push_back("ANIMAIS");
 	string titulo = "ANIMAIS";
@@ -94,11 +94,35 @@ void painelAnimais(deque<string> caminho){
 	opcoes.push_back("REMOVER");
 	opcoes.push_back("ALTERAR");
 	opcoes.push_back("CONSULTAR");
-
+	string opcao;
 	Painel animais(titulo, opcoes, caminho);
-
+	animais.setPergunta("Selecione uma das opções: ");
+	void selecionarClasse(deque<string> caminho);
 	while(animais.getAbrir()){
-		animais.printPainel();
+
+		
+
+
+		try{
+			cout << animais;
+			cin >> opcao;
+			animais.setResposta(opcao);
+
+			if(opcao == "1"){
+				selecionarClasse(caminho);
+				
+
+			} else if(opcao == "2"){
+				/* string titulo = "VETERINARIOS";
+				painelFuncionarios<Veterinario>(titulo, caminho); */
+			}
+		}
+		catch(Excecao& e){
+			animais.setExcecao(e);
+		}
+		
+
+		/* animais.printPainel();
 		string opcao = animais.getSelecao();
 
 		if(opcao == "1"){
@@ -112,10 +136,52 @@ void painelAnimais(deque<string> caminho){
 
 		} else if(opcao == "4"){
 			painelAnimaisConsulta(caminho);
-		}
+		} */
 	}
 }
 
+void selecionarClasse(deque<string> caminho){
+	vector <string> opcoes;
+	opcoes.push_back("Voltar");
+	opcoes.push_back("Anfíbio");
+	opcoes.push_back("Ave");
+	opcoes.push_back("Mamífero");
+	opcoes.push_back("Réptil");
+	
+	string titulo = "CLASSES";
+	string selecao;
+	Painel classes(titulo, caminho);
+	caminho.push_back("CADASTRAR");
+	classes.setCaminho(caminho);
+	classes.setPergunta("Escolha a classe do animal: ");
+	classes.setOpcoes(opcoes);
+
+	while(classes.getAbrir()){
+		
+		try{
+			cout << classes;
+			cin >> selecao;
+			classes.setResposta(selecao);
+
+			if(selecao == "1"){
+				// Chamar crud para criar um animal anfíbio
+			} else if(selecao == "2"){
+				// Chamar crud para criar um animal ave
+			} else if(selecao == "3"){
+				// Chamar crud para criar um animal mamífero
+			} else if(selecao == "4"){
+				// Chamar crud para criar um animal réptil
+			}
+		}
+		catch(Excecao& e)
+		{
+			classes.setExcecao(e);
+		}
+		
+	}
+	
+}
+/* 
 void painelAnimaisConsulta(deque<string> caminho){
 	caminho.push_back("CONSULTAR");
 	string titulo = "CONSULTAR ANIMAIS POR";
@@ -145,4 +211,4 @@ void painelAnimaisConsulta(deque<string> caminho){
 	}
 }
 
-*/
+ */
