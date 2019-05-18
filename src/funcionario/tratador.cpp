@@ -32,6 +32,7 @@ Tratador::Tratador(string linhaCSV){
 	nivel_de_seguranca = atoi(tmp.c_str());
 }
 
+
 // ------------------------------------------------------------------------
 //		Getters
 // ------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Tratador::Tratador(string linhaCSV){
 int Tratador::getNivelDeSeguranca(){
 	return nivel_de_seguranca;
 }
+
 
 // ------------------------------------------------------------------------
 //		Setters
@@ -50,6 +52,7 @@ void Tratador::setNivelDeSeguranca(int nds){
 	else
 		nivel_de_seguranca = nds;
 }
+
 
 // ------------------------------------------------------------------------
 //		Operadores

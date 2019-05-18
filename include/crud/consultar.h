@@ -11,41 +11,30 @@ void consultar(std::string enderecoArquivo, std::deque<std::string> caminho){
 	
 	Painel consulta;	
 	OperacoesCSV<CLASSE> csv(enderecoArquivo);
-    std::map<int, CLASSE> lista = csv.getLista();
-    int selecao = 1;
+    std::map<std::string, std::string> opcoes = csv.getOpcoes();
+	std::string opcao;
     
     caminho.push_back("CONSULTAR");
 
 	consulta.setTitulo("CONSULTAR");
 	consulta.setCaminho(caminho);
+	consulta.setOpcoes(opcoes);
+	consulta.setPergunta("SELECIONE UMA DAS OPCOES: ");
 
-	while(selecao != 0){
+	while(consulta.getAbrir()){
 
 		try{
 			std::cout << consulta;
+			std::cin >> opcao;
+			consulta.setResposta(opcao);
 
-			// Imprime a lista de funcionarios id-nome
-	        typename std::map<int, CLASSE>::iterator it;
-            for (it = lista.begin(); it != lista.end(); ++it)
-                it->second.printIdNome();
-            
-            std::cout << "\n\t0. VOLTAR\n";
-            std::cout << "\nSELECIONE UMA DAS OPÇÕES: ";
-            std::cin >> selecao;
-        
-			// Tratamento de erro, caso o usuário insira texto em vez de números
-			if(std::cin.fail()){
-				std::cin.clear();
-				std::cin.ignore(__INT_MAX__, '\n');
-				throw Excecao("Valor inválido. Insira um valor númerico.");
-			}
-
-            painelDetalhes(selecao, csv, caminho);
+			int id = atoi(opcao.c_str());
+            painelDetalhes(id, csv, caminho);
 		}
 		catch(Excecao& e){
 			consulta.setExcecao(e);
 		}
-			
+
 	}
    
 }
@@ -53,32 +42,26 @@ void consultar(std::string enderecoArquivo, std::deque<std::string> caminho){
 template <typename CLASSE>
 void painelDetalhes(int id, OperacoesCSV<CLASSE> &csv, std::deque<std::string> caminho){
     
-    caminho.push_back("DETALHES");
-	std::string titulo = "DETALHES";	
-	
-	Painel detalhes(titulo, caminho);	
+	Painel detalhes;
+	std::string opcao;
 
-    int selecao = 1;
-	while(selecao != 0){
+    caminho.push_back("DETALHES");
+
+	detalhes.setTitulo("DETALHES");
+	detalhes.setCaminho(caminho);
+    
+	while(detalhes.getAbrir()){
 
 		try{
-			std::cout << detalhes;
-
-            std::cout << csv.consultar(id);
-        
-            std::cout << "\nPARA VOLTAR INSIRA O NÚMERO ZERO [0]: ";
-            std::cin >> selecao;
-        
-			// Tratamento de erro, caso o usuário insira texto em vez de números
-			if(std::cin.fail()){
-				std::cin.clear();
-				std::cin.ignore(__INT_MAX__, '\n');
-				throw Excecao("Valor inválido. Insira um valor númerico.");
-			}
-
+			std::cout << detalhes; 										// Cabecalho
+            std::cout << csv.consultar(id); 							// Corpo
+            std::cout << "\nPARA VOLTAR INSIRA O NÚMERO ZERO [0]: "; 	// Pergunta
+            std::cin >> opcao; 											// Resposta
+			detalhes.setResposta(opcao);
+	
 		}
 		catch(Excecao& e){
-			throw Excecao("O id informado é inválido. Tente novamente.");
+			detalhes.setExcecao(e);
 		}
 			
 	}

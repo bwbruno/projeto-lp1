@@ -39,6 +39,7 @@ class Painel{
 		Painel(std::string t, std::vector<std::string> o, std::deque<std::string> c);
 
 		Painel(std::string t, std::map<std::string, std::string> c);
+		Painel(std::map<std::string, std::string> c);
 		Painel(std::string t, std::map<std::string, std::string> co, std::deque<std::string> c);
 		
 		// Destrutor de Painel

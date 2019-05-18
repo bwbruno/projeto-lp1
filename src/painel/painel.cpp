@@ -14,9 +14,13 @@ Painel::Painel(string t, vector<string> o) : titulo(t), opcoes(vectorParaMap(o))
 
 Painel::Painel(string t, vector<string> o, deque<string> c) : titulo(t), opcoes(vectorParaMap(o)), caminho(c), abrir(true) { }
 
-Painel::Painel(string t, map<string, string> co) : titulo(t), opcoes(co), abrir(true){ }
+Painel::Painel(map<string, string> co) : opcoes(co), abrir(true){
+	opcoes.insert(make_pair("0", "VOLTAR"));
+}
 
-Painel::Painel(string t, map<string, string> co, deque<string> c) : titulo(t), opcoes(co), caminho(c), abrir(true){ }
+Painel::Painel(string t, map<string, string> co, deque<string> c) : titulo(t), opcoes(co), caminho(c), abrir(true){
+	opcoes.insert(make_pair("0", "VOLTAR"));
+}
 
 // ------------------------------------------------------------------------
 //		Getters
@@ -80,10 +84,10 @@ void Painel::setResposta(string r){
 	// Verifica se a chave 'r' não existe no map opcoes
 	typename map<string, string>::iterator it;
 	it = opcoes.find(r);
-    if(it == opcoes.end()){
-        throw Excecao("Opção inválida. Tente Novamente."); 
-    } else if(r == "0") {
+	if(r == "0"){
 		abrir = false;
+    } else if(it == opcoes.end()){
+        throw Excecao("Opção inválida. Tente Novamente."); 
 	} else {
 		resposta = r;
 	}
