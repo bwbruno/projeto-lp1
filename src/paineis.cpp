@@ -97,7 +97,7 @@ void painelAnimais(deque<string> caminho){
 	string opcao;
 	Painel animais(titulo, opcoes, caminho);
 	animais.setPergunta("Selecione uma das opções: ");
-	void selecionarClasse(deque<string> caminho);
+	void selecionarClasse(deque<string> caminho, int operacao);
 	while(animais.getAbrir()){
 
 		
@@ -109,12 +109,15 @@ void painelAnimais(deque<string> caminho){
 			animais.setResposta(opcao);
 
 			if(opcao == "1"){
-				selecionarClasse(caminho);
+				selecionarClasse(caminho, stoi(opcao));
 				
 
 			} else if(opcao == "2"){
-				/* string titulo = "VETERINARIOS";
-				painelFuncionarios<Veterinario>(titulo, caminho); */
+				selecionarClasse(caminho, stoi(opcao));
+			} else if(opcao == "3"){
+				selecionarClasse(caminho, stoi(opcao));
+			} else if(opcao == "4"){
+				selecionarClasse(caminho, stoi(opcao));
 			}
 		}
 		catch(Excecao& e){
@@ -140,7 +143,7 @@ void painelAnimais(deque<string> caminho){
 	}
 }
 
-void selecionarClasse(deque<string> caminho){
+void selecionarClasse(deque<string> caminho, int operacao){
 	vector <string> opcoes;
 	opcoes.push_back("Voltar");
 	opcoes.push_back("Anfíbio");
@@ -155,21 +158,28 @@ void selecionarClasse(deque<string> caminho){
 	classes.setCaminho(caminho);
 	classes.setPergunta("Escolha a classe do animal: ");
 	classes.setOpcoes(opcoes);
-
+	void selecionarTipo(string id, deque<string> caminho, int operacao);
 	while(classes.getAbrir()){
 		
 		try{
 			cout << classes;
 			cin >> selecao;
 			classes.setResposta(selecao);
-
+			
 			if(selecao == "1"){
+				
+				cout << "Entrou no anfibio" << endl;
+				
+				selecionarTipo("Anfíbio", caminho, operacao);
 				// Chamar crud para criar um animal anfíbio
 			} else if(selecao == "2"){
+				selecionarTipo("Ave", caminho, operacao);
 				// Chamar crud para criar um animal ave
 			} else if(selecao == "3"){
+				selecionarTipo("Mamífero", caminho, operacao);
 				// Chamar crud para criar um animal mamífero
 			} else if(selecao == "4"){
+				selecionarTipo("Réptil", caminho, operacao);
 				// Chamar crud para criar um animal réptil
 			}
 		}
@@ -180,6 +190,50 @@ void selecionarClasse(deque<string> caminho){
 		
 	}
 	
+}
+
+void selecionarTipo(string id, deque<string> caminho, int operacao){
+	
+	vector <string> op;
+	string classe;
+	op.push_back("Voltar");
+	
+	op.push_back(id+" exotico");
+	op.push_back(id+" nativo");
+	string titulo = "Tipo";
+	string escolha;
+	Painel mamifero(titulo, caminho);
+	mamifero.setPergunta("Escolha o tipo do(a) "+id+": ");
+	for(int i=1; i<id.length(); i++) id[i] = toupper(id[i]);
+	caminho.push_back(id);
+	mamifero.setCaminho(caminho);
+	mamifero.setOpcoes(op);
+	string teste;
+	switch (operacao)
+	{
+	case 1: //cadastro
+		cout << "cadastrar" << endl;
+		cin >> teste;
+		break;
+	case 2: //remover
+		cout << "remover" << endl;
+		cin >> teste;
+		
+		break;
+	case 3: //alterar
+		cout << "alterar" << endl;
+		cin >> teste;
+		break;
+	case 4: //consultar
+		cout << "consultar" << endl;
+		cin >> teste;
+		break;
+	
+	default:
+		break;
+	}
+	cout << mamifero;
+	cin >> escolha;
 }
 /* 
 void painelAnimaisConsulta(deque<string> caminho){
