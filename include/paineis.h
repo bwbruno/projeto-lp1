@@ -7,11 +7,11 @@
 #include <vector>
 #include <deque>
 
-#include "painel.h"
+#include "painel/painel.h"
 #include "crud/cadastrar.h"
 #include "crud/consultar.h"
-#include "funcionarios/tratador.h"
-#include "funcionarios/veterinario.h"
+#include "funcionario/tratador.h"
+#include "funcionario/veterinario.h"
 
 void painelPrincipal();
 void painelAnimais(std::deque<std::string> caminho);

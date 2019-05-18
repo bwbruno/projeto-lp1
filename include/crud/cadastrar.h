@@ -1,8 +1,8 @@
 #ifndef __CADASTRAR_H__
 #define __CADASTRAR_H__
 
-#include "excecao.h"
-#include "painel.h"
+#include "excecao/excecao.h"
+#include "painel/painel.h"
 #include "utilitarios.h"
 #include "crud/operacoes_csv.h"
 

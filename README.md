@@ -4,7 +4,7 @@
 
     Bruno Wagner
     José Alex
-	José Mário
+	Pedro Augusto
 
 ## Diretórios
 
@@ -24,6 +24,50 @@
 - **doc**: Arquivo de configuração do Doxyfile para gerar a documentação usando Doxygen
 - **include**: Arquivos de cabeçalho *.h
 - **src**: Todos os códigos fontes *.cpp
+
+#### Diretório include detalhado
+
+	.
+	├── animal
+	│   ├── anfibio
+	│   │   ├── anfibio_exotico.h
+	│   │   ├── anfibio.h
+	│   │   └── anfibio_nativo.h
+	│   ├── animal.h
+	│   ├── ave
+	│   │   ├── ave_exotico.h
+	│   │   ├── ave.h
+	│   │   └── ave_nativo.h
+	│   ├── mamifero
+	│   │   ├── mamifero_exotico.h
+	│   │   ├── mamifero.h
+	│   │   └── mamifero_nativo.h
+	│   └── reptil
+	│       ├── reptil_exotico.h
+	│       ├── reptil.h
+	│       └── reptil_nativo.h
+	├── animal_silvestre
+	│   ├── animal_exotico.h
+	│   ├── animal_nativo.h
+	│   └── animal_silvestre.h
+	├── crud
+	│   ├── cadastrar.h
+	│   ├── consultar.h
+	│   └── operacoes_csv.h
+	├── excecao
+	│   └── excecao.h
+	├── funcionario
+	│   ├── funcionario.h
+	│   ├── tratador.h
+	│   └── veterinario.h
+	├── paineis.h
+	├── painel
+	│   └── painel.h
+	└── utilitarios.h
+
+#### Diagrama do diretório include
+
+.. figure:: doc/arquivos_include.jpg
 
 ## Compilação
 

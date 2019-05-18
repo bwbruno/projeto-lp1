@@ -2,7 +2,7 @@
  * @mainpage Pet Fera
  * @authors Bruno Wagner
  * @authors José Alex
- * @authors José Mario
+ * @authors Pedro Augusto
  * @section intro_sec Introdução
  *  Programa de cadastro de animais para a loja de animais silvestres Pet Fera.
  * 
@@ -16,7 +16,7 @@
  * 
  */
 
-#include <paineis.h>
+#include "paineis.h"
 
 using namespace std;
 

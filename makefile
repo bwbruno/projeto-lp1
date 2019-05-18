@@ -8,19 +8,19 @@ utilitarios.o:
 	g++ -c ./src/utilitarios.cpp -I ./include -o ./build/utilitarios.o
 
 excecao.o:
-	g++ -c ./src/excecao.cpp -I ./include -o ./build/excecao.o
+	g++ -c ./src/excecao/excecao.cpp -I ./include -o ./build/excecao.o
 
 painel.o:
-	g++ -c ./src/painel.cpp -I ./include -o ./build/painel.o
+	g++ -c ./src/painel/painel.cpp -I ./include -o ./build/painel.o
 
 funcionario.o:
-	g++ -c ./src/funcionarios/funcionario.cpp -I ./include -o ./build/funcionario.o
+	g++ -c ./src/funcionario/funcionario.cpp -I ./include -o ./build/funcionario.o
 
 tratador.o:
-	g++ -c ./src/funcionarios/tratador.cpp -I ./include -o ./build/tratador.o
+	g++ -c ./src/funcionario/tratador.cpp -I ./include -o ./build/tratador.o
 
 veterinario.o:
-	g++ -c ./src/funcionarios/veterinario.cpp -I ./include -o ./build/veterinario.o
+	g++ -c ./src/funcionario/veterinario.cpp -I ./include -o ./build/veterinario.o
 
 operacoes_csv.o:
 	g++ -c ./src/crud/operacoes_csv.cpp -I ./include -o ./build/operacoes_csv.o
