@@ -107,11 +107,8 @@ void painelAnimais(deque<string> caminho){
 			cout << animais;
 			cin >> opcao;
 			animais.setResposta(opcao);
-
 			if(opcao == "1"){
 				selecionarClasse(caminho, stoi(opcao));
-				
-
 			} else if(opcao == "2"){
 				selecionarClasse(caminho, stoi(opcao));
 			} else if(opcao == "3"){
@@ -167,11 +164,8 @@ void selecionarClasse(deque<string> caminho, int operacao){
 			classes.setResposta(selecao);
 			
 			if(selecao == "1"){
-				
-				cout << "Entrou no anfibio" << endl;
-				
 				selecionarTipo("Anfíbio", caminho, operacao);
-				// Chamar crud para criar um animal anfíbio
+				
 			} else if(selecao == "2"){
 				selecionarTipo("Ave", caminho, operacao);
 				// Chamar crud para criar um animal ave
@@ -208,32 +202,33 @@ void selecionarTipo(string id, deque<string> caminho, int operacao){
 	caminho.push_back(id);
 	mamifero.setCaminho(caminho);
 	mamifero.setOpcoes(op);
-	string teste;
 	switch (operacao)
 	{
 	case 1: //cadastro
-		cout << "cadastrar" << endl;
-		cin >> teste;
+		cout << mamifero;
+		cin >> escolha;
+		// Chamar crud para criar um animal anfíbio
 		break;
 	case 2: //remover
-		cout << "remover" << endl;
-		cin >> teste;
-		
+		cout << mamifero;
+		cin >> escolha;
+		// Chamar crud para remover um animal anfíbio
 		break;
 	case 3: //alterar
-		cout << "alterar" << endl;
-		cin >> teste;
+		cout << mamifero;
+		cin >> escolha;
+		// Chamar crud para alterar um animal anfíbio
 		break;
 	case 4: //consultar
-		cout << "consultar" << endl;
-		cin >> teste;
+		cout << mamifero;
+		cin >> escolha;
+		// Chamar crud para consultar um animal anfíbio
 		break;
 	
 	default:
 		break;
 	}
-	cout << mamifero;
-	cin >> escolha;
+	
 }
 /* 
 void painelAnimaisConsulta(deque<string> caminho){
