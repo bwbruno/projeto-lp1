@@ -10,6 +10,10 @@ int Funcionario::getId(){
 	return id;
 }
 
+const int Funcionario::getId() const {
+	return id;
+}
+
 string Funcionario::getNome(){
 	return nome;
 }

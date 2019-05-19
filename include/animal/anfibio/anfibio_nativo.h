@@ -7,11 +7,30 @@
 /// Classe AnfibioNativo
 class AnfibioNativo : public Anfibio, AnimalNativo {
 	public:
-		/// Construtor de AnfibioNativo sem parâmetros.
-		AnfibioNativo();
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
 
-		/// Destrutor de AnfibioNativo.
+		AnfibioNativo();
+		AnfibioNativo(std::string linhaCSV);
 		~AnfibioNativo();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, AnfibioNativo &a);
+		friend std::ostream& operator<< (std::ostream &o, AnfibioNativo const a);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __ANFIBIO_NATIVO_H__

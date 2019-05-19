@@ -8,12 +8,10 @@ using namespace std;
 
 AnimalNativo::AnimalNativo(){
     uf_origem = "UF de origem não definida";
-    autorizacao = "Sem autorização";
 }
 
 AnimalNativo::AnimalNativo(string UO, string auth){
     uf_origem = UO;
-    autorizacao = auth;
 }
 
 
@@ -21,12 +19,8 @@ AnimalNativo::AnimalNativo(string UO, string auth){
 //		Getters
 // ------------------------------------------------------------------------
 
-string AnimalNativo::getUf_Origem(){
+string AnimalNativo::getUfOrigem(){
     return uf_origem;
-}
-
-string AnimalNativo::getAutorizacao(){
-    return autorizacao;
 }
 
 
@@ -34,10 +28,6 @@ string AnimalNativo::getAutorizacao(){
 //		Setters
 // ------------------------------------------------------------------------
 
-void AnimalNativo::setUf_Origem(string UO){
+void AnimalNativo::setUfOrigem(string UO){
     uf_origem = UO;
-}
-
-void AnimalNativo::setAutorizacao(string auth){
-    autorizacao = auth;
 }

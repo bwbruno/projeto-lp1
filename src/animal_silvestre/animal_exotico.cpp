@@ -8,12 +8,10 @@ using namespace std;
 
 AnimalExotico::AnimalExotico(){
     pais_origem =  "País não definido";
-    autorizacao = "Sem autorização";
 }
 
 AnimalExotico::AnimalExotico(string PO, string auth){
     pais_origem =  PO;
-    autorizacao = auth; 
 }
 
 
@@ -21,7 +19,7 @@ AnimalExotico::AnimalExotico(string PO, string auth){
 //		Getters
 // ------------------------------------------------------------------------
 
-string AnimalExotico::getPais_Origem(){
+string AnimalExotico::getPaisOrigem(){
     return pais_origem;
 }
 
@@ -30,6 +28,6 @@ string AnimalExotico::getPais_Origem(){
 //		Setters
 // ------------------------------------------------------------------------
 
-void AnimalExotico::setPais_Origem(string PO){
+void AnimalExotico::setPaisOrigem(string PO){
     pais_origem = PO;
 }

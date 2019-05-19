@@ -11,24 +11,32 @@ Tratador::Tratador(){
 }
 
 Tratador::Tratador(string linhaCSV){
-	
 	// Tratador t("1;Tratador;João Alberto;007.404.200-98;45;AB;-;Répteis e Aves;;1;")
 	string tmp;
-	istringstream tratadorStream(linhaCSV);
+	istringstream ss(linhaCSV);
 	
-	getline(tratadorStream, tmp, ';');
+	getline(ss, tmp, ';');							// id
 	id = atoi(tmp.c_str());
-	getline(tratadorStream, tmp, ';');
-	getline(tratadorStream, nome, ';');
-	getline(tratadorStream, cpf, ';');
-	getline(tratadorStream, tmp, ';');
+	
+	getline(ss, tmp, ';');							// tipo
+
+	getline(ss, nome, ';');							// nome
+	
+	getline(ss, cpf, ';');							// cpf
+	
+	getline(ss, tmp, ';');							// idade
 	idade = atoi(tmp.c_str());
-	getline(tratadorStream, tipo_sanguineo, ';');
-	getline(tratadorStream, tmp, ';');
+	
+	getline(ss, tipo_sanguineo, ';');				// tipo sanguineo
+
+	getline(ss, tmp, ';'); 							// fator_rh
 	fator_rh = tmp[0];
-	getline(tratadorStream, especialidade, ';'); 
-	getline(tratadorStream, tmp, ';'); 
-	getline(tratadorStream, tmp, ';');
+	
+	getline(ss, especialidade, ';'); 				// especialidade
+
+	getline(ss, tmp, ';'); 							// crmv
+
+	getline(ss, tmp, ';');							// nivel seguranca
 	nivel_de_seguranca = atoi(tmp.c_str());
 }
 

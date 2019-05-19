@@ -7,11 +7,30 @@
 /// Anfibio Exotico
 class AnfibioExotico : public Anfibio, AnimalExotico {
 	public:
-		/// Construtor de AnfibioExotico sem parâmetros.
-		AnfibioExotico();
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
 
-		/// Destrutor de AnfibioExotico.
+		AnfibioExotico();
+		AnfibioExotico(std::string linhaCSV);
 		~AnfibioExotico();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, AnfibioExotico &a);
+		friend std::ostream& operator<< (std::ostream &o, AnfibioExotico const a);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __ANFIBIO_EXOTICO_H__

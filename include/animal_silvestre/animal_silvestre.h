@@ -3,11 +3,7 @@
 
 #include <string>
 
-/// Classe AnimalSilvestre
-/**
- * AnimalSilvestre é a classe onde se registra as permissões para manutenção e o
- * uso das diferentes espécies.
- */
+/// Classe onde se registra as permissões para manutenção e o uso das diferentes espécies.
 class AnimalSilvestre {
 	protected:
 		std::string autorizacao_ibama; ///< Autorização do IBAMA
@@ -17,13 +13,8 @@ class AnimalSilvestre {
 		/// @name Construtores e destrutor
 		//---------------------------------------------------------------------- ///@{
  
-		/// Construtor parametrizado de AnimalSilvestre.
 		AnimalSilvestre(std::string auth);
-
-		/// Construtor de AnimalSilvestre sem parâmetros.
 		AnimalSilvestre();
-		
-		/// Destrutor de AnimalSilvestre.
 		~AnimalSilvestre();
 	
 
@@ -31,16 +22,14 @@ class AnimalSilvestre {
 		/// @name Getters
 		//---------------------------------------------------------------------- ///@{
  
-		//! @brief Retorna a autorização do IBAMA.
-		std::string getAutorizacao_Ibama();
+		std::string getAutorizacaoIbama();
 
 		
 		//---------------------------------------------------------------------- ///@}
 		/// @name Setters
 		//---------------------------------------------------------------------- ///@{
 			
-		//! @brief Seta a autorização do IBAMA.
-		void setAutorizacao_Ibama(std::string auth);
+		void setAutorizacaoIbama(std::string auth);
 
 		//---------------------------------------------------------------------- ///@}
 };

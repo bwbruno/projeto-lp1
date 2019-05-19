@@ -51,6 +51,9 @@ string Animal::getNome_Batismo(){
    return nome_batismo;
 }
 
+int Animal::getContadorCin(){
+   return contador_cin;
+}
 
 // ------------------------------------------------------------------------
 //		Setters
@@ -92,4 +95,8 @@ void Animal::setTratador(int idTratador){
 
 void Animal::setNome_Batismo(string baptism_name){
    nome_batismo = baptism_name;
+}
+
+void Animal::setContadorCin(int c){
+   contador_cin = c;
 }

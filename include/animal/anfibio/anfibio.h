@@ -11,11 +11,42 @@ class Anfibio : public Animal {
 		//Data ultima_muda; ///< Indica a data da última muda.
 
 	public:
-		/// Construtor de Anfibio sem parâmetros.
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+ 
 		Anfibio();
+		Anfibio(int id);
+		Anfibio(std::string linhaCSV);
 		
-		/// Destrutor de Anfibio.
-		~Anfibio();
+		//---------------------------------------------------------------------- ///@}
+		/// @name Getters
+		//---------------------------------------------------------------------- ///@{
+		
+		int getTotalDeMudas();
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Setters
+		//---------------------------------------------------------------------- ///@{
+ 
+		void setTotalDeMudas(int tdm);
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, Anfibio &a);
+		friend std::ostream& operator<< (std::ostream &o, Anfibio const a);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __ANFIBIO_H__

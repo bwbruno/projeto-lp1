@@ -28,6 +28,7 @@ class Funcionario{
  
 		//! @brief Retorna o identificador do funcionário
 		int getId();
+		const int getId() const;
 
 		//! @brief Retorna o nome do funcionário
 		std::string getNome();

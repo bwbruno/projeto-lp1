@@ -11,24 +11,32 @@ Veterinario::Veterinario(){
 }
 
 Veterinario::Veterinario(string linhaCSV){
-	
 	// Veterinario v("1;Veterinario;Daniel Oscar;123.456.789-10;30;O;+;Felinos;CRMV-GO 0406;;")
 	string tmp;
-	istringstream tratadorStream(linhaCSV);
+	istringstream ss(linhaCSV);
 	
-	getline(tratadorStream, tmp, ';');
+	getline(ss, tmp, ';');							// id
 	id = atoi(tmp.c_str());
-	getline(tratadorStream, tmp, ';');
-	getline(tratadorStream, nome, ';');
-	getline(tratadorStream, cpf, ';');
-	getline(tratadorStream, tmp, ';');
+	
+	getline(ss, tmp, ';');							// tipo
+
+	getline(ss, nome, ';');							// nome
+	
+	getline(ss, cpf, ';');							// cpf
+	
+	getline(ss, tmp, ';');							// idade
 	idade = atoi(tmp.c_str());
-	getline(tratadorStream, tipo_sanguineo, ';');
-	getline(tratadorStream, tmp, ';'); 
+	
+	getline(ss, tipo_sanguineo, ';');				// tipo sanguineo
+
+	getline(ss, tmp, ';'); 							// fator_rh
 	fator_rh = tmp[0];
-	getline(tratadorStream, especialidade, ';'); 
-	getline(tratadorStream, crmv, ';'); 
-	getline(tratadorStream, tmp, ';');
+	
+	getline(ss, especialidade, ';'); 				// especialidade
+
+	getline(ss, crmv, ';'); 						// crmv
+
+	getline(ss, tmp, ';');							// nivel seguranca
 }
 
 // ------------------------------------------------------------------------

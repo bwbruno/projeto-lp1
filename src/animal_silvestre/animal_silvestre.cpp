@@ -19,7 +19,7 @@ AnimalSilvestre::AnimalSilvestre(string auth){
 //		Getters
 // ------------------------------------------------------------------------
 
-string AnimalSilvestre::getAutorizacao_Ibama(){
+string AnimalSilvestre::getAutorizacaoIbama(){
     return autorizacao_ibama;
 }
 
@@ -28,6 +28,6 @@ string AnimalSilvestre::getAutorizacao_Ibama(){
 //		Setters
 // ------------------------------------------------------------------------
 
-void AnimalSilvestre::setAutorizacao_Ibama(string auth){
+void AnimalSilvestre::setAutorizacaoIbama(string auth){
     autorizacao_ibama = auth;
 }
