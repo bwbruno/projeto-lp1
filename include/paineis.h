@@ -9,10 +9,15 @@
 
 #include "painel/painel.h"
 #include "crud/cadastrar.h"
+#include "crud/teste.h"
 #include "crud/consultar.h"
 #include "crud/remover.h"
 #include "funcionario/tratador.h"
 #include "funcionario/veterinario.h"
+#include "animal/anfibio/anfibio_exotico.h"
+#include "animal/anfibio/anfibio_nativo.h"
+#include "animal/ave/ave_exotico.h"
+#include "animal/ave/ave_nativo.h"
 
 void painelPrincipal();
 void painelAnimais(std::deque<std::string> caminho);
@@ -66,4 +71,51 @@ void painelFuncionarios(std::string titulo, std::deque<std::string> caminho){
 	}
 }
 
+
+template <typename ANIMAIS>
+void painelAnimais(std::string titulo, std::deque<std::string> caminho){
+	
+	Painel painel;
+	std::vector<std::string> opcoes;
+	std::string opcao;
+
+	caminho.push_back(titulo);
+	
+	opcoes.push_back("VOLTAR");
+	opcoes.push_back("CADASTRAR");
+	opcoes.push_back("REMOVER");
+	opcoes.push_back("ALTERAR");
+	opcoes.push_back("CONSULTAR");
+	
+	painel.setTitulo(titulo);
+	painel.setCaminho(caminho);
+	painel.setOpcoes(opcoes);
+	painel.setPergunta("SELECIONE UMA DAS OPCOES: ");
+
+	while(painel.getAbrir()){
+
+		try{
+			std::cout << painel;
+			std::cin >> opcao;
+			painel.setResposta(opcao);
+
+			if(opcao == "1"){
+				teste<ANIMAIS>("csv/animais.csv", caminho);
+
+			} else if(opcao == "2"){
+				// remover<ANIMAIS>("csv/funcionarios.csv", caminho, painel.getTitulo());
+
+			} else if(opcao == "3"){
+				// FAZER
+
+			} else if(opcao == "4"){
+				// consultar<ANIMAIS>("csv/funcionarios.csv", caminho);
+			}
+		}
+		catch(Excecao& e){
+			painel.setExcecao(e);
+		}
+			
+	}
+}
 #endif // __PAINEIS_H__

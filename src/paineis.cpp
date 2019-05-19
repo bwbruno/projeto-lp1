@@ -90,14 +90,15 @@ void painelAnimais(deque<string> caminho){
 	string titulo = "ANIMAIS";
 	vector<string> opcoes;
 	opcoes.push_back("VOLTAR");
-	opcoes.push_back("CADASTRAR");
-	opcoes.push_back("REMOVER");
-	opcoes.push_back("ALTERAR");
-	opcoes.push_back("CONSULTAR");
+	opcoes.push_back("Anfíbio");
+	opcoes.push_back("Ave");
+	opcoes.push_back("Mamífero");
+	opcoes.push_back("Réptil");
 	string opcao;
 	Painel animais(titulo, opcoes, caminho);
 	animais.setPergunta("Selecione uma das opções: ");
-	void selecionarClasse(deque<string> caminho, int operacao);
+	// void selecionarClasse(deque<string> caminho, int operacao);
+	void selecionarTipo(string id, deque<string> caminho, int operacao);
 	while(animais.getAbrir()){
 
 		
@@ -108,13 +109,17 @@ void painelAnimais(deque<string> caminho){
 			cin >> opcao;
 			animais.setResposta(opcao);
 			if(opcao == "1"){
-				selecionarClasse(caminho, stoi(opcao));
+				selecionarTipo("Anfíbio", caminho, stoi(opcao));
+				// selecionarClasse(caminho, stoi(opcao));
 			} else if(opcao == "2"){
-				selecionarClasse(caminho, stoi(opcao));
+				selecionarTipo("Ave", caminho, stoi(opcao));
+				// selecionarClasse(caminho, stoi(opcao));
 			} else if(opcao == "3"){
-				selecionarClasse(caminho, stoi(opcao));
+				selecionarTipo("Mamífero", caminho, stoi(opcao));
+				// selecionarClasse(caminho, stoi(opcao));
 			} else if(opcao == "4"){
-				selecionarClasse(caminho, stoi(opcao));
+				selecionarTipo("Réptil", caminho, stoi(opcao));
+				// selecionarClasse(caminho, stoi(opcao));
 			}
 		}
 		catch(Excecao& e){
@@ -140,7 +145,7 @@ void painelAnimais(deque<string> caminho){
 	}
 }
 
-void selecionarClasse(deque<string> caminho, int operacao){
+/* void selecionarClasse(deque<string> caminho, int operacao){
 	vector <string> opcoes;
 	opcoes.push_back("Voltar");
 	opcoes.push_back("Anfíbio");
@@ -184,7 +189,7 @@ void selecionarClasse(deque<string> caminho, int operacao){
 		
 	}
 	
-}
+} */
 
 void selecionarTipo(string id, deque<string> caminho, int operacao){
 	
@@ -196,38 +201,90 @@ void selecionarTipo(string id, deque<string> caminho, int operacao){
 	op.push_back(id+" nativo");
 	string titulo = "Tipo";
 	string escolha;
-	Painel mamifero(titulo, caminho);
-	mamifero.setPergunta("Escolha o tipo do(a) "+id+": ");
+	Painel classse(titulo, caminho);
+	classse.setPergunta("Escolha o tipo do(a) "+id+": ");
 	for(int i=1; i<id.length(); i++) id[i] = toupper(id[i]);
 	caminho.push_back(id);
-	mamifero.setCaminho(caminho);
-	mamifero.setOpcoes(op);
-	switch (operacao)
+	classse.setCaminho(caminho);
+	classse.setOpcoes(op);
+
+	while (classse.getAbrir())
 	{
-	case 1: //cadastro
-		cout << mamifero;
-		cin >> escolha;
-		// Chamar crud para criar um animal anfíbio
-		break;
-	case 2: //remover
-		cout << mamifero;
-		cin >> escolha;
-		// Chamar crud para remover um animal anfíbio
-		break;
-	case 3: //alterar
-		cout << mamifero;
-		cin >> escolha;
-		// Chamar crud para alterar um animal anfíbio
-		break;
-	case 4: //consultar
-		cout << mamifero;
-		cin >> escolha;
-		// Chamar crud para consultar um animal anfíbio
-		break;
-	
-	default:
-		break;
+		switch (operacao){
+		case 1: //cadastro
+
+			try{
+				cout << classse;
+				cin >> escolha;
+				classse.setResposta(escolha);
+				if(escolha == "1"){
+					painelAnimais<AnfibioExotico>(titulo, caminho);
+				} else if(escolha == "2"){
+					painelAnimais<AnfibioNativo>(titulo, caminho);
+				}
+			}
+			catch(Excecao& e){
+				classse.setExcecao(e);
+			}
+			
+			
+			// Chamar crud para criar um animal anfíbio
+			break;
+		case 2: //remover
+			try{
+				cout << classse;
+				cin >> escolha;
+				classse.setResposta(escolha);
+				if(escolha == "1"){
+					painelAnimais<AveExotico>(titulo, caminho);
+				} else if(escolha == "2"){
+					painelAnimais<AveNativo>(titulo, caminho);
+				}
+			}
+			catch(Excecao& e){
+				classse.setExcecao(e);
+			}
+			// Chamar crud para remover um animal anfíbio
+			break;
+		case 3: //alterar
+			try{
+				cout << classse;
+				cin >> escolha;
+				classse.setResposta(escolha);
+				if(escolha == "1"){
+					painelAnimais<AnfibioExotico>(titulo, caminho);
+				} else if(escolha == "2"){
+					painelAnimais<AnfibioNativo>(titulo, caminho);
+				}
+			}
+			catch(Excecao& e){
+				classse.setExcecao(e);
+			}
+			// Chamar crud para alterar um animal anfíbio
+			break;
+		case 4: //consultar
+			try{
+				cout << classse;
+				cin >> escolha;
+				classse.setResposta(escolha);
+				if(escolha == "1"){
+					painelAnimais<AnfibioExotico>(titulo, caminho);
+				} else if(escolha == "2"){
+					painelAnimais<AnfibioNativo>(titulo, caminho);
+				}
+			}
+			catch(Excecao& e){
+				classse.setExcecao(e);
+			}
+			// Chamar crud para consultar um animal anfíbio
+			break;
+		
+		default:
+			break;
+		}
 	}
+	
+	
 	
 }
 /* 
