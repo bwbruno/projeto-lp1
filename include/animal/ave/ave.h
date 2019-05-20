@@ -10,11 +10,44 @@ class Ave : public Animal {
 		double envergadura_das_asas_cm; ///< Envergadura das asas em CM
 		
 	public:
-		/// Construtor de Ave sem parâmetros.
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+ 
 		Ave();
+		Ave(int id);
+		Ave(std::string linhaCSV);
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Getters
+		//---------------------------------------------------------------------- ///@{
+		
+		double getTamanhoDoBicoCM();
+		double getEnvergaduraDasAsasCM();
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Setters
+		//---------------------------------------------------------------------- ///@{
+ 
+		void setTamanhoDoBicoCM(double tdb);
+		void setEnvergaduraDasAsasCM(double eda);
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
 
-		/// Destrutor de Ave.
-		~Ave();
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, Ave &a);
+		friend std::ostream& operator<< (std::ostream &o, Ave const a);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __AVE_H__

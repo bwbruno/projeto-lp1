@@ -40,7 +40,7 @@ Anfibio::Anfibio(string linhaCSV){
 	
     getline(ss, nome_batismo, ';');             // nome batismo
 	
-    getline(ss, tmp, ';');                      // país de origem
+    getline(ss, tmp, ';');                      // uf ou país de origem
 
     getline(ss, tmp, ';');                      // autorização
 }
@@ -111,6 +111,11 @@ istream& operator>> (istream &i, Anfibio &t) {
 			cout << "\nINSERIR NOME DE BATISMO: ";
 			i >> t.nome_batismo;
 			break;
+
+		case 9:
+			cout << "\nINSERIR TOTAL DE MUDAS: ";
+			i >> t.total_de_mudas;
+			break;
 			
 		default:
 			t.setContadorCin(-1); 
@@ -131,6 +136,7 @@ ostream& operator<< (ostream &o, Anfibio const a) {
     o << "\tVeterinário: " << (a.veterinario.getId() != -1 ? intParaString(a.veterinario.getId()) : "") << endl;
     o << "\tTratador: " << (a.tratador.getId() != -1 ? intParaString(a.tratador.getId()) : "") << endl;
     o << "\tNome de batismo: " << a.nome_batismo << endl;
+    o << "\tTotal de mudas: " << (a.total_de_mudas != -1 ? intParaString(a.total_de_mudas) : "") << endl;
 	return o;
 }
 
@@ -146,6 +152,7 @@ void Anfibio::limpar(){
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
+    total_de_mudas = -1;
 }
 
 string Anfibio::getTipo(){
@@ -163,7 +170,8 @@ string Anfibio::getStringFormatoCSV(){
     ss << veterinario.getId() << ";";
     ss << tratador.getId() << ";";
     ss << nome_batismo << ";";
-	ss << ";"; // país
+	ss << ";"; // país de origem
+	ss << ";"; // uf de origem
 	ss << ";"; // autorizacao
 	ss << endl;
 	return ss.str();

@@ -5,21 +5,32 @@
 #include "animal_silvestre/animal_nativo.h"
 
 /// Classe ReptilNativo
-/**
- * Detailed description starts here.
- */
 class ReptilNativo : public Reptil, AnimalNativo {
 	public:
-		/// Construtor de ReptilNativo sem parâmetros.
-		/**
-		*  Detailed description starts here.
-		*/
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+ 
 		ReptilNativo();
-		/// Destrutor de ReptilNativo.
-		/**
-		*  A more elaborate description of the destructor.
-		*/
-		~ReptilNativo();
+		ReptilNativo(int id);
+		ReptilNativo(std::string linhaCSV);
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, ReptilNativo &r);
+		friend std::ostream& operator<< (std::ostream &o, ReptilNativo const r);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __REPTIL_NATIVO_H__

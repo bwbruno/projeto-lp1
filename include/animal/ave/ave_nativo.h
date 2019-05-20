@@ -7,11 +7,30 @@
 /// Classe AveNativo
 class AveNativo : public Ave, AnimalNativo {
 	public:
-		/// Construtor de AveNativo sem parâmetros.
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+
 		AveNativo();
-		
-		/// Destrutor de AveNativo.
+		AveNativo(std::string linhaCSV);
 		~AveNativo();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, AveNativo &a);
+		friend std::ostream& operator<< (std::ostream &o, AveNativo const a);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __AVE_NATIVO_H__

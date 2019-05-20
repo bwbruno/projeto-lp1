@@ -5,21 +5,32 @@
 #include "animal_silvestre/animal_exotico.h"
 
 /// Classe ReptilExotico
-/**
- * Detailed description starts here.
- */
 class ReptilExotico : public Reptil, AnimalExotico {
 	public:
-		/// Construtor de ReptilExotico sem parâmetros.
-		/**
-		*  Detailed description starts here.
-		*/
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+ 
 		ReptilExotico();
-		/// Destrutor de ReptilExotico.
-		/**
-		*  A more elaborate description of the destructor.
-		*/
-		~ReptilExotico();
+		ReptilExotico(int id);
+		ReptilExotico(std::string linhaCSV);
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, ReptilExotico &r);
+		friend std::ostream& operator<< (std::ostream &o, ReptilExotico const r);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __REPTIL_EXOTICO_H__

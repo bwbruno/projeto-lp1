@@ -11,11 +11,42 @@ class Mamifero : public Animal {
 		std::string cor_pelo; ///< Cor do pelo
 
 	public:
-		/// Construtor de Mamifero sem parâmetros.
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+ 
 		Mamifero();
+		Mamifero(int id);
+		Mamifero(std::string linhaCSV);
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Getters
+		//---------------------------------------------------------------------- ///@{
+		
+		std::string getCorPelo();
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Setters
+		//---------------------------------------------------------------------- ///@{
+ 
+		void setCorPelo(std::string cp);
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
 
-		/// Destrutor de Mamifero.
-		~Mamifero();
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, Mamifero &m);
+		friend std::ostream& operator<< (std::ostream &o, Mamifero const m);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __MAMIFERO_H__

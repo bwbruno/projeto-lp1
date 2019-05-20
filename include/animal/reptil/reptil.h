@@ -12,11 +12,44 @@ class Reptil : public Animal {
 		std::string tipo_veneno; ///< Tipo do veneno
 		
 	public:
-		/// Construtor de Reptil sem parâmetros.
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+ 
 		Reptil();
+		Reptil(int id);
+		Reptil(std::string linhaCSV);
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Getters
+		//---------------------------------------------------------------------- ///@{
+		
+		bool getVenenoso();
+		std::string getTipoVeneno();
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Setters
+		//---------------------------------------------------------------------- ///@{
+ 
+		void setVenenoso(bool v);
+		void setTipoVeneno(std::string tv);
+		
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
 
-		/// Destrutor de Reptil.
-		~Reptil();
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, Reptil &r);
+		friend std::ostream& operator<< (std::ostream &o, Reptil const r);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __REPTIL_H__

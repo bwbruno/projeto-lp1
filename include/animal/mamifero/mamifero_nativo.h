@@ -7,11 +7,30 @@
 /// Classe MamiferoNativo
 class MamiferoNativo : public Mamifero, AnimalNativo {
 	public:
-		/// Construtor de MamiferoNativo sem parâmetros.
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
+ 
 		MamiferoNativo();
+		MamiferoNativo(int id);
+		MamiferoNativo(std::string linhaCSV);
 		
-		/// Destrutor de MamiferoNativo.
-		~MamiferoNativo();
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+ 
+		void limpar();
+		std::string getTipo();
+		std::string getStringFormatoCSV();
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
+		
+		friend std::istream& operator>> (std::istream &i, MamiferoNativo &m);
+		friend std::ostream& operator<< (std::ostream &o, MamiferoNativo const m);
+
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __MAMIFERO_NATIVO_H__
