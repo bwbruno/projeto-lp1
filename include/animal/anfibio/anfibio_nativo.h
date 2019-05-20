@@ -13,14 +13,13 @@ class AnfibioNativo : public Anfibio, AnimalNativo {
 
 		AnfibioNativo();
 		AnfibioNativo(std::string linhaCSV);
-		~AnfibioNativo();
+		//~AnfibioNativo();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getTipo();
 		std::string getStringFormatoCSV();
 
 		//---------------------------------------------------------------------- ///@}

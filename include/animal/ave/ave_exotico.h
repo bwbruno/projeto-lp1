@@ -13,14 +13,13 @@ class AveExotico : public Ave, AnimalExotico {
 
 		AveExotico();
 		AveExotico(std::string linhaCSV);
-		~AveExotico();
+		//~AveExotico();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getTipo();
 		std::string getStringFormatoCSV();
 
 		//---------------------------------------------------------------------- ///@}

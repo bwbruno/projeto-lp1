@@ -12,7 +12,6 @@ class MamiferoExotico : public Mamifero, AnimalExotico {
 		//---------------------------------------------------------------------- ///@{
  
 		MamiferoExotico();
-		MamiferoExotico(int id);
 		MamiferoExotico(std::string linhaCSV);
 		
 		//---------------------------------------------------------------------- ///@}
@@ -20,7 +19,6 @@ class MamiferoExotico : public Mamifero, AnimalExotico {
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getTipo();
 		std::string getStringFormatoCSV();
 
 		//---------------------------------------------------------------------- ///@}

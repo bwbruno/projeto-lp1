@@ -12,7 +12,6 @@ class ReptilNativo : public Reptil, AnimalNativo {
 		//---------------------------------------------------------------------- ///@{
  
 		ReptilNativo();
-		ReptilNativo(int id);
 		ReptilNativo(std::string linhaCSV);
 
 		//---------------------------------------------------------------------- ///@}
@@ -20,7 +19,6 @@ class ReptilNativo : public Reptil, AnimalNativo {
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getTipo();
 		std::string getStringFormatoCSV();
 
 		//---------------------------------------------------------------------- ///@}

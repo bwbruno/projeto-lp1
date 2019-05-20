@@ -17,7 +17,7 @@ class AnimalNativo : public AnimalSilvestre {
  
 		AnimalNativo();
 		AnimalNativo(std::string UO, std::string auth);
-		~AnimalNativo();
+		//~AnimalNativo();
 		
 
 		//---------------------------------------------------------------------- ///@}

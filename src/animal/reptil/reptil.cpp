@@ -133,7 +133,7 @@ ostream& operator<< (ostream &o, Reptil const a) {
 
 void Reptil::limpar(){
     id = -1;
-    classe = "Amphibia";
+    classe = "Reptilia";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;
@@ -141,6 +141,10 @@ void Reptil::limpar(){
     nome_batismo = "";
     venenoso = false;
     tipo_veneno = "";
+}
+
+string Reptil::getTipo(){
+	return "Reptilia";
 }
 
 string Reptil::getStringFormatoCSV(){

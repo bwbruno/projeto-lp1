@@ -13,14 +13,13 @@ class AnfibioExotico : public Anfibio, AnimalExotico {
 
 		AnfibioExotico();
 		AnfibioExotico(std::string linhaCSV);
-		~AnfibioExotico();
+		//~AnfibioExotico();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getTipo();
 		std::string getStringFormatoCSV();
 
 		//---------------------------------------------------------------------- ///@}

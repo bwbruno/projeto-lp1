@@ -7,7 +7,7 @@ using namespace std;
 // ------------------------------------------------------------------------
 
 AnimalSilvestre::AnimalSilvestre(){
-    autorizacao_ibama = 'NULL';
+    autorizacao_ibama = "NULL";
 }
 
 AnimalSilvestre::AnimalSilvestre(string auth){

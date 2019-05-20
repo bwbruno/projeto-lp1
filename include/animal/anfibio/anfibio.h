@@ -3,7 +3,6 @@
 
 #include "animal/animal.h"
 
-
 /// Animal que possui também registro da última data de troca de pele e do total de mudas que sofreu.
 class Anfibio : public Animal {
 	protected:
@@ -16,7 +15,6 @@ class Anfibio : public Animal {
 		//---------------------------------------------------------------------- ///@{
  
 		Anfibio();
-		Anfibio(int id);
 		Anfibio(std::string linhaCSV);
 		
 		//---------------------------------------------------------------------- ///@}

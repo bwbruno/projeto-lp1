@@ -12,7 +12,6 @@ class MamiferoNativo : public Mamifero, AnimalNativo {
 		//---------------------------------------------------------------------- ///@{
  
 		MamiferoNativo();
-		MamiferoNativo(int id);
 		MamiferoNativo(std::string linhaCSV);
 		
 		//---------------------------------------------------------------------- ///@}
@@ -20,7 +19,6 @@ class MamiferoNativo : public Mamifero, AnimalNativo {
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getTipo();
 		std::string getStringFormatoCSV();
 
 		//---------------------------------------------------------------------- ///@}

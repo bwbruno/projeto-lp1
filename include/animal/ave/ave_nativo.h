@@ -13,14 +13,13 @@ class AveNativo : public Ave, AnimalNativo {
 
 		AveNativo();
 		AveNativo(std::string linhaCSV);
-		~AveNativo();
+		//~AveNativo();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getTipo();
 		std::string getStringFormatoCSV();
 
 		//---------------------------------------------------------------------- ///@}

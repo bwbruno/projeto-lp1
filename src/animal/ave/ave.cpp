@@ -133,7 +133,7 @@ ostream& operator<< (ostream &o, Ave const a) {
 
 void Ave::limpar(){
     id = -1;
-    classe = "Amphibia";
+    classe = "Aves";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;
@@ -141,6 +141,10 @@ void Ave::limpar(){
     nome_batismo = "";
     tamanho_do_bico_cm = -1;
     envergadura_das_asas_cm = -1;
+}
+
+string Ave::getTipo(){
+	return "Aves";
 }
 
 string Ave::getStringFormatoCSV(){

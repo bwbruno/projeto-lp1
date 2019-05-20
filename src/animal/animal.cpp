@@ -5,12 +5,12 @@ using namespace std;
 // ------------------------------------------------------------------------
 //		Construtores e destrutor
 // ------------------------------------------------------------------------
-
+/*
 Animal::Animal(int cod, string clas){
    id = cod;
    classe = clas;
 }
-
+*/
 
 // ------------------------------------------------------------------------
 //		Getters
@@ -84,12 +84,14 @@ void Animal::setTamanho(double size){
 }
 
 void Animal::setVeterinario(int idVeterinario){
-   Veterinario v(idVeterinario);
+   Veterinario v;
+   v.setId(idVeterinario);
    veterinario = v;
 }
 
 void Animal::setTratador(int idTratador){
-   Tratador t(idTratador);
+   Tratador t;
+   t.setId(idTratador);
    tratador = t;
 }
 

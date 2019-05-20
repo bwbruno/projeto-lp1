@@ -146,7 +146,7 @@ ostream& operator<< (ostream &o, Mamifero const m) {
 
 void Mamifero::limpar(){
     id = -1;
-    classe = "Amphibia";
+    classe = "Mammalia";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;
@@ -156,7 +156,7 @@ void Mamifero::limpar(){
 }
 
 string Mamifero::getTipo(){
-	return "Amphibia";
+	return "Mammalia";
 }
 
 string Mamifero::getStringFormatoCSV(){

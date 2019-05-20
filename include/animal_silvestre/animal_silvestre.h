@@ -15,7 +15,7 @@ class AnimalSilvestre {
  
 		AnimalSilvestre(std::string auth);
 		AnimalSilvestre();
-		~AnimalSilvestre();
+		//~AnimalSilvestre();
 	
 
 		//---------------------------------------------------------------------- ///@}
