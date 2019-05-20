@@ -139,6 +139,7 @@ void Reptil::limpar(){
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
+	contador_cin = 1;
     venenoso = false;
     tipo_veneno = "";
 }

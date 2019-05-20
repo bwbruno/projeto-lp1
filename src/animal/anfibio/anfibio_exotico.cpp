@@ -150,6 +150,7 @@ void AnfibioExotico::limpar(){
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
+	contador_cin = 1;
     total_de_mudas = -1;
     pais_origem = "";
     autorizacao_ibama = "";

@@ -150,6 +150,7 @@ void MamiferoNativo::limpar(){
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
+	contador_cin = 1;
     cor_pelo = "";
     uf_origem = "";
     autorizacao_ibama = "";

@@ -156,6 +156,7 @@ void AveNativo::limpar(){
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
+	contador_cin = 1;
     tamanho_do_bico_cm = -1;
     envergadura_das_asas_cm = -1;
     uf_origem = "";
