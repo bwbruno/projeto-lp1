@@ -14,10 +14,18 @@
 #include "crud/remover.h"
 #include "funcionario/tratador.h"
 #include "funcionario/veterinario.h"
+#include "animal/anfibio/anfibio.h"
 #include "animal/anfibio/anfibio_exotico.h"
 #include "animal/anfibio/anfibio_nativo.h"
+#include "animal/ave/ave.h"
 #include "animal/ave/ave_exotico.h"
 #include "animal/ave/ave_nativo.h"
+#include "animal/mamifero/mamifero.h"
+#include "animal/mamifero/mamifero_exotico.h"
+#include "animal/mamifero/mamifero_nativo.h"
+#include "animal/reptil/reptil.h"
+#include "animal/reptil/reptil_exotico.h"
+#include "animal/reptil/reptil_nativo.h"
 
 void painelPrincipal();
 void painelAnimais(std::deque<std::string> caminho);
@@ -71,9 +79,8 @@ void painelFuncionarios(std::string titulo, std::deque<std::string> caminho){
 	}
 }
 
-
 template <typename ANIMAIS>
-void painelAnimais(std::string titulo, std::deque<std::string> caminho){
+void painelCrudAnimais(std::string titulo, std::deque<std::string> caminho){
 	
 	Painel painel;
 	std::vector<std::string> opcoes;
@@ -118,4 +125,35 @@ void painelAnimais(std::string titulo, std::deque<std::string> caminho){
 			
 	}
 }
+
+Painel getPainelTipo(std::string titulo, std::deque<std::string> caminho);
+
+template <typename ANIMAIS>
+void painelTipo(std::string titulo, std::deque<std::string> caminho){
+	
+	Painel painel = getPainelTipo(titulo, caminho);
+	std::string opcao;
+
+	while(painel.getAbrir()){
+
+		try{
+			std::cout << painel;
+			std::cin >> opcao;
+			painel.setResposta(opcao);
+
+			if(opcao == "1"){
+				
+			} else if(opcao == "2"){
+
+			}
+		}
+		catch(Excecao& e){
+			painel.setExcecao(e);
+		}
+	}
+}
+
+
+
+
 #endif // __PAINEIS_H__

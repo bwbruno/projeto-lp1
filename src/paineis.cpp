@@ -83,238 +83,89 @@ void painelFuncionarios(deque<string> caminho){
 
 }
 
+Painel getPainelTipo(string titulo, deque<string> caminho){
+	
+	Painel painel;
+	vector<string> opcoes;
+
+	caminho.push_back(titulo);
+	
+	opcoes.push_back("VOLTAR");
+	opcoes.push_back("NATIVO");
+	opcoes.push_back("EXÓTICO");
+	
+	painel.setTitulo(titulo);
+	painel.setCaminho(caminho);
+	painel.setOpcoes(opcoes);
+	painel.setPergunta("SELECIONE UMA DAS OPCOES: ");
+	
+	return painel;
+}
+
+
+
+
+template <>
+void painelTipo<Anfibio>(string titulo, deque<string> caminho){
+	
+	Painel painel = getPainelTipo(titulo, caminho);
+	string opcao;
+
+	while(painel.getAbrir()){
+
+		try{
+			cout << painel;
+			cin >> opcao;
+			painel.setResposta(opcao);
+
+			if(opcao == "1"){
+				painelCrudAnimais<AnfibioNativo>("ANFÍBIO NATIVO", caminho);
+			} else if(opcao == "2"){
+				painelCrudAnimais<AnfibioNativo>("ANFÍBIO EXÓTICO", caminho);
+			}
+		}
+		catch(Excecao& e){
+			painel.setExcecao(e);
+		}
+			
+	}
+}
+
 
 // Animais ---------------------------
 void painelAnimais(deque<string> caminho){
-	caminho.push_back("ANIMAIS");
-	string titulo = "ANIMAIS";
+
+	Painel animais;
 	vector<string> opcoes;
-	opcoes.push_back("VOLTAR");
-	opcoes.push_back("Anfíbio");
-	opcoes.push_back("Ave");
-	opcoes.push_back("Mamífero");
-	opcoes.push_back("Réptil");
 	string opcao;
-	Painel animais(titulo, opcoes, caminho);
-	animais.setPergunta("Selecione uma das opções: ");
-	// void selecionarClasse(deque<string> caminho, int operacao);
-	void selecionarTipo(string id, deque<string> caminho, int operacao);
+	
+	caminho.push_back("ANIMAIS");
+
+	opcoes.push_back("VOLTAR");
+	opcoes.push_back("ANFÍBIO");
+	opcoes.push_back("AVE");
+	opcoes.push_back("MAMÍFERO");
+	opcoes.push_back("RÉPTIL");
+
+	animais.setTitulo("ANIMAIS");
+	animais.setCaminho(caminho);
+	animais.setOpcoes(opcoes);
+	animais.setPergunta("SELECIONE UMA DAS OPCOES: ");
+
 	while(animais.getAbrir()){
-
-		
-
-
 		try{
 			cout << animais;
 			cin >> opcao;
 			animais.setResposta(opcao);
 			if(opcao == "1"){
-				selecionarTipo("Anfíbio", caminho, stoi(opcao));
-				// selecionarClasse(caminho, stoi(opcao));
+				painelTipo<Anfibio>("caminho", caminho);
 			} else if(opcao == "2"){
-				selecionarTipo("Ave", caminho, stoi(opcao));
-				// selecionarClasse(caminho, stoi(opcao));
 			} else if(opcao == "3"){
-				selecionarTipo("Mamífero", caminho, stoi(opcao));
-				// selecionarClasse(caminho, stoi(opcao));
 			} else if(opcao == "4"){
-				selecionarTipo("Réptil", caminho, stoi(opcao));
-				// selecionarClasse(caminho, stoi(opcao));
 			}
 		}
 		catch(Excecao& e){
 			animais.setExcecao(e);
 		}
-		
-
-		/* animais.printPainel();
-		string opcao = animais.getSelecao();
-
-		if(opcao == "1"){
-			animais.setMensagem("CADASTRAR");
-
-		} else if(opcao == "2"){
-			animais.setMensagem("REMOVER");
-
-		} else if(opcao == "3"){
-			animais.setMensagem("ALTERAR");
-
-		} else if(opcao == "4"){
-			painelAnimaisConsulta(caminho);
-		} */
 	}
 }
-
-/* void selecionarClasse(deque<string> caminho, int operacao){
-	vector <string> opcoes;
-	opcoes.push_back("Voltar");
-	opcoes.push_back("Anfíbio");
-	opcoes.push_back("Ave");
-	opcoes.push_back("Mamífero");
-	opcoes.push_back("Réptil");
-	
-	string titulo = "CLASSES";
-	string selecao;
-	Painel classes(titulo, caminho);
-	caminho.push_back("CADASTRAR");
-	classes.setCaminho(caminho);
-	classes.setPergunta("Escolha a classe do animal: ");
-	classes.setOpcoes(opcoes);
-	void selecionarTipo(string id, deque<string> caminho, int operacao);
-	while(classes.getAbrir()){
-		
-		try{
-			cout << classes;
-			cin >> selecao;
-			classes.setResposta(selecao);
-			
-			if(selecao == "1"){
-				selecionarTipo("Anfíbio", caminho, operacao);
-				
-			} else if(selecao == "2"){
-				selecionarTipo("Ave", caminho, operacao);
-				// Chamar crud para criar um animal ave
-			} else if(selecao == "3"){
-				selecionarTipo("Mamífero", caminho, operacao);
-				// Chamar crud para criar um animal mamífero
-			} else if(selecao == "4"){
-				selecionarTipo("Réptil", caminho, operacao);
-				// Chamar crud para criar um animal réptil
-			}
-		}
-		catch(Excecao& e)
-		{
-			classes.setExcecao(e);
-		}
-		
-	}
-	
-} */
-
-void selecionarTipo(string id, deque<string> caminho, int operacao){
-	
-	vector <string> op;
-	string classe;
-	op.push_back("Voltar");
-	
-	op.push_back(id+" exotico");
-	op.push_back(id+" nativo");
-	string titulo = "Tipo";
-	string escolha;
-	Painel classse(titulo, caminho);
-	classse.setPergunta("Escolha o tipo do(a) "+id+": ");
-	for(int i=1; i<id.length(); i++) id[i] = toupper(id[i]);
-	caminho.push_back(id);
-	classse.setCaminho(caminho);
-	classse.setOpcoes(op);
-
-	while (classse.getAbrir())
-	{
-		switch (operacao){
-		case 1: //cadastro
-
-			try{
-				cout << classse;
-				cin >> escolha;
-				classse.setResposta(escolha);
-				if(escolha == "1"){
-					painelAnimais<AnfibioExotico>(titulo, caminho);
-				} else if(escolha == "2"){
-					painelAnimais<AnfibioNativo>(titulo, caminho);
-				}
-			}
-			catch(Excecao& e){
-				classse.setExcecao(e);
-			}
-			
-			
-			// Chamar crud para criar um animal anfíbio
-			break;
-		case 2: //remover
-			try{
-				cout << classse;
-				cin >> escolha;
-				classse.setResposta(escolha);
-				if(escolha == "1"){
-					painelAnimais<AveExotico>(titulo, caminho);
-				} else if(escolha == "2"){
-					painelAnimais<AveNativo>(titulo, caminho);
-				}
-			}
-			catch(Excecao& e){
-				classse.setExcecao(e);
-			}
-			// Chamar crud para remover um animal anfíbio
-			break;
-		case 3: //alterar
-			try{
-				cout << classse;
-				cin >> escolha;
-				classse.setResposta(escolha);
-				if(escolha == "1"){
-					painelAnimais<AnfibioExotico>(titulo, caminho);
-				} else if(escolha == "2"){
-					painelAnimais<AnfibioNativo>(titulo, caminho);
-				}
-			}
-			catch(Excecao& e){
-				classse.setExcecao(e);
-			}
-			// Chamar crud para alterar um animal anfíbio
-			break;
-		case 4: //consultar
-			try{
-				cout << classse;
-				cin >> escolha;
-				classse.setResposta(escolha);
-				if(escolha == "1"){
-					painelAnimais<AnfibioExotico>(titulo, caminho);
-				} else if(escolha == "2"){
-					painelAnimais<AnfibioNativo>(titulo, caminho);
-				}
-			}
-			catch(Excecao& e){
-				classse.setExcecao(e);
-			}
-			// Chamar crud para consultar um animal anfíbio
-			break;
-		
-		default:
-			break;
-		}
-	}
-	
-	
-	
-}
-/* 
-void painelAnimaisConsulta(deque<string> caminho){
-	caminho.push_back("CONSULTAR");
-	string titulo = "CONSULTAR ANIMAIS POR";
-	string vetor_opcoes[] = {"VOLTAR", "NOME DE BATISMO", "ESPÉCIE", "CLASSE", "VETERINÁRIO RESPONSÁVEL", "TRATADOR RESPONSÁVEL"};
-	vector<string> opcoes(vetor_opcoes, vetor_opcoes + sizeof(vetor_opcoes) / sizeof(string));
-	Painel consultar(titulo, opcoes, caminho);
-	
-	while(consultar.getAbrir()){
-		consultar.printPainel();
-		string opcao = consultar.getSelecao();
-
-		if(opcao == "1"){
-			consultar.setMensagem("NOME DE BATISMO");
-
-		} else if(opcao == "2"){
-			consultar.setMensagem("ESPÉCIE");
-
-		} else if(opcao == "3"){
-			consultar.setMensagem("CLASSE");
-
-		} else if(opcao == "4"){
-			consultar.setMensagem("VETERINÁRIO RESPONSÁVEL");
-
-		}  else if(opcao == "5"){
-			consultar.setMensagem("TRATADOR RESPONSÁVEL");
-		}
-	}
-}
-
- */

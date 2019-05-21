@@ -123,14 +123,14 @@ istream& operator>> (istream &i, MamiferoNativo &t) {
 }
 
 ostream& operator<< (ostream &o, MamiferoNativo const a) {
-    o << "\tId: " << (a.id != -1 ? to_string(a.id) : "") << endl;
+    o << "\tId: " << (a.id != -1 ? intParaString(a.id) : "") << endl;
 	o << "\tClasse: " << a.classe << endl;
     o << "\tNome científico: " << a.nome_cientifico << endl;
     o << "\tSexo: " << a.sexo << endl;
-    o << "\tTamanho: " << (a.tamanho != -1 ? to_string(a.tamanho) : "") << endl;
+    o << "\tTamanho: " << (a.tamanho != -1 ? intParaString(a.tamanho) : "") << endl;
     o << "\tDieta: " << a.dieta << endl;
-    o << "\tVeterinário: " << (a.veterinario.getId() != -1 ? to_string(a.veterinario.getId()) : "") << endl;
-    o << "\tTratador: " << (a.tratador.getId() != -1 ? to_string(a.tratador.getId()) : "") << endl;
+    o << "\tVeterinário: " << (a.veterinario.getId() != -1 ? intParaString(a.veterinario.getId()) : "") << endl;
+    o << "\tTratador: " << (a.tratador.getId() != -1 ? intParaString(a.tratador.getId()) : "") << endl;
     o << "\tNome de batismo: " << a.nome_batismo << endl;
     o << "\tCor do pelo: " << a.cor_pelo << endl;
     o << "\tUF de origem: " << a.uf_origem << endl;

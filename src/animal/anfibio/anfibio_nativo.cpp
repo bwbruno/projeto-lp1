@@ -123,16 +123,16 @@ istream& operator>> (istream &i, AnfibioNativo &t) {
 }
 
 ostream& operator<< (ostream &o, AnfibioNativo const a) {
-    o << "\tId: " << (a.id != -1 ? to_string(a.id) : "") << endl;
+    o << "\tId: " << (a.id != -1 ? intParaString(a.id) : "") << endl;
 	o << "\tClasse: " << a.classe << endl;
     o << "\tNome científico: " << a.nome_cientifico << endl;
     o << "\tSexo: " << a.sexo << endl;
-    o << "\tTamanho: " << (a.tamanho != -1 ? to_string(a.tamanho) : "") << endl;
+    o << "\tTamanho: " << (a.tamanho != -1 ? intParaString(a.tamanho) : "") << endl;
     o << "\tDieta: " << a.dieta << endl;
-    o << "\tVeterinário: " << (a.veterinario.getId() != -1 ? to_string(a.veterinario.getId()) : "") << endl;
-    o << "\tTratador: " << (a.tratador.getId() != -1 ? to_string(a.tratador.getId()) : "") << endl;
+    o << "\tVeterinário: " << (a.veterinario.getId() != -1 ? intParaString(a.veterinario.getId()) : "") << endl;
+    o << "\tTratador: " << (a.tratador.getId() != -1 ? intParaString(a.tratador.getId()) : "") << endl;
     o << "\tNome de batismo: " << a.nome_batismo << endl;
-    o << "\tTotal de mudas: " << (a.total_de_mudas != -1 ? to_string(a.total_de_mudas) : "") << endl;
+    o << "\tTotal de mudas: " << (a.total_de_mudas != -1 ? intParaString(a.total_de_mudas) : "") << endl;
     o << "\tUF de origem: " << a.uf_origem << endl;
     o << "\tAutorização do IBAMA: " << a.autorizacao_ibama << endl;
 	return o;

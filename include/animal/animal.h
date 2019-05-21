@@ -1,6 +1,9 @@
 #ifndef __ANIMAL_H__
 #define __ANIMAL_H__
 
+#include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 
 #include "funcionario/veterinario.h"

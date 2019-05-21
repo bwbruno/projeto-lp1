@@ -48,7 +48,7 @@ void cadastrar(std::string enderecoArquivo, std::deque<std::string> caminho){
 }
 
 template <typename C>
-void confirmarCadastro(std::string enderecoArquivo, C &classe, Painel &p){
+void confirmarCadastro(std::string enderecoArquivo, C classe, Painel &p){
 	
 	std::string continuar;
 	std::string linha;
