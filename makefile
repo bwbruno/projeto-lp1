@@ -55,8 +55,8 @@ crud.o:
 	g++ -c ./src/crud/teste.cpp -I ./include -o ./build/teste.o
 
 clear:
-	rm ./build/*
-	rm ./bin/*
+	rm ./build/*.o
+	rm ./bin/*.out
 
 run:
 	./bin/program.out
