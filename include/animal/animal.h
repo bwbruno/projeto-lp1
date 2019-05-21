@@ -66,7 +66,8 @@ class Animal{
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos utilitários
 		//---------------------------------------------------------------------- ///@{
-
+		
+		std::string getNome();
 		virtual void limpar() = 0;
 		virtual std::string getTipo() = 0;
 		virtual std::string getStringFormatoCSV() = 0;

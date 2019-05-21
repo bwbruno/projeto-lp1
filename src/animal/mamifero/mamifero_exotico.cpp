@@ -144,7 +144,7 @@ ostream& operator<< (ostream &o, MamiferoExotico const a) {
 
 void MamiferoExotico::limpar(){
     id = -1;
-    classe = "Amphibia";
+    classe = "Mammalia";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;

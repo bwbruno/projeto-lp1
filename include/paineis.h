@@ -32,8 +32,8 @@ void painelAnimais(std::deque<std::string> caminho);
 void painelAnimaisConsulta(std::deque<std::string> caminho);
 void painelFuncionarios(std::deque<std::string> caminho);
 
-template <typename FUNCIONARIO>
-void painelFuncionarios(std::string titulo, std::deque<std::string> caminho){
+template <typename CLASSE>
+void painelCrudF(std::string titulo, std::deque<std::string> caminho, std::string endereco){
 	
 	Painel painel;
 	std::vector<std::string> opcoes;
@@ -60,16 +60,16 @@ void painelFuncionarios(std::string titulo, std::deque<std::string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				cadastrar<FUNCIONARIO>("csv/funcionarios.csv", caminho);
+				cadastrar<CLASSE>(endereco, caminho);
 
 			} else if(opcao == "2"){
-				remover<FUNCIONARIO>("csv/funcionarios.csv", caminho, painel.getTitulo());
+				remover<CLASSE>(endereco, caminho, painel.getTitulo());
 
 			} else if(opcao == "3"){
 				// FAZER
 
 			} else if(opcao == "4"){
-				consultar<FUNCIONARIO>("csv/funcionarios.csv", caminho);
+				consultar<CLASSE>(endereco, caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -79,8 +79,8 @@ void painelFuncionarios(std::string titulo, std::deque<std::string> caminho){
 	}
 }
 
-template <typename ANIMAIS>
-void painelCrudAnimais(std::string titulo, std::deque<std::string> caminho){
+template <typename CLASSE>
+void painelCrud(std::string titulo, std::deque<std::string> caminho, std::string endereco){
 	
 	Painel painel;
 	std::vector<std::string> opcoes;
@@ -107,16 +107,16 @@ void painelCrudAnimais(std::string titulo, std::deque<std::string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				cadastrar<ANIMAIS>("csv/animais.csv", caminho);
+				cadastrar<CLASSE>(endereco, caminho);
 
 			} else if(opcao == "2"){
-				// remover<ANIMAIS>("csv/funcionarios.csv", caminho, painel.getTitulo());
+				//remover<CLASSE>(endereco, caminho, painel.getTitulo());
 
 			} else if(opcao == "3"){
 				// FAZER
 
 			} else if(opcao == "4"){
-				// consultar<ANIMAIS>("csv/funcionarios.csv", caminho);
+				consultar<CLASSE>(endereco, caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -129,10 +129,11 @@ void painelCrudAnimais(std::string titulo, std::deque<std::string> caminho){
 Painel getPainelTipo(std::string titulo, std::deque<std::string> caminho);
 
 template <typename ANIMAIS>
-void painelTipo(std::string titulo, std::deque<std::string> caminho){
+void painelTipo(std::string titulo, std::deque<std::string> caminho, std::string endereco){
 	
 	Painel painel = getPainelTipo(titulo, caminho);
 	std::string opcao;
+	std::string end = endereco;
 
 	while(painel.getAbrir()){
 

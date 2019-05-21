@@ -102,3 +102,11 @@ void Animal::setNome_Batismo(string baptism_name){
 void Animal::setContadorCin(int c){
    contador_cin = c;
 }
+
+//----------------------------------------------------------------------
+//    Métodos utilitários
+//----------------------------------------------------------------------
+		
+string Animal::getNome(){
+   return nome_batismo;
+}

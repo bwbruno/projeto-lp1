@@ -44,7 +44,7 @@ class OperacoesCSV {
 		/// @name Operações
 		//---------------------------------------------------------------------- ///@{
 		
-        void inserirLinha(CLASSE classe);
+        void inserirLinha(std::string linha);
 		
         //! @brief Retorna o tipo do funcionario de acordo com a linha do arquivo CSV
 		//! @param linha endereço do arquivo CSV
@@ -155,13 +155,13 @@ void OperacoesCSV<CLASSE>::print(){
 }
 
 template <class CLASSE>
-void OperacoesCSV<CLASSE>::inserirLinha(CLASSE classe){
+void OperacoesCSV<CLASSE>::inserirLinha(std::string linha){
 
     std::ofstream of;
 	of.open(enderecoArquivo.c_str(), std::ios::app);
 
 	if(of.is_open()){
-		of << classe.getStringFormatoCSV();
+		of << linha;
 	} else {
 		throw Excecao("Erro ao abrir arquivo para escrita.");
 	}

@@ -150,7 +150,7 @@ ostream& operator<< (ostream &o, ReptilNativo const a) {
 
 void ReptilNativo::limpar(){
     id = -1;
-    classe = "Amphibia";
+    classe = "Reptilia";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;
