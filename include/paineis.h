@@ -12,6 +12,7 @@
 #include "crud/teste.h"
 #include "crud/consultar.h"
 #include "crud/remover.h"
+#include "crud/alterar.h"
 #include "funcionario/tratador.h"
 #include "funcionario/veterinario.h"
 #include "animal/anfibio/anfibio.h"
@@ -66,7 +67,7 @@ void painelFuncionarios(std::string titulo, std::deque<std::string> caminho){
 				remover<FUNCIONARIO>("csv/funcionarios.csv", caminho, painel.getTitulo());
 
 			} else if(opcao == "3"){
-				// FAZER
+				alterar<FUNCIONARIO>("csv/funcionarios.csv", caminho, painel.getTitulo());
 
 			} else if(opcao == "4"){
 				consultar<FUNCIONARIO>("csv/funcionarios.csv", caminho);
@@ -116,7 +117,7 @@ void painelCrudAnimais(std::string titulo, std::deque<std::string> caminho){
 				// FAZER
 
 			} else if(opcao == "4"){
-				// consultar<ANIMAIS>("csv/funcionarios.csv", caminho);
+				consultar<ANIMAIS>("csv/animais.csv", caminho);
 			}
 		}
 		catch(Excecao& e){

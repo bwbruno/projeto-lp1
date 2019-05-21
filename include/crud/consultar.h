@@ -28,8 +28,11 @@ void consultar(std::string enderecoArquivo, std::deque<std::string> caminho){
 			std::cin >> opcao;
 			consulta.setResposta(opcao);
 
-			int id = atoi(opcao.c_str());
-            painelDetalhes(id, csv, caminho);
+
+			if(opcao != "0"){
+				int id = atoi(opcao.c_str());
+            	painelDetalhes(id, csv, caminho);	
+			}
 		}
 		catch(Excecao& e){
 			consulta.setExcecao(e);

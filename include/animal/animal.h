@@ -70,6 +70,7 @@ class Animal{
 		virtual void limpar() = 0;
 		virtual std::string getTipo() = 0;
 		virtual std::string getStringFormatoCSV() = 0;
+		std::string getNome();
 		
 		//---------------------------------------------------------------------- ///@}
 };

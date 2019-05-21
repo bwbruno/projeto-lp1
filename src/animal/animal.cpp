@@ -102,3 +102,7 @@ void Animal::setNome_Batismo(string baptism_name){
 void Animal::setContadorCin(int c){
    contador_cin = c;
 }
+
+string Animal::getNome(){
+   return nome_batismo;
+}
