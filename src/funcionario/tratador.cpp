@@ -157,7 +157,7 @@ string Tratador::getTipo(){
 	return "Tratador";
 }
 
-string Tratador::getStringFormatoCSV(){
+string Tratador::getStringCSV(){
 
 	stringstream ss;
 	ss << id << ";";

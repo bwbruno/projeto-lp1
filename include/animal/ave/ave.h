@@ -15,7 +15,7 @@ class Ave : public Animal {
 		//---------------------------------------------------------------------- ///@{
  
 		Ave();
-		Ave(std::string linhaCSV);
+		Ave(std::string linhaCSV, std::string linhaDetalhesCSV);
 		
 		//---------------------------------------------------------------------- ///@}
 		/// @name Getters

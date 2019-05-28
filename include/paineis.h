@@ -108,7 +108,7 @@ void painelCrudAnimais(std::string titulo, std::deque<std::string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				cadastrar<ANIMAIS>("csv/animais.csv", caminho);
+				cadastrar<ANIMAIS>("csv/animais.csv", "csv/animais-detalhes.csv", caminho);
 
 			} else if(opcao == "2"){
 				// remover<ANIMAIS>("csv/funcionarios.csv", caminho, painel.getTitulo());

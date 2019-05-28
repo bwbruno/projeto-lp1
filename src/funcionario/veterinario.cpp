@@ -147,7 +147,7 @@ string Veterinario::getTipo(){
 	return "Veterinario";
 }
 
-string Veterinario::getStringFormatoCSV(){
+string Veterinario::getStringCSV(){
 
 	stringstream ss;
 	ss << id << ";";

@@ -31,3 +31,12 @@ string AnimalNativo::getUfOrigem(){
 void AnimalNativo::setUfOrigem(string UO){
     uf_origem = UO;
 }
+
+
+// ------------------------------------------------------------------------
+//		Métodos utilitários
+// ------------------------------------------------------------------------
+
+std::string AnimalNativo::tipo(){
+   return "Nativo";
+}

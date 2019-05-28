@@ -233,7 +233,8 @@ void painelAnimais(deque<string> caminho){
 			cin >> opcao;
 			animais.setResposta(opcao);
 			if(opcao == "1"){
-				painelTipo<Anfibio>("caminho", caminho);
+				// painelTipo<Anfibio>("caminho", caminho);
+				painelCrudAnimais<Anfibio>("ANFÍBIO", caminho);
 			} else if(opcao == "2"){
 			} else if(opcao == "3"){
 			} else if(opcao == "4"){

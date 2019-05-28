@@ -10,7 +10,7 @@ Reptil::Reptil(){
 	limpar();
 }
 
-Reptil::Reptil(string linhaCSV){
+Reptil::Reptil(string linhaCSV, string linhaDetalhesCSV){
 	// Reptil v("1;Reptil;Daniel Oscar;123.456.789-10;30;O;+;Felinos;CRMV-GO 0406;;")
 	string tmp;
 	istringstream ss(linhaCSV);
@@ -52,8 +52,8 @@ istream& operator>> (istream &i, Reptil &t) {
 	t.contador_cin++;
 	switch (t.getContadorCin()){
 		case 1:
-			cout << "\nINSERIR ID: ";
-			i >> t.id;
+			cout << "\nINSERIR ESPÉCIE: ";
+			i >> t.especie;
 			break;
 
 		case 2:
@@ -143,7 +143,7 @@ void Reptil::limpar(){
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
-	contador_cin = 1;
+	contador_cin = 0;
     venenoso = false;
     tipo_veneno = "";
 }

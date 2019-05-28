@@ -256,11 +256,11 @@ int painelAlterar(std::string ea, int &id, std::map<int, CLASSE> &lista, std::de
                 aqv_alterado.open(ea.c_str());
 
                 for(itv = map_veterinarios.begin(); itv != map_veterinarios.end(); ++itv){
-                    aqv_alterado << itv->second.getStringFormatoCSV() << "\n";
+                    aqv_alterado << itv->second.getStringCSV() << "\n";
 
                 }
                 for(itt = map_tratadores.begin(); itt != map_tratadores.end(); ++itt){
-                    aqv_alterado << itt->second.getStringFormatoCSV() << "\n"; 
+                    aqv_alterado << itt->second.getStringCSV() << "\n"; 
                 }
 
                 aqv_alterado.close();

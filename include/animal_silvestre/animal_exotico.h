@@ -37,7 +37,7 @@ class AnimalExotico : public AnimalSilvestre {
 		/// @name Métodos utilitários
 		//---------------------------------------------------------------------- ///@{
 
-		std::string getTipo();
+		std::string tipo();
 		
 		//---------------------------------------------------------------------- ///@}
 };

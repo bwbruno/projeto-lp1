@@ -75,6 +75,7 @@ class Animal{
 		virtual std::string getStringCSV() = 0;
 		virtual std::string getStringDetalhesCSV() = 0;
 		std::string getNome();
+		std::string ehNativoOuExotico();
 		
 		//---------------------------------------------------------------------- ///@}
 };

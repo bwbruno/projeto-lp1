@@ -10,41 +10,38 @@ Anfibio::Anfibio(){
 	limpar();
 }
 
-Anfibio::Anfibio(string linhaCSV){
+Anfibio::Anfibio(string linhaCSV, string linhaDetalhesCSV){
 	// Anfibio v("1;Anfibio;Daniel Oscar;123.456.789-10;30;O;+;Felinos;CRMV-GO 0406;;")
 	string tmp;
+
+	// Arquivo animais
 	istringstream ss(linhaCSV);
-	
 	getline(ss, tmp, ';');                      // id
 	id = atoi(tmp.c_str());
-	
     getline(ss, classe, ';');                   // classe
-
-    getline(ss, especie, ';');                   // especie
-	
+    getline(ss, especie, ';');                  // especie
     getline(ss, nome_cientifico, ';');          // nome científico
-	
     getline(ss, tmp, ';');                      // sexo
     sexo = tmp[0];
-	
     getline(ss, tmp, ';');                      // tamanho
 	tamanho = atoi(tmp.c_str());
-	
     getline(ss, dieta, ';');                    // dieta
-	
     getline(ss, tmp, ';');                      // veterinario
-    int id = atoi(tmp.c_str());             
+    int v_id = atoi(tmp.c_str());             
     veterinario.setId(id);
-
 	getline(ss, tmp, ';');                      // tratador
-    id = atoi(tmp.c_str());             
-	tratador.setId(id); 
-	
+    int t_id = atoi(tmp.c_str());             
+	tratador.setId(t_id); 
     getline(ss, nome_batismo, ';');             // nome batismo
-	
     getline(ss, tmp, ';');                      // uf ou país de origem
-
     getline(ss, tmp, ';');                      // autorização
+
+	// Arquivo detalhes animais
+	istringstream iss(linhaDetalhesCSV);
+	getline(iss, tmp, ';');						// id
+	getline(iss, tmp, ';');						// classe
+	getline(iss, tmp, ';');						// total_de_mudas
+    total_de_mudas = atoi(tmp.c_str());             
 }
 
 // ------------------------------------------------------------------------
@@ -71,8 +68,8 @@ istream& operator>> (istream &i, Anfibio &t) {
 	t.contador_cin++;
 	switch (t.getContadorCin()){
 		case 1:
-			cout << "\nINSERIR ID: ";
-			i >> t.id;
+			cout << "\nINSERIR ESPÉCIE: ";
+			i >> t.especie;
 			break;
 
 		case 2:
@@ -156,7 +153,7 @@ void Anfibio::limpar(){
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
-	contador_cin = 1;
+	contador_cin = 0;
     total_de_mudas = -1;
 }
 
@@ -191,4 +188,3 @@ string Anfibio::getStringDetalhesCSV(){
 	ss << endl;
 	return ss.str();
 }
-

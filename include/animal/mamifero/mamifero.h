@@ -16,7 +16,7 @@ class Mamifero : public Animal {
 		//---------------------------------------------------------------------- ///@{
  
 		Mamifero();
-		Mamifero(std::string linhaCSV);
+		Mamifero(std::string linhaCSV, std::string linhaDetalhesCSV);
 		
 		//---------------------------------------------------------------------- ///@}
 		/// @name Getters

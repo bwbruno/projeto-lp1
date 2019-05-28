@@ -10,7 +10,7 @@ Mamifero::Mamifero(){
 	limpar();
 }
 
-Mamifero::Mamifero(string linhaCSV){
+Mamifero::Mamifero(string linhaCSV, string linhaDetalhesCSV){
 	// Mamifero v("1;Mamifero;Daniel Oscar;123.456.789-10;30;O;+;Felinos;CRMV-GO 0406;;")
 	string tmp;
 	istringstream ss(linhaCSV);
@@ -71,8 +71,8 @@ istream& operator>> (istream &i, Mamifero &m) {
 	m.contador_cin++;
 	switch (m.getContadorCin()){
 		case 1:
-			cout << "\nINSERIR ID: ";
-			i >> m.id;
+			cout << "\nINSERIR ESPÉCIE: ";
+			i >> m.especie;
 			break;
 
 		case 2:
@@ -156,7 +156,7 @@ void Mamifero::limpar(){
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
-	contador_cin = 1;
+	contador_cin = 0;
     cor_pelo = "";
 }
 

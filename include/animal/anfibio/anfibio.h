@@ -15,7 +15,7 @@ class Anfibio : public Animal {
 		//---------------------------------------------------------------------- ///@{
  
 		Anfibio();
-		Anfibio(std::string linhaCSV);
+		Anfibio(std::string linhaCSV, std::string linhaDetalhesCSV);
 		
 		//---------------------------------------------------------------------- ///@}
 		/// @name Getters

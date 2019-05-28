@@ -120,7 +120,7 @@ class Funcionario{
 		//! @brief Grava no arquivo CSV informado, todos os valores da classe
 		//! @exception Excecao caso o arquivo não exista ou haja alguma falha de execução
 		//! @param enderecoArquivo endereco do arquivo CSV
-		virtual std::string getStringFormatoCSV() = 0;
+		virtual std::string getStringCSV() = 0;
 		
 		//---------------------------------------------------------------------- ///@}		
 };

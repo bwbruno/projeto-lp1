@@ -31,3 +31,12 @@ string AnimalExotico::getPaisOrigem(){
 void AnimalExotico::setPaisOrigem(string PO){
     pais_origem = PO;
 }
+
+
+// ------------------------------------------------------------------------
+//		Métodos utilitários
+// ------------------------------------------------------------------------
+
+std::string AnimalExotico::tipo(){
+   return "Exotico";
+}

@@ -17,7 +17,7 @@ class Reptil : public Animal {
 		//---------------------------------------------------------------------- ///@{
  
 		Reptil();
-		Reptil(std::string linhaCSV);
+		Reptil(std::string linhaCSV, std::string linhaDetalhesCSV);
 		
 		//---------------------------------------------------------------------- ///@}
 		/// @name Getters

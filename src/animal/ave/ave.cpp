@@ -10,7 +10,7 @@ Ave::Ave(){
 	limpar();
 }
 
-Ave::Ave(string linhaCSV){
+Ave::Ave(string linhaCSV, string linhaDetalhesCSV){
 	// Ave v("1;Ave;Daniel Oscar;123.456.789-10;30;O;+;Felinos;CRMV-GO 0406;;")
 	string tmp;
 	istringstream ss(linhaCSV);
@@ -52,8 +52,8 @@ istream& operator>> (istream &i, Ave &t) {
 	t.contador_cin++;
 	switch (t.getContadorCin()){
 		case 1:
-			cout << "\nINSERIR ID: ";
-			i >> t.id;
+			cout << "\nINSERIR ESPÉCIE: ";
+			i >> t.especie;
 			break;
 
 		case 2:
@@ -143,7 +143,7 @@ void Ave::limpar(){
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
-	contador_cin = 1;
+	contador_cin = 0;
     tamanho_do_bico_cm = -1;
     envergadura_das_asas_cm = -1;
 }
