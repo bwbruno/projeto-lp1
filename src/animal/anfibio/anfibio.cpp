@@ -19,6 +19,8 @@ Anfibio::Anfibio(string linhaCSV){
 	id = atoi(tmp.c_str());
 	
     getline(ss, classe, ';');                   // classe
+
+    getline(ss, especie, ';');                   // especie
 	
     getline(ss, nome_cientifico, ';');          // nome científico
 	
@@ -129,6 +131,7 @@ istream& operator>> (istream &i, Anfibio &t) {
 ostream& operator<< (ostream &o, Anfibio const a) {
     o << "\tId: " << (a.id != -1 ? intParaString(a.id) : "") << endl;
 	o << "\tClasse: " << a.classe << endl;
+	o << "\tEspécie: " << a.especie << endl;
     o << "\tNome científico: " << a.nome_cientifico << endl;
     o << "\tSexo: " << a.sexo << endl;
     o << "\tTamanho: " << (a.tamanho != -1 ? intParaString(a.tamanho) : "") << endl;
@@ -147,6 +150,7 @@ ostream& operator<< (ostream &o, Anfibio const a) {
 void Anfibio::limpar(){
     id = -1;
     classe = "Amphibia";
+    especie = "";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;
@@ -160,10 +164,11 @@ string Anfibio::getTipo(){
 	return "Amphibia";
 }
 
-string Anfibio::getStringFormatoCSV(){
+string Anfibio::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
+	ss << especie << ";";
     ss << nome_cientifico << ";";
     ss << sexo << ";";
     ss << tamanho << ";";
@@ -177,3 +182,13 @@ string Anfibio::getStringFormatoCSV(){
 	ss << endl;
 	return ss.str();
 }
+
+string Anfibio::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << classe << ";";
+	ss << total_de_mudas << ";";
+	ss << endl;
+	return ss.str();
+}
+

@@ -23,8 +23,8 @@ void cadastrar(std::string enderecoArquivo, std::deque<std::string> caminho){
 		try{
 			std::cout << cadastro;
 			
-			int tamanhoLista = csv.getLista().size();
-			classe.setId(tamanhoLista+1);
+			int id = csv.tamanhoMapLinhas();
+			classe.setId(id);
 
 			std::cout << classe;
 			std::cin >> classe;

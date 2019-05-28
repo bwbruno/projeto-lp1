@@ -19,6 +19,8 @@ Reptil::Reptil(string linhaCSV){
 	id = atoi(tmp.c_str());
 	
     getline(ss, classe, ';');                   // classe
+
+    getline(ss, especie, ';');                   // especie
 	
     getline(ss, nome_cientifico, ';');          // nome científico
 	
@@ -115,6 +117,7 @@ istream& operator>> (istream &i, Reptil &t) {
 ostream& operator<< (ostream &o, Reptil const a) {
     o << "\tId: " << (a.id != -1 ? intParaString(a.id) : "") << endl;
 	o << "\tClasse: " << a.classe << endl;
+	o << "\tEspécie: " << a.especie << endl;
     o << "\tNome científico: " << a.nome_cientifico << endl;
     o << "\tSexo: " << a.sexo << endl;
     o << "\tTamanho: " << (a.tamanho != -1 ? intParaString(a.tamanho) : "") << endl;
@@ -134,6 +137,7 @@ ostream& operator<< (ostream &o, Reptil const a) {
 void Reptil::limpar(){
     id = -1;
     classe = "Reptilia";
+    especie = "";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;
@@ -148,10 +152,11 @@ string Reptil::getTipo(){
 	return "Reptilia";
 }
 
-string Reptil::getStringFormatoCSV(){
+string Reptil::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
+	ss << especie << ";";
     ss << nome_cientifico << ";";
     ss << sexo << ";";
     ss << tamanho << ";";
@@ -162,6 +167,16 @@ string Reptil::getStringFormatoCSV(){
 	ss << ";"; // país de origem
 	ss << ";"; // uf de origem
 	ss << ";"; // autorizacao
+	ss << endl;
+	return ss.str();
+}
+
+string Reptil::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << classe << ";";
+	ss << venenoso << ";";
+	ss << tipo_veneno << ";";
 	ss << endl;
 	return ss.str();
 }

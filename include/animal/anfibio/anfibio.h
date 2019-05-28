@@ -35,7 +35,8 @@ class Anfibio : public Animal {
  
 		void limpar();
 		std::string getTipo();
-		std::string getStringFormatoCSV();
+		std::string getStringCSV();
+		std::string getStringDetalhesCSV();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Operadores

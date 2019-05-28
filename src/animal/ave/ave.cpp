@@ -19,6 +19,8 @@ Ave::Ave(string linhaCSV){
 	id = atoi(tmp.c_str());
 	
     getline(ss, classe, ';');                   // classe
+
+    getline(ss, especie, ';');                   // especie
 	
     getline(ss, nome_cientifico, ';');          // nome científico
 	
@@ -115,6 +117,7 @@ istream& operator>> (istream &i, Ave &t) {
 ostream& operator<< (ostream &o, Ave const a) {
     o << "\tId: " << (a.id != -1 ? intParaString(a.id) : "") << endl;
 	o << "\tClasse: " << a.classe << endl;
+	o << "\tEspécie: " << a.especie << endl;
     o << "\tNome científico: " << a.nome_cientifico << endl;
     o << "\tSexo: " << a.sexo << endl;
     o << "\tTamanho: " << (a.tamanho != -1 ? intParaString(a.tamanho) : "") << endl;
@@ -134,6 +137,7 @@ ostream& operator<< (ostream &o, Ave const a) {
 void Ave::limpar(){
     id = -1;
     classe = "Aves";
+    especie = "";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;
@@ -148,10 +152,11 @@ string Ave::getTipo(){
 	return "Aves";
 }
 
-string Ave::getStringFormatoCSV(){
+string Ave::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
+	ss << especie << ";";
     ss << nome_cientifico << ";";
     ss << sexo << ";";
     ss << tamanho << ";";
@@ -165,3 +170,14 @@ string Ave::getStringFormatoCSV(){
 	ss << endl;
 	return ss.str();
 }
+
+string Ave::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << classe << ";";
+	ss << tamanho_do_bico_cm << ";";
+	ss << envergadura_das_asas_cm << ";";
+	ss << endl;
+	return ss.str();
+}
+

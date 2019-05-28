@@ -163,7 +163,7 @@ void AveNativo::limpar(){
     autorizacao_ibama = "";
 }
 
-string AveNativo::getStringFormatoCSV(){
+string AveNativo::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
@@ -175,6 +175,18 @@ string AveNativo::getStringFormatoCSV(){
     ss << tratador.getId() << ";";
     ss << nome_batismo << ";";
 	ss << ";"; // país de origem
+	ss << uf_origem << ";";
+	ss << autorizacao_ibama << ";";
+	ss << endl;
+	return ss.str();
+}
+
+string AveNativo::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << "Nativo" << ";";
+	ss << tamanho_do_bico_cm << ";";
+	ss << envergadura_das_asas_cm << ";";
 	ss << uf_origem << ";";
 	ss << autorizacao_ibama << ";";
 	ss << endl;

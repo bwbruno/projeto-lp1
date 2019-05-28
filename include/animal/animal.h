@@ -14,6 +14,7 @@ class Animal{
 	protected:
 		int id; ///< Identificador do animal
 		std::string classe; ///< Classe do animal
+		std::string especie; ///< Classe do animal
 		std::string nome_cientifico; ///< Nome científico do animal
 		char sexo; ///< Sexo do animal
 		double tamanho; ///< Tamanho médio em metros do animal
@@ -38,6 +39,7 @@ class Animal{
 		
 		int getId();
 		std::string getClasse();
+		std::string getEspecie();
 		std::string getNome_Cientifico();
 		char getSexo();
 		double getTamanho();
@@ -53,6 +55,7 @@ class Animal{
 		
 		void setId(int id);
 		void setClasse(std::string clas);
+		void setEspecie(std::string species);
 		void setNome_Cientifico(std::string cientific_name);
 		void setSexo(char gender);
 		void setTamanho(double size);
@@ -69,7 +72,8 @@ class Animal{
 
 		virtual void limpar() = 0;
 		virtual std::string getTipo() = 0;
-		virtual std::string getStringFormatoCSV() = 0;
+		virtual std::string getStringCSV() = 0;
+		virtual std::string getStringDetalhesCSV() = 0;
 		std::string getNome();
 		
 		//---------------------------------------------------------------------- ///@}

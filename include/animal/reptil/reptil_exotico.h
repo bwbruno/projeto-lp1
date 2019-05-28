@@ -19,7 +19,8 @@ class ReptilExotico : public Reptil, AnimalExotico {
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getStringFormatoCSV();
+		std::string getStringCSV();
+		std::string getStringDetalhesCSV();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Operadores

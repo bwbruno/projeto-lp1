@@ -19,8 +19,13 @@ Animal::Animal(int cod, string clas){
 int Animal::getId(){
    return id;
 }
+
 string Animal::getClasse(){
    return classe;
+}
+
+string Animal::getEspecie(){
+   return especie;
 }
 
 string Animal::getNome_Cientifico(){
@@ -65,7 +70,11 @@ void Animal::setId(int cod){
 
 void Animal::setClasse(string clas){
    classe = clas;
-}   
+}
+
+void Animal::setEspecie(string species){
+   especie = species;
+}
 
 void Animal::setNome_Cientifico(string cientific_name){
    nome_cientifico = cientific_name;

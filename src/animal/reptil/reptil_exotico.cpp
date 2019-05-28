@@ -164,7 +164,7 @@ void ReptilExotico::limpar(){
     autorizacao_ibama = "";
 }
 
-string ReptilExotico::getStringFormatoCSV(){
+string ReptilExotico::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
@@ -177,6 +177,18 @@ string ReptilExotico::getStringFormatoCSV(){
     ss << nome_batismo << ";";
 	ss << pais_origem << ";";
 	ss << ";"; // uf de origem
+	ss << autorizacao_ibama << ";";
+	ss << endl;
+	return ss.str();
+}
+
+string ReptilExotico::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << "Exotico" << ";";
+	ss << venenoso << ";";
+	ss << tipo_veneno << ";";
+	ss << pais_origem << ";";
 	ss << autorizacao_ibama << ";";
 	ss << endl;
 	return ss.str();

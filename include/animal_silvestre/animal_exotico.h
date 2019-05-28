@@ -34,6 +34,12 @@ class AnimalExotico : public AnimalSilvestre {
  		void setPaisOrigem(std::string PO);
 
 		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos utilitários
+		//---------------------------------------------------------------------- ///@{
+
+		std::string getTipo();
+		
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __ANIMAL_EXOTICO_H__

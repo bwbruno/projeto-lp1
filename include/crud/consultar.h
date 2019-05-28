@@ -24,14 +24,14 @@ void consultar(std::string enderecoArquivo, std::deque<std::string> caminho){
 	while(consulta.getAbrir()){
 
 		try{
-			std::cout << consulta;
-			std::cin >> opcao;
+			std::cout << consulta;					// Imprime o cabeçalho, as opções e a pergunta
+			std::cin >> opcao;						// Lê a resposta
 			consulta.setResposta(opcao);
 
 
 			if(opcao != "0"){
 				int id = atoi(opcao.c_str());
-            	painelDetalhes(id, csv, caminho);	
+            	painelDetalhes(id, csv, caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -56,10 +56,10 @@ void painelDetalhes(int id, OperacoesCSV<CLASSE> &csv, std::deque<std::string> c
 	while(detalhes.getAbrir()){
 
 		try{
-			std::cout << detalhes; 										// Cabecalho
-            std::cout << csv.consultar(id); 							// Corpo
-            std::cout << "\nPARA VOLTAR INSIRA O NÚMERO ZERO [0]: "; 	// Pergunta
-            std::cin >> opcao; 											// Resposta
+			std::cout << detalhes; 										// Imprime cabecalho
+            std::cout << csv.consultar(id); 							// Imprime o corpo
+            std::cout << "\nPARA VOLTAR INSIRA O NÚMERO ZERO [0]: "; 	// Imprime a pergunta
+            std::cin >> opcao; 											// Lê a resposta
 			detalhes.setResposta(opcao);
 	
 		}

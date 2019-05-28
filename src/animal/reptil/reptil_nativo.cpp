@@ -163,7 +163,7 @@ void ReptilNativo::limpar(){
     autorizacao_ibama = "";
 }
 
-string ReptilNativo::getStringFormatoCSV(){
+string ReptilNativo::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
@@ -175,6 +175,18 @@ string ReptilNativo::getStringFormatoCSV(){
     ss << tratador.getId() << ";";
     ss << nome_batismo << ";";
 	ss << ";"; // país de origem
+	ss << uf_origem << ";";
+	ss << autorizacao_ibama << ";";
+	ss << endl;
+	return ss.str();
+}
+
+string ReptilNativo::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << "Nativo" << ";";
+	ss << venenoso << ";";
+	ss << tipo_veneno << ";";
 	ss << uf_origem << ";";
 	ss << autorizacao_ibama << ";";
 	ss << endl;

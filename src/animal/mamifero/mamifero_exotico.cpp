@@ -156,7 +156,7 @@ void MamiferoExotico::limpar(){
     autorizacao_ibama = "";
 }
 
-string MamiferoExotico::getStringFormatoCSV(){
+string MamiferoExotico::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
@@ -169,6 +169,17 @@ string MamiferoExotico::getStringFormatoCSV(){
     ss << nome_batismo << ";";
 	ss << pais_origem << ";";
 	ss << ";"; // uf de origem
+	ss << autorizacao_ibama << ";";
+	ss << endl;
+	return ss.str();
+}
+
+string MamiferoExotico::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << "Exotico" << ";";
+	ss << cor_pelo << ";";
+	ss << pais_origem << ";";
 	ss << autorizacao_ibama << ";";
 	ss << endl;
 	return ss.str();

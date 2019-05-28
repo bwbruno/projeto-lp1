@@ -156,7 +156,7 @@ void MamiferoNativo::limpar(){
     autorizacao_ibama = "";
 }
 
-string MamiferoNativo::getStringFormatoCSV(){
+string MamiferoNativo::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
@@ -173,3 +173,15 @@ string MamiferoNativo::getStringFormatoCSV(){
 	ss << endl;
 	return ss.str();
 }
+
+string MamiferoNativo::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << "Nativo" << ";";
+	ss << cor_pelo << ";";
+	ss << uf_origem << ";";
+	ss << autorizacao_ibama << ";";
+	ss << endl;
+	return ss.str();
+}
+

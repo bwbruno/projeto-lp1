@@ -163,7 +163,7 @@ void AveExotico::limpar(){
     autorizacao_ibama = "";
 }
 
-string AveExotico::getStringFormatoCSV(){
+string AveExotico::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
@@ -176,6 +176,18 @@ string AveExotico::getStringFormatoCSV(){
     ss << nome_batismo << ";";
 	ss << pais_origem << ";";
 	ss << ";"; // uf de origem
+	ss << autorizacao_ibama << ";";
+	ss << endl;
+	return ss.str();
+}
+
+string AveExotico::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << "Exotico" << ";";
+	ss << tamanho_do_bico_cm << ";";
+	ss << envergadura_das_asas_cm << ";";
+	ss << pais_origem << ";";
 	ss << autorizacao_ibama << ";";
 	ss << endl;
 	return ss.str();

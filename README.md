@@ -87,7 +87,7 @@
 	make run
 
 ### Compilar documentação
-É necessário ter o Doxygen e Graphviz instalado na sua plataforma.
+É necessário ter o Doxygen e Graphviz instalados na sua plataforma.
 
 	cd doc/
 	doxygen

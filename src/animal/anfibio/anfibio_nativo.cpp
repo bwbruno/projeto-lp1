@@ -156,7 +156,7 @@ void AnfibioNativo::limpar(){
     autorizacao_ibama = "";
 }
 
-string AnfibioNativo::getStringFormatoCSV(){
+string AnfibioNativo::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
@@ -168,6 +168,17 @@ string AnfibioNativo::getStringFormatoCSV(){
     ss << tratador.getId() << ";";
     ss << nome_batismo << ";";
 	ss << ";"; // país de origem
+	ss << uf_origem << ";";
+	ss << autorizacao_ibama << ";";
+	ss << endl;
+	return ss.str();
+}
+
+string AnfibioNativo::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << "Nativo" << ";";
+	ss << total_de_mudas << ";";
 	ss << uf_origem << ";";
 	ss << autorizacao_ibama << ";";
 	ss << endl;

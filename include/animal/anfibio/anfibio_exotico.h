@@ -20,7 +20,8 @@ class AnfibioExotico : public Anfibio, AnimalExotico {
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getStringFormatoCSV();
+		std::string getStringCSV();
+		std::string getStringDetalhesCSV();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Operadores

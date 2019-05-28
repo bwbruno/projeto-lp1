@@ -19,6 +19,8 @@ Mamifero::Mamifero(string linhaCSV){
 	id = atoi(tmp.c_str());
 	
     getline(ss, classe, ';');                   // classe
+
+    getline(ss, especie, ';');                   // especie
 	
     getline(ss, nome_cientifico, ';');          // nome científico
 	
@@ -129,6 +131,7 @@ istream& operator>> (istream &i, Mamifero &m) {
 ostream& operator<< (ostream &o, Mamifero const m) {
     o << "\tId: " << (m.id != -1 ? intParaString(m.id) : "") << endl;
 	o << "\tClasse: " << m.classe << endl;
+	o << "\tEspécie: " << m.especie << endl;
     o << "\tNome científico: " << m.nome_cientifico << endl;
     o << "\tSexo: " << m.sexo << endl;
     o << "\tTamanho: " << (m.tamanho != -1 ? intParaString(m.tamanho) : "") << endl;
@@ -147,6 +150,7 @@ ostream& operator<< (ostream &o, Mamifero const m) {
 void Mamifero::limpar(){
     id = -1;
     classe = "Mammalia";
+    especie = "";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;
@@ -160,10 +164,11 @@ string Mamifero::getTipo(){
 	return "Mammalia";
 }
 
-string Mamifero::getStringFormatoCSV(){
+string Mamifero::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
 	ss << classe << ";";
+	ss << especie << ";";
     ss << nome_cientifico << ";";
     ss << sexo << ";";
     ss << tamanho << ";";
@@ -174,6 +179,15 @@ string Mamifero::getStringFormatoCSV(){
 	ss << ";"; // país de origem
 	ss << ";"; // uf de origem
 	ss << ";"; // autorizacao
+	ss << endl;
+	return ss.str();
+}
+
+string Mamifero::getStringDetalhesCSV(){
+	stringstream ss;
+	ss << id << ";";
+	ss << classe << ";";
+	ss << cor_pelo << ";";
 	ss << endl;
 	return ss.str();
 }
