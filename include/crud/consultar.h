@@ -57,7 +57,11 @@ void painelDetalhes(int id, OperacoesCSV<CLASSE> &csv, std::deque<std::string> c
 
 		try{
 			std::cout << detalhes; 										// Imprime cabecalho
-            std::cout << csv.consultar(id); 							// Imprime o corpo
+            
+			std::string linha = csv.consultarLinha(id);
+			CLASSE classe(linha);
+			std::cout << classe;										// Imprime corpo
+
             std::cout << "\nPARA VOLTAR INSIRA O NÚMERO ZERO [0]: "; 	// Imprime a pergunta
             std::cin >> opcao; 											// Lê a resposta
 			detalhes.setResposta(opcao);
