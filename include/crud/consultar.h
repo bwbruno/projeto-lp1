@@ -76,6 +76,7 @@ void consultar(std::string enderecoArquivo, std::string endArqDetalhes, std::deq
 	
 	Painel consulta;	
 	OperacoesCSV<CLASSE> csv(enderecoArquivo);
+	OperacoesCSV<CLASSE> csvDetalhes(endArqDetalhes);
     std::map<std::string, std::string> opcoes = csv.getOpcoes();
 	std::string opcao;
     
@@ -96,7 +97,7 @@ void consultar(std::string enderecoArquivo, std::string endArqDetalhes, std::deq
 
 			if(opcao != "0"){
 				int id = atoi(opcao.c_str());
-            	painelDetalhes(id, csv, caminho);
+            	painelDetalhes(id, csv, csvDetalhes, caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -108,7 +109,7 @@ void consultar(std::string enderecoArquivo, std::string endArqDetalhes, std::deq
 }
 
 template <typename CLASSE>
-void painelDetalhes(int id, OperacoesCSV<CLASSE> &csv, std::deque<std::string> caminho){
+void painelDetalhes(int id, OperacoesCSV<CLASSE> &csv, OperacoesCSV<CLASSE> &csvDetalhes, std::deque<std::string> caminho){
     
 	Painel detalhes;
 	std::string opcao;
@@ -122,8 +123,14 @@ void painelDetalhes(int id, OperacoesCSV<CLASSE> &csv, std::deque<std::string> c
 
 		try{
 			std::cout << detalhes; 										// Imprime cabecalho
-            std::cout << csv.consultar(id); 							// Imprime o corpo
-            std::cout << "\nPARA VOLTAR INSIRA O NÚMERO ZERO [0]: "; 	// Imprime a pergunta
+
+            std::string linha = csv.consultarLinha(id);
+            std::string linhaDetalhes = csvDetalhes.consultarLinha(id);
+
+			CLASSE classe(linha, linhaDetalhes);
+			std::cout << classe;										// Imprime corpo
+            
+			std::cout << "\nPARA VOLTAR INSIRA O NÚMERO ZERO [0]: "; 	// Imprime a pergunta
             std::cin >> opcao; 											// Lê a resposta
 			detalhes.setResposta(opcao);
 	

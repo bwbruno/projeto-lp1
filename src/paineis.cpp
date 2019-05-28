@@ -101,7 +101,7 @@ Painel getPainelTipo(string titulo, deque<string> caminho){
 	
 	return painel;
 }
-
+/*
 template <>
 void painelTipo<Anfibio>(string titulo, deque<string> caminho){
 	
@@ -207,7 +207,7 @@ void painelTipo<Reptil>(string titulo, deque<string> caminho){
 	}
 }
 
-// Animais ---------------------------
+*/
 void painelAnimais(deque<string> caminho){
 
 	Painel animais;

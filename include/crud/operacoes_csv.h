@@ -85,25 +85,6 @@ OperacoesCSV<CLASSE>::OperacoesCSV(std::string ea){
     arquivo.open(enderecoArquivo.c_str());
 
     std::string linha;
-    while (!arquivo.eof()){
-        getline(arquivo, linha);
-
-        std::string tipoLinha = getTipoDaLinha(linha);
-
-        CLASSE tmp;
-        if(tipoLinha == tmp.getTipo()){
-            CLASSE c(linha);
-            std::pair<int, CLASSE> par;
-            par.first = c.getId();
-            par.second = c;
-
-            lista.insert(par);
-        }
-    }
-
-    arquivo.close();
-
-    arquivo.open(enderecoArquivo.c_str());
 
     while (!arquivo.eof()){
         getline(arquivo, linha);
@@ -117,7 +98,6 @@ OperacoesCSV<CLASSE>::OperacoesCSV(std::string ea){
 
         linhas.insert(par);
     }
-    
 }
 
 
@@ -163,10 +143,10 @@ std::string OperacoesCSV<CLASSE>::getColuna(std::string linha, int coluna){
     std::string scoluna;
 
     for(int i = 0; i < coluna; i++){
-        if(!ss.eof())
+        //if(ss.eof())
             getline(ss, scoluna, ';');
-        else
-            throw Excecao("Erro ao ler coluna " + intParaString(i) + " no arquivo " + enderecoArquivo);
+        //else
+            //throw Excecao("Erro ao ler coluna " + intParaString(i) + " no arquivo " + enderecoArquivo);
     }
 
     return scoluna;
@@ -273,7 +253,7 @@ std::string OperacoesCSV<CLASSE>::consultarLinha(int id){
     if(!existeLinha(id))
         throw Excecao("O id informado é inválido. Tente novamente.");
 
-    typename std::map<int, CLASSE>::iterator it;
+    typename std::map<int, std::string>::iterator it;
     it = linhas.find(id);
 
     return it->second;
@@ -288,7 +268,7 @@ std::map<std::string, std::string> OperacoesCSV<CLASSE>::getOpcoes(){
     std::string tipoLinha;
     std::map<std::string, std::string> opcoes;
     std::pair<std::string, std::string> par;
-/*
+
     typename std::map<int, std::string>::iterator it;    
     for(it = linhas.begin(); it != linhas.end(); ++it){
         
@@ -303,13 +283,10 @@ std::map<std::string, std::string> OperacoesCSV<CLASSE>::getOpcoes(){
         }
     }
     
-*/
-    
-
     par.first = "0";
     par.second = "VOLTAR";
     opcoes.insert(par);
-
+/*
     typename std::map<int, CLASSE>::iterator it;
     for (it = lista.begin(); it != lista.end(); ++it){
         int id = it->second.getId();
@@ -317,7 +294,7 @@ std::map<std::string, std::string> OperacoesCSV<CLASSE>::getOpcoes(){
         par.second = it->second.getNome();
         opcoes.insert(par);
     }
-
+*/
     return opcoes;
 }
 

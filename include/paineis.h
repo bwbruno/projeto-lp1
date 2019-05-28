@@ -64,10 +64,10 @@ void painelFuncionarios(std::string titulo, std::deque<std::string> caminho){
 				cadastrar<FUNCIONARIO>("csv/funcionarios.csv", caminho);
 
 			} else if(opcao == "2"){
-				remover<FUNCIONARIO>("csv/funcionarios.csv", caminho, painel.getTitulo());
+				// remover<FUNCIONARIO>("csv/funcionarios.csv", caminho, painel.getTitulo());
 
 			} else if(opcao == "3"){
-				alterar<FUNCIONARIO>("csv/funcionarios.csv", caminho, painel.getTitulo());
+				// alterar<FUNCIONARIO>("csv/funcionarios.csv", caminho, painel.getTitulo());
 
 			} else if(opcao == "4"){
 				consultar<FUNCIONARIO>("csv/funcionarios.csv", caminho);
@@ -117,7 +117,8 @@ void painelCrudAnimais(std::string titulo, std::deque<std::string> caminho){
 				// FAZER
 
 			} else if(opcao == "4"){
-				consultar<ANIMAIS>("csv/animais.csv", caminho);
+				consultar<ANIMAIS>("csv/animais.csv", "csv/animais-detalhes.csv", caminho);
+				
 			}
 		}
 		catch(Excecao& e){
