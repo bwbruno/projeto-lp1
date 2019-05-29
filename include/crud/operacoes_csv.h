@@ -209,8 +209,10 @@ void OperacoesCSV<CLASSE>::removerLinha(int id){
 
     if(of.is_open()){
         typename std::map<int, std::string>::iterator it;    
-        for(it = linhas.begin(); it != linhas.end(); ++it)
+        for(it = linhas.begin(); it != linhas.end(); ++it){
             of << it->second;
+            of << "\n";
+        }
 
     } else {
         throw Excecao("Erro ao abrir arquivo para escrita.");

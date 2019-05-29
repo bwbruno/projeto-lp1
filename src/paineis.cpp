@@ -117,9 +117,9 @@ void painelTipo<Anfibio>(string titulo, deque<string> caminho){
 			if(opcao == "1"){
 				painelCrudAnimais<Anfibio>("ANFÍBIO DOMÉSTICO", caminho);
 			} else if(opcao == "2"){
-				// painelCrudAnimais<AnfibioNativo>("ANFÍBIO EXÓTICO", caminho);
+				painelCrudAnimais<AnfibioNativo>("ANFÍBIO NATIVO", caminho);
 			} else if(opcao == "3"){
-				// painelCrudAnimais<AnfibioNativo>("ANFÍBIO EXÓTICO", caminho);
+				painelCrudAnimais<AnfibioExotico>("ANFÍBIO EXÓTICO", caminho);
 			}
 		}
 		catch(Excecao& e){

@@ -13,165 +13,153 @@
 #include "utilitarios.h"
 #include "crud/operacoes_csv.h"
 
-/*
-typedef struct InformacoesFuncionario{
-    std::string id;
-    std::string tipo_funcionario;
-    //std::string resto_linha;
-
-} TFunc;
-*/
+// Funções de remoção usando UM arquivo
 
 template <typename CLASSE>
-void remover(std::string enderecoArquivo, std::deque<std::string> caminho, std::string vet_trat){
+void confirmarRemover(int id, std::string enderecoArquivo, std::deque<std::string> caminho){
+    
+	Painel detalhes;
+	OperacoesCSV<CLASSE> csv(enderecoArquivo);
+    std::string linha = csv.consultarLinha(id);
+	CLASSE classe(linha);
+	std::string continuar;
 
-    Painel remover;
-    OperacoesCSV<CLASSE> csv(enderecoArquivo);
-    std::map<int, CLASSE> lista = csv.getLista();
-    int selecao = 1;
-    std::string tipo_do_funcionario;
+    caminho.push_back("DETALHES");
 
-    if(strcmp(vet_trat.c_str(), "TRATADORES") == 0){
-        remover.setTitulo("TRATADORES CADASTRADOS");
-        tipo_do_funcionario = ("Tratador");
-    }else{
-        remover.setTitulo("VETERINÁRIOS CADASTRADOS");
-        tipo_do_funcionario = ("Veterinario");
-    }
+	detalhes.setTitulo("DETALHES");
+	detalhes.setCaminho(caminho);
+
+    std::cout << detalhes;
+	std::cout << classe;
+	std::cout << "\nCONFIRMAR REMOÇÃO (s/n): ";
+	std::cin >> continuar;
+
+    if(continuar == "s"){
+		
+		csv.removerLinha(id);
+
+		throw Excecao("Removido com sucesso.");
+
+	} else {
+		throw Excecao("A remoção não foi efetuada. Tente novamente.");
+	}
+    
+}
+
+template <typename CLASSE>
+void remover(std::string enderecoArquivo, std::deque<std::string> caminho){
+	
+	Painel consulta;	
+	OperacoesCSV<CLASSE> csv(enderecoArquivo);
+    std::map<std::string, std::string> opcoes = csv.getOpcoes();
+	std::string opcao;
+    
     caminho.push_back("REMOVER");
 
-    remover.setCaminho(caminho);
+	consulta.setTitulo("REMOVER");
+	consulta.setCaminho(caminho);
+	consulta.setOpcoes(opcoes);
+	consulta.setPergunta("SELECIONE UMA DAS OPCOES: ");
 
-    while(selecao != 0){
+	while(consulta.getAbrir()){
+
+        opcoes = csv.getOpcoes();
+        consulta.setOpcoes(opcoes);
 
 		try{
-            std::cout << remover;
+			std::cout << consulta;					// Imprime o cabeçalho, as opções e a pergunta
+			std::cin >> opcao;						// Lê a resposta
+			consulta.setResposta(opcao);
 
-			// Imprime a lista de funcionarios id-nome
-	        typename std::map<int, CLASSE>::iterator it;
-            for (it = lista.begin(); it != lista.end(); ++it)
-                it->second.printIdNome();
-            
-            std::cout << "\n\t0. VOLTAR\n";
-            std::cout << "\nSELECIONE O ID DO FUNCIONARIO OU ZERO [0] PARA VOLTAR: ";
-            std::cin >> selecao;
-        
-			// Tratamento de erro, caso o usuário insira texto em vez de números
-			if(std::cin.fail()){
-				std::cin.clear();
-				std::cin.ignore(__INT_MAX__, '\n');
-				throw Excecao("Valor inválido. Insira um valor númerico.");
-			}
-
-            painelRemover(enderecoArquivo, selecao, lista, caminho, tipo_do_funcionario);
-            std::cout << selecao <<"\n";
+            if(opcao != "0")
+                break;
 		}
 		catch(Excecao& e){
-			remover.setExcecao(e);
+			consulta.setExcecao(e);
 		}
-			
+
 	}
-   
+
+    if(opcao != "0"){
+        int id = atoi(opcao.c_str());
+        confirmarRemover<CLASSE>(id, enderecoArquivo, caminho);
+    }
+}
+
+// Funções de remoção usando DOIS arquivos
+
+template <typename CLASSE>
+void confirmarRemover(int id, std::string enderecoArquivo, std::string endArqDetalhes, std::deque<std::string> caminho){
+    
+	Painel detalhes;
+	OperacoesCSV<CLASSE> csv(enderecoArquivo);
+	OperacoesCSV<CLASSE> csvDetalhes(endArqDetalhes);
+    std::string linha = csv.consultarLinha(id);
+    std::string linhaDetalhes = csvDetalhes.consultarLinha(id);
+	CLASSE classe(linha, linhaDetalhes);
+	std::string continuar;
+
+    caminho.push_back("DETALHES");
+
+	detalhes.setTitulo("DETALHES");
+	detalhes.setCaminho(caminho);
+
+    std::cout << detalhes;
+	std::cout << classe;
+	std::cout << "\nCONFIRMAR REMOÇÃO (s/n): ";
+	std::cin >> continuar;
+
+    if(continuar == "s"){
+		
+		csv.removerLinha(id);
+		csvDetalhes.removerLinha(id);
+
+		throw Excecao("Removido com sucesso.");
+
+	} else {
+		throw Excecao("A remoção não foi efetuada. Tente novamente.");
+	}
+    
 }
 
 template <typename CLASSE>
-int painelRemover(std::string ea, int &id, std::map<int, CLASSE> &lista, std::deque<std::string> caminho,
- std::string tipo_do_funcionario){
-
-    typename std::map<int, CLASSE>::iterator it;
-    it = lista.find(id);
-
-    if(it == lista.end())
-        throw Excecao("O id informado é inválido. Tente novamente."); 
-    
-    caminho.push_back("REMOVER FUNCIONARIO");
-	std::string titulo = "DETALHES DO FUNCIONARIO";	
+void remover(std::string enderecoArquivo, std::string endArqDetalhes, std::deque<std::string> caminho){
 	
-	Painel detalhes(titulo, caminho);	
+	Painel consulta;	
+	OperacoesCSV<CLASSE> csv(enderecoArquivo);
+    std::map<std::string, std::string> opcoes = csv.getOpcoes();
+	std::string opcao;
+    
+    caminho.push_back("REMOVER");
 
-    int selecao = -1;
+	consulta.setTitulo("REMOVER");
+	consulta.setCaminho(caminho);
+	consulta.setOpcoes(opcoes);
+	consulta.setPergunta("SELECIONE UMA DAS OPCOES: ");
 
-	while(selecao != 0 && selecao !=1){
+	while(consulta.getAbrir()){
+
+        opcoes = csv.getOpcoes();
+        consulta.setOpcoes(opcoes);
 
 		try{
-			std::cout << detalhes;
+			std::cout << consulta;					// Imprime o cabeçalho, as opções e a pergunta
+			std::cin >> opcao;						// Lê a resposta
+			consulta.setResposta(opcao);
 
-            std::cout << it->second;
-        
-            std::cout << "\nOPÇÕES";
-            std::cout << "\n\t1. REMOVER FUNCIONARIO";
-            std::cout << "\n\t0. CANCELAR REMOÇÃO";
-            std::cout << "\n\nESCOLHA SUA OPÇÃO: ";
-            std::cin >> selecao;
-
-			// Tratamento de erro, caso o usuário insira texto em vez de números
-			if(std::cin.fail()){
-				std::cin.clear();
-				std::cin.ignore(__INT_MAX__, '\n');
-				throw Excecao("Valor inválido. Insira um valor númerico.");
-			}
-
-            if(selecao == 1){
-                OperacoesCSV<CLASSE> csv_remover(ea);
-                
-                std::fstream aqv_remover;//arquivo original com as informações dos funcionarios
-                aqv_remover.open(ea.c_str(), std::ios::in);//vou apenas ler esse arquivo
-
-                std::queue<std::string> fila_func;
-                std::string line;
-
-                if(aqv_remover.is_open()){
-                    
-                    while(getline(aqv_remover, line)){
-
-                        std::string id_aqv = csv_remover.getIDDaLinha(line);
-                        int id_teste = atoi(id_aqv.c_str());
-
-                        std::string *tipo_aqv = new std::string;
-                        *tipo_aqv = csv_remover.getTipoDaLinha(line);
-
-/*
-Armazena na fila todos os funcionarios com exceção daquele excluido
-*/
-                        if(tipo_do_funcionario != *tipo_aqv || id_teste != id){
-                            fila_func.push(line);
-                        }
-
-                        std::cout << *tipo_aqv <<"\n" << id_aqv << "\n";
-
-                        delete tipo_aqv;
-
-                    }
-                }else{
-                    std::cout << "Arquivo inválido!" << std::endl;
-                }
-
-                aqv_remover.close();
-
-                std::ofstream aqv_removido;//esse arquivo ira sobreescrever o antigo arquivo de funcionarios
-                aqv_removido.open(ea.c_str());
-
-                while(!fila_func.empty()){
-                    aqv_removido << fila_func.front() << "\n";
-                    fila_func.pop();
-                }
-                
-                while(id != 0){
-                    Painel removido("FUNCIONARIO REMOVIDO COM SUCESSO!", caminho);
-                    std::cout << removido;
-                    std::cout << "\n\t0. VOLTAR";
-                    std::cin >> id;
-                }
-                return id;
-            }
-
+            if(opcao != "0")
+                break;
 		}
 		catch(Excecao& e){
-			detalhes.setExcecao(e);
+			consulta.setExcecao(e);
 		}
-			
-	}
-}
 
+	}
+
+    if(opcao != "0"){
+        int id = atoi(opcao.c_str());
+        confirmarRemover<CLASSE>(id, enderecoArquivo, endArqDetalhes, caminho);
+    }
+}
 
 #endif
