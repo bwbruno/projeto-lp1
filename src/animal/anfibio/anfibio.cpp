@@ -14,7 +14,7 @@ Anfibio::Anfibio(string linhaCSV, string linhaDetalhesCSV){
 	// Anfibio v("1;Anfibio;Daniel Oscar;123.456.789-10;30;O;+;Felinos;CRMV-GO 0406;;")
 	string tmp;
 
-	// Arquivo animais
+	// Linha do arquivo animais
 	istringstream ss(linhaCSV);
 	getline(ss, tmp, ';');                      // id
 	id = atoi(tmp.c_str());
@@ -33,15 +33,13 @@ Anfibio::Anfibio(string linhaCSV, string linhaDetalhesCSV){
     int t_id = atoi(tmp.c_str());             
 	tratador.setId(t_id); 
     getline(ss, nome_batismo, ';');             // nome batismo
-    getline(ss, tmp, ';');                      // uf ou país de origem
-    getline(ss, tmp, ';');                      // autorização
 
 	// Arquivo detalhes animais
 	istringstream iss(linhaDetalhesCSV);
 	getline(iss, tmp, ';');						// id
 	getline(iss, tmp, ';');						// classe
 	getline(iss, tmp, ';');						// total_de_mudas
-    total_de_mudas = atoi(tmp.c_str());             
+    total_de_mudas = atoi(tmp.c_str());
 }
 
 // ------------------------------------------------------------------------
@@ -173,9 +171,6 @@ string Anfibio::getStringCSV(){
     ss << veterinario.getId() << ";";
     ss << tratador.getId() << ";";
     ss << nome_batismo << ";";
-	ss << ";"; // país de origem
-	ss << ";"; // uf de origem
-	ss << ";"; // autorizacao
 	ss << endl;
 	return ss.str();
 }

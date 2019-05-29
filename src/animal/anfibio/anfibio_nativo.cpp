@@ -10,41 +10,38 @@ AnfibioNativo::AnfibioNativo(){
 	limpar();
 }
 
-AnfibioNativo::AnfibioNativo(string linhaCSV){
+AnfibioNativo::AnfibioNativo(string linhaCSV, string linhaDetalhesCSV){
 	// AnfibioNativo v("1;AnfibioNativo;Daniel Oscar;123.456.789-10;30;O;+;Felinos;CRMV-GO 0406;;")
 	string tmp;
-	istringstream ss(linhaCSV);
 	
+	// Linha do arquivo animais
+	istringstream ss(linhaCSV);
 	getline(ss, tmp, ';');                      // id
 	id = atoi(tmp.c_str());
-	
     getline(ss, classe, ';');                   // classe
-	
+    getline(ss, especie, ';');                  // especie
     getline(ss, nome_cientifico, ';');          // nome científico
-	
     getline(ss, tmp, ';');                      // sexo
     sexo = tmp[0];
-	
     getline(ss, tmp, ';');                      // tamanho
 	tamanho = atoi(tmp.c_str());
-	
     getline(ss, dieta, ';');                    // dieta
-	
     getline(ss, tmp, ';');                      // veterinario
-    int id = atoi(tmp.c_str());             
+    int v_id = atoi(tmp.c_str());             
     veterinario.setId(id);
-
 	getline(ss, tmp, ';');                      // tratador
-    id = atoi(tmp.c_str());             
-	tratador.setId(id); 
-	
+    int t_id = atoi(tmp.c_str());             
+	tratador.setId(t_id); 
     getline(ss, nome_batismo, ';');             // nome batismo
-	
-    getline(ss, tmp, ';');                      // país de origem
 
-    getline(ss, uf_origem, ';');                // uf de origem
-
-    getline(ss, autorizacao_ibama, ';');        // autorização
+	// Linha do arquivo detalhes animais
+	istringstream iss(linhaDetalhesCSV);
+	getline(iss, tmp, ';');						// id
+	getline(iss, tmp, ';');						// classe
+	getline(iss, tmp, ';');						// total_de_mudas
+    total_de_mudas = atoi(tmp.c_str());	
+    getline(iss, uf_origem, ';');               // uf de origem
+    getline(iss, autorizacao_ibama, ';');       // autorização
 }
 
 // ------------------------------------------------------------------------
@@ -55,8 +52,8 @@ istream& operator>> (istream &i, AnfibioNativo &t) {
 	t.contador_cin++;
 	switch (t.getContadorCin()){
 		case 1:
-			cout << "\nINSERIR ID: ";
-			i >> t.id;
+			cout << "\nINSERIR ESPÉCIE: ";
+			i >> t.especie;
 			break;
 
 		case 2:
@@ -125,6 +122,7 @@ istream& operator>> (istream &i, AnfibioNativo &t) {
 ostream& operator<< (ostream &o, AnfibioNativo const a) {
     o << "\tId: " << (a.id != -1 ? intParaString(a.id) : "") << endl;
 	o << "\tClasse: " << a.classe << endl;
+	o << "\tEspécie: " << a.especie << endl;
     o << "\tNome científico: " << a.nome_cientifico << endl;
     o << "\tSexo: " << a.sexo << endl;
     o << "\tTamanho: " << (a.tamanho != -1 ? intParaString(a.tamanho) : "") << endl;
@@ -144,13 +142,13 @@ ostream& operator<< (ostream &o, AnfibioNativo const a) {
 
 void AnfibioNativo::limpar(){
     id = -1;
-    classe = "Amphibia";
+    classe = "Amphibia Nativo";
     nome_cientifico = "";
     sexo = ' ';
     tamanho = -1;
     dieta = "";
     nome_batismo = "";
-	contador_cin = 1;
+	contador_cin = 0;
     total_de_mudas = -1;
     uf_origem = "";
     autorizacao_ibama = "";
@@ -167,9 +165,6 @@ string AnfibioNativo::getStringCSV(){
     ss << veterinario.getId() << ";";
     ss << tratador.getId() << ";";
     ss << nome_batismo << ";";
-	ss << ";"; // país de origem
-	ss << uf_origem << ";";
-	ss << autorizacao_ibama << ";";
 	ss << endl;
 	return ss.str();
 }
@@ -177,7 +172,7 @@ string AnfibioNativo::getStringCSV(){
 string AnfibioNativo::getStringDetalhesCSV(){
 	stringstream ss;
 	ss << id << ";";
-	ss << "Nativo" << ";";
+	ss << classe << ";";
 	ss << total_de_mudas << ";";
 	ss << uf_origem << ";";
 	ss << autorizacao_ibama << ";";

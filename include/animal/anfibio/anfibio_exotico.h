@@ -12,7 +12,7 @@ class AnfibioExotico : public Anfibio, AnimalExotico {
 		//---------------------------------------------------------------------- ///@{
 
 		AnfibioExotico();
-		AnfibioExotico(std::string linhaCSV);
+		AnfibioExotico(std::string linhaCSV, std::string linhaDetalhesCSV);
 		//~AnfibioExotico();
 
 		//---------------------------------------------------------------------- ///@}

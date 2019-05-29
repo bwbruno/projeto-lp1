@@ -30,7 +30,7 @@ class Reptil : public Animal {
 		/// @name Setters
 		//---------------------------------------------------------------------- ///@{
  
-		void setVenenoso(bool v);
+		void setVenenoso(std::string v);
 		void setTipoVeneno(std::string tv);
 		
 		//---------------------------------------------------------------------- ///@}

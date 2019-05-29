@@ -12,7 +12,7 @@ class MamiferoNativo : public Mamifero, AnimalNativo {
 		//---------------------------------------------------------------------- ///@{
  
 		MamiferoNativo();
-		MamiferoNativo(std::string linhaCSV);
+		MamiferoNativo(std::string linhaCSV, std::string linhaDetalhesCSV);
 		
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos

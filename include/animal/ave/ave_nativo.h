@@ -12,7 +12,7 @@ class AveNativo : public Ave, AnimalNativo {
 		//---------------------------------------------------------------------- ///@{
 
 		AveNativo();
-		AveNativo(std::string linhaCSV);
+		AveNativo(std::string linhaCSV, std::string linhaDetalhesCSV);
 		//~AveNativo();
 
 		//---------------------------------------------------------------------- ///@}

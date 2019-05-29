@@ -12,7 +12,7 @@ class MamiferoExotico : public Mamifero, AnimalExotico {
 		//---------------------------------------------------------------------- ///@{
  
 		MamiferoExotico();
-		MamiferoExotico(std::string linhaCSV);
+		MamiferoExotico(std::string linhaCSV, std::string linhaDetalhesCSV);
 		
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos

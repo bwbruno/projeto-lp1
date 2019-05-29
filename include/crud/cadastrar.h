@@ -21,13 +21,10 @@ void cadastrar(std::string enderecoArquivo, std::deque<std::string> caminho){
 	while(classe.getContadorCin() != -1){
 
 		try{
-			std::cout << cadastro;
-			
-			int id = csv.tamanhoMapLinhas();
-			classe.setId(id);
-
-			std::cout << classe;
-			std::cin >> classe;
+			std::cout << cadastro;						// Imprime cabeçalho			
+			classe.setId(csv.gerarId());
+			std::cout << classe;						// Imprime corpo
+			std::cin >> classe;							// Insere
 			
 			// Tratamento de erro, caso o usuário insira texto em vez de números
 			if(std::cin.fail()){
@@ -89,10 +86,7 @@ void cadastrar(std::string enderecoArquivo, std::string endArqDetalhes, std::deq
 
 		try{
 			std::cout << cadastro;
-			
-			int id = csv.tamanhoMapLinhas();
-			classe.setId(id);
-
+			classe.setId(csv.gerarId());
 			std::cout << classe;
 			std::cin >> classe;
 			
@@ -143,6 +137,5 @@ void confirmarCadastro(std::string enderecoArquivo, std::string endArqDetalhes, 
 	}
 
 }
-
 
 #endif // __CADASTRAR_H__

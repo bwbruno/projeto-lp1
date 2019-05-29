@@ -21,8 +21,7 @@ void painelPrincipal(){
 
 	while(gerenciar.getAbrir()){
 
-		try
-		{
+		try{
 			cout << gerenciar;
 			cin >> opcao;
 			gerenciar.setResposta(opcao);
@@ -33,11 +32,9 @@ void painelPrincipal(){
 				painelFuncionarios(caminho);
 			}
 		}
-		catch(Excecao& e)
-		{
+		catch(Excecao& e){
 			gerenciar.setExcecao(e);
-		}
-			
+		}		
 	}
 }
 
@@ -83,6 +80,7 @@ void painelFuncionarios(deque<string> caminho){
 
 }
 
+
 Painel getPainelTipo(string titulo, deque<string> caminho){
 	
 	Painel painel;
@@ -91,6 +89,7 @@ Painel getPainelTipo(string titulo, deque<string> caminho){
 	caminho.push_back(titulo);
 	
 	opcoes.push_back("VOLTAR");
+	opcoes.push_back("DOMÉSTICO");
 	opcoes.push_back("NATIVO");
 	opcoes.push_back("EXÓTICO");
 	
@@ -101,7 +100,7 @@ Painel getPainelTipo(string titulo, deque<string> caminho){
 	
 	return painel;
 }
-/*
+
 template <>
 void painelTipo<Anfibio>(string titulo, deque<string> caminho){
 	
@@ -116,9 +115,11 @@ void painelTipo<Anfibio>(string titulo, deque<string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				painelCrudAnimais<AnfibioNativo>("ANFÍBIO NATIVO", caminho);
+				painelCrudAnimais<Anfibio>("ANFÍBIO DOMÉSTICO", caminho);
 			} else if(opcao == "2"){
-				painelCrudAnimais<AnfibioNativo>("ANFÍBIO EXÓTICO", caminho);
+				// painelCrudAnimais<AnfibioNativo>("ANFÍBIO EXÓTICO", caminho);
+			} else if(opcao == "3"){
+				// painelCrudAnimais<AnfibioNativo>("ANFÍBIO EXÓTICO", caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -127,7 +128,6 @@ void painelTipo<Anfibio>(string titulo, deque<string> caminho){
 			
 	}
 }
-
 
 template <>
 void painelTipo<Ave>(string titulo, deque<string> caminho){
@@ -143,9 +143,11 @@ void painelTipo<Ave>(string titulo, deque<string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				painelCrudAnimais<AveNativo>("AVE NATIVO", caminho);
+				// painelCrudAnimais<AveNativo>("AVE NATIVO", caminho);
 			} else if(opcao == "2"){
-				painelCrudAnimais<AveNativo>("AVE EXÓTICO", caminho);
+				// painelCrudAnimais<AveNativo>("AVE EXÓTICO", caminho);
+			} else if(opcao == "3"){
+				// painelCrudAnimais<AveNativo>("AVE EXÓTICO", caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -169,9 +171,9 @@ void painelTipo<Mamifero>(string titulo, deque<string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				painelCrudAnimais<MamiferoNativo>("MAMÍFERO NATIVO", caminho);
+				// painelCrudAnimais<MamiferoNativo>("MAMÍFERO NATIVO", caminho);
 			} else if(opcao == "2"){
-				painelCrudAnimais<MamiferoNativo>("MAMÍFERO EXÓTICO", caminho);
+				// painelCrudAnimais<MamiferoNativo>("MAMÍFERO EXÓTICO", caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -195,9 +197,9 @@ void painelTipo<Reptil>(string titulo, deque<string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				painelCrudAnimais<ReptilNativo>("REPTIL NATIVO", caminho);
+				// painelCrudAnimais<ReptilNativo>("REPTIL NATIVO", caminho);
 			} else if(opcao == "2"){
-				painelCrudAnimais<ReptilNativo>("REPTIL EXÓTICO", caminho);
+				// painelCrudAnimais<ReptilNativo>("REPTIL EXÓTICO", caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -207,7 +209,6 @@ void painelTipo<Reptil>(string titulo, deque<string> caminho){
 	}
 }
 
-*/
 void painelAnimais(deque<string> caminho){
 
 	Painel animais;
@@ -233,8 +234,8 @@ void painelAnimais(deque<string> caminho){
 			cin >> opcao;
 			animais.setResposta(opcao);
 			if(opcao == "1"){
-				// painelTipo<Anfibio>("caminho", caminho);
-				painelCrudAnimais<Anfibio>("ANFÍBIO", caminho);
+				painelTipo<Anfibio>("ANFÍBIO", caminho);
+				// painelCrudAnimais<Anfibio>("ANFÍBIO", caminho);
 			} else if(opcao == "2"){
 			} else if(opcao == "3"){
 			} else if(opcao == "4"){

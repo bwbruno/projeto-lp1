@@ -64,6 +64,8 @@ class OperacoesCSV {
 
         std::map<std::string, std::string> getOpcoes();
 
+        int gerarId();
+
         //! @brief 
         void print();
 
@@ -223,7 +225,7 @@ bool OperacoesCSV<CLASSE>::existeLinha(int id){
     it = linhas.find(id);
 
     if(it == linhas.end())
-        return false;
+        throw Excecao("O id informado é inválido. Tente novamente.");
     else
         return true;
     
@@ -250,13 +252,11 @@ CLASSE OperacoesCSV<CLASSE>::consultar(int id){
 template <class CLASSE>
 std::string OperacoesCSV<CLASSE>::consultarLinha(int id){
     
-    if(!existeLinha(id))
-        throw Excecao("O id informado é inválido. Tente novamente.");
-
-    typename std::map<int, std::string>::iterator it;
-    it = linhas.find(id);
-
-    return it->second;
+    if(existeLinha(id)){
+        typename std::map<int, std::string>::iterator it;
+        it = linhas.find(id);
+        return it->second;
+    }
 }
 
 template <class CLASSE>
@@ -296,6 +296,14 @@ std::map<std::string, std::string> OperacoesCSV<CLASSE>::getOpcoes(){
     }
 */
     return opcoes;
+}
+
+template <class CLASSE>
+int OperacoesCSV<CLASSE>::gerarId(){
+    typename std::map<int, std::string>::iterator it;
+    it = linhas.end();
+    it--;
+    return it->first + 1;
 }
 
 #endif // __OPERACOES_CSV_H__

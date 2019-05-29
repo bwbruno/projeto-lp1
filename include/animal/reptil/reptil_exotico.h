@@ -12,7 +12,7 @@ class ReptilExotico : public Reptil, AnimalExotico {
 		//---------------------------------------------------------------------- ///@{
  
 		ReptilExotico();
-		ReptilExotico(std::string linhaCSV);
+		ReptilExotico(std::string linhaCSV, std::string linhaDetalhesCSV);
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos

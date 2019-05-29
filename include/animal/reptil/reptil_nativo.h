@@ -12,7 +12,7 @@ class ReptilNativo : public Reptil, AnimalNativo {
 		//---------------------------------------------------------------------- ///@{
  
 		ReptilNativo();
-		ReptilNativo(std::string linhaCSV);
+		ReptilNativo(std::string linhaCSV, std::string linhaDetalhesCSV);
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos

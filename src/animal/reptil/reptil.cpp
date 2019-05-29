@@ -13,36 +13,54 @@ Reptil::Reptil(){
 Reptil::Reptil(string linhaCSV, string linhaDetalhesCSV){
 	// Reptil v("1;Reptil;Daniel Oscar;123.456.789-10;30;O;+;Felinos;CRMV-GO 0406;;")
 	string tmp;
+	// Linha do arquivo animais
 	istringstream ss(linhaCSV);
-	
 	getline(ss, tmp, ';');                      // id
 	id = atoi(tmp.c_str());
-	
     getline(ss, classe, ';');                   // classe
-
-    getline(ss, especie, ';');                   // especie
-	
+    getline(ss, especie, ';');                  // especie
     getline(ss, nome_cientifico, ';');          // nome científico
-	
     getline(ss, tmp, ';');                      // sexo
     sexo = tmp[0];
-	
     getline(ss, tmp, ';');                      // tamanho
 	tamanho = atoi(tmp.c_str());
-	
     getline(ss, dieta, ';');                    // dieta
-	
     getline(ss, tmp, ';');                      // veterinario
-    int id = atoi(tmp.c_str());             
+    int v_id = atoi(tmp.c_str());             
     veterinario.setId(id);
-
 	getline(ss, tmp, ';');                      // tratador
-    id = atoi(tmp.c_str());             
-	tratador.setId(id); 
-	
+    int t_id = atoi(tmp.c_str());             
+	tratador.setId(t_id); 
     getline(ss, nome_batismo, ';');             // nome batismo
 
+	// Arquivo detalhes animais
+	istringstream iss(linhaDetalhesCSV);
+	getline(iss, tmp, ';');						// id
+	getline(iss, tmp, ';');						// classe
+	getline(iss, tmp, ';');						// venenoso
+	setVenenoso(tmp);
+	getline(iss, tipo_veneno, ';');				// tipo veneno
 }
+
+// ------------------------------------------------------------------------
+//		Getters
+// ------------------------------------------------------------------------
+
+bool Reptil::getVenenoso(){
+	return venenoso;
+}
+
+// ------------------------------------------------------------------------
+//		Setters
+// ------------------------------------------------------------------------
+
+void Reptil::setVenenoso(string v){
+	if(v[0] == 's')
+		venenoso = true;
+	else
+		venenoso = false;
+}
+
 
 // ------------------------------------------------------------------------
 //		Operadores
@@ -164,9 +182,6 @@ string Reptil::getStringCSV(){
     ss << veterinario.getId() << ";";
     ss << tratador.getId() << ";";
     ss << nome_batismo << ";";
-	ss << ";"; // país de origem
-	ss << ";"; // uf de origem
-	ss << ";"; // autorizacao
 	ss << endl;
 	return ss.str();
 }
