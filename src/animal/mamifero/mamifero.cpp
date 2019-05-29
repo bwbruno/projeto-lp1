@@ -154,10 +154,6 @@ void Mamifero::limpar(){
     cor_pelo = "";
 }
 
-string Mamifero::getTipo(){
-	return "Mammalia";
-}
-
 string Mamifero::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";

@@ -35,7 +35,6 @@ class Mamifero : public Animal {
 		//---------------------------------------------------------------------- ///@{
  
 		void limpar();
-		std::string getTipo();
 		std::string getStringCSV();
 		std::string getStringDetalhesCSV();
 

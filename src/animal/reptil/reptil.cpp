@@ -166,10 +166,6 @@ void Reptil::limpar(){
     tipo_veneno = "";
 }
 
-string Reptil::getTipo(){
-	return "Reptilia";
-}
-
 string Reptil::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";

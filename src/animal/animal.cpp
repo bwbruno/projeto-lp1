@@ -120,24 +120,6 @@ string Animal::getNome(){
 //		Métodos utilitários
 // ------------------------------------------------------------------------
 
-std::string Animal::ehNativoOuExotico(){
-
-   vector<string> nativos;
-   nativos.push_back("Onça");
-   
-   vector<string> exoticos;
-   exoticos.push_back("Tigre");
-   
-   for(int i = 0; i < nativos.size(); ++i){
-      if(nativos[i] == especie)
-         return "Nativo";
-   }
-
-
-   for(int i = 0; i < exoticos.size(); ++i){
-      if(nativos[i] == especie)
-         return "Exotico";
-   }
-
+std::string Animal::getTipo(){
    return classe;
 }

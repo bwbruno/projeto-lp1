@@ -71,11 +71,10 @@ class Animal{
 		//---------------------------------------------------------------------- ///@{
 
 		virtual void limpar() = 0;
-		virtual std::string getTipo() = 0;
 		virtual std::string getStringCSV() = 0;
 		virtual std::string getStringDetalhesCSV() = 0;
+		std::string getTipo();
 		std::string getNome();
-		std::string ehNativoOuExotico();
 		
 		//---------------------------------------------------------------------- ///@}
 };

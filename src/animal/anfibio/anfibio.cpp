@@ -155,10 +155,6 @@ void Anfibio::limpar(){
     total_de_mudas = -1;
 }
 
-string Anfibio::getTipo(){
-	return "Amphibia";
-}
-
 string Anfibio::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";

@@ -148,10 +148,6 @@ void Ave::limpar(){
     envergadura_das_asas_cm = -1;
 }
 
-string Ave::getTipo(){
-	return "Aves";
-}
-
 string Ave::getStringCSV(){
 	stringstream ss;
 	ss << id << ";";
