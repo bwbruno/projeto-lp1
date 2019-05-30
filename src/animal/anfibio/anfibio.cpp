@@ -179,3 +179,20 @@ string Anfibio::getStringDetalhesCSV(){
 	ss << endl;
 	return ss.str();
 }
+
+std::vector<std::string> Anfibio::vectorAtributos(){
+	
+	vector<string> atributos;
+	atributos.push_back("VOLTAR");
+	atributos.push_back("ESPÉCIE");
+	atributos.push_back("NOME CIENTÍFICO");
+	atributos.push_back("SEXO");
+	atributos.push_back("TAMANHO");
+	atributos.push_back("DIETA");
+	atributos.push_back("VETERINÁRIO");
+	atributos.push_back("TRATADOR");
+	atributos.push_back("NOME BATISMO");
+	atributos.push_back("TOTAL DE MUDAS");
+
+	return atributos;
+}

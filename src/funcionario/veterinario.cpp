@@ -63,45 +63,40 @@ istream& operator>> (istream &i, Veterinario &t) {
 	t.contador_cin++;
 	switch (t.getContadorCin()){
 		case 1:
-			cout << "\nINSERIR ID: ";
-			i >> t.id;
-			break;
-
-		case 2:
 			cout << "\nINSERIR NOME: ";
 			i >> t.nome;
 			break;
 
-		case 3:
+		case 2:
 			cout << "\nINSERIR CPF: ";
 			i >> t.cpf;
 			break;
 
-		case 4:
+		case 3:
 			cout << "\nINSERIR IDADE: ";
 			i >> t.idade;
 			break;
 
-		case 5: {
+		case 4: {
 			cout << "\nINSERIR TIPO SANGUINEO [A/B/AB/O]: ";
 			string ts;
 			i >> ts;
 			t.setTipo_sanguineo(ts);
 			break;
 		}
-		case 6: {
+		case 5: {
 			cout << "\nINSERIR FATOR RH: [+/-]: ";
 			char frh;
 			i >> frh;
 			t.setFatorRh(frh);
 			break;
 		}
-		case 7:
+		case 6:
 			cout << "\nINSERIR ESPECIALIDADE: ";
 			i >> t.especialidade;
 			break;
 
-		case 8:
+		case 7:
 			cout << "\nINSERIR CRMV: ";
 			i >> t.crmv;
 			break;
@@ -140,7 +135,7 @@ void Veterinario::limpar(){
 	fator_rh = ' ';
 	especialidade = ' ';
 	crmv = "";
-	contador_cin = 1;
+	contador_cin = 0;
 }
 
 string Veterinario::getTipo(){
@@ -162,4 +157,19 @@ string Veterinario::getStringCSV(){
 	ss << ";";
 	ss << endl;
 	return ss.str();
+}
+
+std::vector<std::string> Veterinario::vectorAtributos(){
+	
+	vector<string> atributos;
+	atributos.push_back("VOLTAR");
+	atributos.push_back("NOME");
+	atributos.push_back("CPF");
+	atributos.push_back("IDADE");
+	atributos.push_back("TIPO SANGUÍNEO");
+	atributos.push_back("FATOR RH");
+	atributos.push_back("ESPECIALIDADE");
+	atributos.push_back("CRMV");
+
+	return atributos;
 }

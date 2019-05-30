@@ -102,6 +102,8 @@ class Tratador : public Funcionario {
 		//! @brief Operador de extração da classe.
 		friend std::ostream& operator<< (std::ostream &o, Tratador const t);
 
+		std::vector<std::string> vectorAtributos();
+
 		///@}
 };
 

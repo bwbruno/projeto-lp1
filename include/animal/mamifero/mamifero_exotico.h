@@ -21,6 +21,7 @@ class MamiferoExotico : public Mamifero, AnimalExotico {
 		void limpar();
 		std::string getStringCSV();
 		std::string getStringDetalhesCSV();
+		std::vector<std::string> vectorAtributos();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Operadores

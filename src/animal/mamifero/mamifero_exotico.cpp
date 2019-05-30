@@ -178,3 +178,22 @@ string MamiferoExotico::getStringDetalhesCSV(){
 	ss << endl;
 	return ss.str();
 }
+
+std::vector<std::string> MamiferoExotico::vectorAtributos(){
+	
+	vector<string> atributos;
+	atributos.push_back("VOLTAR");
+	atributos.push_back("ESPÉCIE");
+	atributos.push_back("NOME CIENTÍFICO");
+	atributos.push_back("SEXO");
+	atributos.push_back("TAMANHO");
+	atributos.push_back("DIETA");
+	atributos.push_back("VETERINÁRIO");
+	atributos.push_back("TRATADOR");
+	atributos.push_back("NOME BATISMO");
+	atributos.push_back("COR DO PELO");
+	atributos.push_back("PAÍS DE ORIGEM");
+	atributos.push_back("AUTORIZAÇÃO DO IBAMA");
+
+	return atributos;
+}

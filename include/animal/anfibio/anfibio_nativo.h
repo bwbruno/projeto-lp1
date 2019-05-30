@@ -22,6 +22,7 @@ class AnfibioNativo : public Anfibio, AnimalNativo {
 		void limpar();
 		std::string getStringCSV();
 		std::string getStringDetalhesCSV();
+		std::vector<std::string> vectorAtributos();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Operadores

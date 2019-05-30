@@ -91,6 +91,8 @@ class Veterinario : public Funcionario {
 		std::string getTipo();
 
 		std::string getStringCSV();
+
+		std::vector<std::string> vectorAtributos();
 		
 		///@}
 };

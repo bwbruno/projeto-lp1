@@ -37,6 +37,7 @@ class Mamifero : public Animal {
 		void limpar();
 		std::string getStringCSV();
 		std::string getStringDetalhesCSV();
+		std::vector<std::string> vectorAtributos();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Operadores

@@ -67,7 +67,7 @@ void painelFuncionarios(std::string titulo, std::deque<std::string> caminho){
 				remover<FUNCIONARIO>("csv/funcionarios.csv", caminho);
 
 			} else if(opcao == "3"){
-				// alterar<FUNCIONARIO>("csv/funcionarios.csv", caminho, painel.getTitulo());
+				alterar<FUNCIONARIO>("csv/funcionarios.csv", caminho);
 
 			} else if(opcao == "4"){
 				consultar<FUNCIONARIO>("csv/funcionarios.csv", caminho);
@@ -114,7 +114,7 @@ void painelCrudAnimais(std::string titulo, std::deque<std::string> caminho){
 				remover<ANIMAIS>("csv/animais.csv", "csv/animais-detalhes.csv", caminho);
 
 			} else if(opcao == "3"){
-				// FAZER
+				alterar<ANIMAIS>("csv/animais.csv", "csv/animais-detalhes.csv", caminho);
 
 			} else if(opcao == "4"){
 				consultar<ANIMAIS>("csv/animais.csv", "csv/animais-detalhes.csv", caminho);

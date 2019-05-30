@@ -51,7 +51,6 @@ class Funcionario{
 		//! @brief Retorna a quantidade de chamadas do operador de inserção da classe
 		//! @note Útil para saber quais atributos já foram definidos ou não
 		int getContadorCin();
-		
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Setters
@@ -103,7 +102,6 @@ class Funcionario{
 		//! @param c valor
 		void setContadorCin(int c);
 
-
 		//---------------------------------------------------------------------- ///@}
 		/// @name Métodos utilitários
 		//---------------------------------------------------------------------- ///@{
@@ -121,6 +119,8 @@ class Funcionario{
 		//! @exception Excecao caso o arquivo não exista ou haja alguma falha de execução
 		//! @param enderecoArquivo endereco do arquivo CSV
 		virtual std::string getStringCSV() = 0;
+
+		virtual std::vector<std::string> vectorAtributos() = 0;
 		
 		//---------------------------------------------------------------------- ///@}		
 };
