@@ -6,6 +6,10 @@
 #include "utilitarios.h"
 #include "crud/operacoes_csv.h"
 
+// ------------------------------------------------------------------------
+//		Fuções para cadastrar usando UM arquivo
+// ------------------------------------------------------------------------
+
 template <typename C>
 void cadastrar(std::string enderecoArquivo, std::deque<std::string> caminho){
 	
@@ -69,6 +73,10 @@ void confirmarCadastro(std::string enderecoArquivo, C classe, Painel &p){
 	}
 
 }
+
+// ------------------------------------------------------------------------
+//		Fuções para cadastrar usando DOIS arquivos
+// ------------------------------------------------------------------------
 
 template <typename C>
 void cadastrar(std::string enderecoArquivo, std::string endArqDetalhes, std::deque<std::string> caminho){

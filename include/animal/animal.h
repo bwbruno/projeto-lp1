@@ -22,7 +22,7 @@ class Animal{
 		Veterinario veterinario; ///< Veterinário associado ao animal					 
 		Tratador tratador; ///< Tratador associado ao animal			   
 		std::string nome_batismo; ///< Nome de batismo do animal
-		int contador_cin;
+		int contador_cin; ///< Contador de chamadas do operador<<
 
 	public:
 		//---------------------------------------------------------------------- ///@}

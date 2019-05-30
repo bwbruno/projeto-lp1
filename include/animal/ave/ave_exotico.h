@@ -12,7 +12,7 @@ class AveExotico : public Ave, AnimalExotico {
 		//---------------------------------------------------------------------- ///@{
 
 		//! @brief O construtor padrão instancia o animal com a função limpar() já aplicada
-		//! @see limpa
+		//! @see limpar()
 		AveExotico();
 		
 		//! @brief Esse construtor instancia o animal com os valores das linhas dos arquivos CSV

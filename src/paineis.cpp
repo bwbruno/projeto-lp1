@@ -143,11 +143,11 @@ void painelTipo<Ave>(string titulo, deque<string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				// painelCrudAnimais<AveNativo>("AVE NATIVO", caminho);
+				painelCrudAnimais<Ave>("AVE DOMÉSTICA", caminho);
 			} else if(opcao == "2"){
-				// painelCrudAnimais<AveNativo>("AVE EXÓTICO", caminho);
+				painelCrudAnimais<AveNativo>("AVE NATIVA", caminho);
 			} else if(opcao == "3"){
-				// painelCrudAnimais<AveNativo>("AVE EXÓTICO", caminho);
+				painelCrudAnimais<AveExotico>("AVE EXÓTICA", caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -171,9 +171,11 @@ void painelTipo<Mamifero>(string titulo, deque<string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				// painelCrudAnimais<MamiferoNativo>("MAMÍFERO NATIVO", caminho);
+				painelCrudAnimais<Mamifero>("MAMÍFERO DOMÉSTICO", caminho);
 			} else if(opcao == "2"){
-				// painelCrudAnimais<MamiferoNativo>("MAMÍFERO EXÓTICO", caminho);
+				painelCrudAnimais<MamiferoNativo>("MAMÍFERO NATIVO", caminho);
+			} else if(opcao == "3"){
+				painelCrudAnimais<MamiferoExotico>("MAMÍFERO EXÓTICO", caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -197,9 +199,11 @@ void painelTipo<Reptil>(string titulo, deque<string> caminho){
 			painel.setResposta(opcao);
 
 			if(opcao == "1"){
-				// painelCrudAnimais<ReptilNativo>("REPTIL NATIVO", caminho);
+				painelCrudAnimais<Reptil>("RÉPTIL DOMÉSTICO", caminho);
 			} else if(opcao == "2"){
-				// painelCrudAnimais<ReptilNativo>("REPTIL EXÓTICO", caminho);
+				painelCrudAnimais<ReptilNativo>("RÉPTIL NATIVO", caminho);
+			} else if(opcao == "3"){
+				painelCrudAnimais<ReptilExotico>("RÉPTIL EXÓTICO", caminho);
 			}
 		}
 		catch(Excecao& e){
@@ -235,10 +239,12 @@ void painelAnimais(deque<string> caminho){
 			animais.setResposta(opcao);
 			if(opcao == "1"){
 				painelTipo<Anfibio>("ANFÍBIO", caminho);
-				// painelCrudAnimais<Anfibio>("ANFÍBIO", caminho);
 			} else if(opcao == "2"){
+				painelTipo<Ave>("AVE", caminho);
 			} else if(opcao == "3"){
+				painelTipo<Mamifero>("MAMÍFERO", caminho);
 			} else if(opcao == "4"){
+				painelTipo<Reptil>("RÉPTIL", caminho);
 			}
 		}
 		catch(Excecao& e){

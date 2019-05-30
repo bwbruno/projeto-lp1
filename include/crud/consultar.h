@@ -6,12 +6,16 @@
 #include "utilitarios.h"
 #include "crud/operacoes_csv.h"
 
+// ------------------------------------------------------------------------
+//		Fuções para consultar usando UN arquivo
+// ------------------------------------------------------------------------
+
 template <typename CLASSE>
 void consultar(std::string enderecoArquivo, std::deque<std::string> caminho){
 	
 	Painel consulta;	
 	OperacoesCSV<CLASSE> csv(enderecoArquivo);
-    std::map<std::string, std::string> opcoes = csv.getOpcoes();
+    std::map<std::string, std::string> opcoes = csv.gerarOpcoes();
 	std::string opcao;
     
     caminho.push_back("CONSULTAR");
@@ -75,13 +79,17 @@ void painelDetalhes(int id, OperacoesCSV<CLASSE> &csv, std::deque<std::string> c
 }
 
 
+// ------------------------------------------------------------------------
+//		Fuções para consultar usando DOIS arquivos
+// ------------------------------------------------------------------------
+
 template <typename CLASSE>
 void consultar(std::string enderecoArquivo, std::string endArqDetalhes, std::deque<std::string> caminho){
 	
 	Painel consulta;	
 	OperacoesCSV<CLASSE> csv(enderecoArquivo);
 	OperacoesCSV<CLASSE> csvDetalhes(endArqDetalhes);
-    std::map<std::string, std::string> opcoes = csv.getOpcoes();
+    std::map<std::string, std::string> opcoes = csv.gerarOpcoes();
 	std::string opcao;
     
     caminho.push_back("CONSULTAR");

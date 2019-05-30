@@ -13,7 +13,9 @@
 #include "utilitarios.h"
 #include "crud/operacoes_csv.h"
 
-// Funções de remoção usando UM arquivo
+// ------------------------------------------------------------------------
+//		Fuções para remover usando UM arquivo
+// ------------------------------------------------------------------------
 
 template <typename CLASSE>
 void confirmarRemover(int id, std::string enderecoArquivo, std::deque<std::string> caminho){
@@ -51,7 +53,7 @@ void remover(std::string enderecoArquivo, std::deque<std::string> caminho){
 	
 	Painel consulta;	
 	OperacoesCSV<CLASSE> csv(enderecoArquivo);
-    std::map<std::string, std::string> opcoes = csv.getOpcoes();
+    std::map<std::string, std::string> opcoes = csv.gerarOpcoes();
 	std::string opcao;
     
     caminho.push_back("REMOVER");
@@ -63,7 +65,7 @@ void remover(std::string enderecoArquivo, std::deque<std::string> caminho){
 
 	while(consulta.getAbrir()){
 
-        opcoes = csv.getOpcoes();
+        opcoes = csv.gerarOpcoes();
         consulta.setOpcoes(opcoes);
 
 		try{
@@ -86,7 +88,9 @@ void remover(std::string enderecoArquivo, std::deque<std::string> caminho){
     }
 }
 
-// Funções de remoção usando DOIS arquivos
+// ------------------------------------------------------------------------
+//		Fuções para remover usando DOIS arquivos
+// ------------------------------------------------------------------------
 
 template <typename CLASSE>
 void confirmarRemover(int id, std::string enderecoArquivo, std::string endArqDetalhes, std::deque<std::string> caminho){
@@ -127,7 +131,7 @@ void remover(std::string enderecoArquivo, std::string endArqDetalhes, std::deque
 	
 	Painel consulta;	
 	OperacoesCSV<CLASSE> csv(enderecoArquivo);
-    std::map<std::string, std::string> opcoes = csv.getOpcoes();
+    std::map<std::string, std::string> opcoes = csv.gerarOpcoes();
 	std::string opcao;
     
     caminho.push_back("REMOVER");
@@ -139,7 +143,7 @@ void remover(std::string enderecoArquivo, std::string endArqDetalhes, std::deque
 
 	while(consulta.getAbrir()){
 
-        opcoes = csv.getOpcoes();
+        opcoes = csv.gerarOpcoes();
         consulta.setOpcoes(opcoes);
 
 		try{

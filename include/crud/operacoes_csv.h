@@ -5,15 +5,11 @@
 #include <fstream>
 #include <iterator>
 
-/// Essa classe representa o funcionario que possui um 'nivel de segurança' para tratar os animais.
-/**
- * Nível de segurança representa o grau de experiência do tratador na manipulação de certos animais.
- */
+/// Classe que manipula arquivos CSV
 template<class CLASSE>
 class OperacoesCSV {
 	private:
 		std::map<int, std::string> linhas; ///< Lista de tratadores
-		std::map<int, CLASSE> lista; ///< Lista de tratadores
         std::string enderecoArquivo; ///< Endereço do arquivo
 
 	public:
@@ -27,51 +23,32 @@ class OperacoesCSV {
 		//! @brief Esse construtor instancia a lista de funcionarios a partir do arquivo CSV informado
 		//! @param linha endereço do arquivo CSV
 		OperacoesCSV(std::string enderecoArquivo);
-		
-		//---------------------------------------------------------------------- ///@}
-		/// @name Getters
-		//---------------------------------------------------------------------- ///@{
-        
-        //! @brief 
-        std::map<int, CLASSE> getLista();
-
-        //---------------------------------------------------------------------- ///@}
-		/// @name Setters
-		//---------------------------------------------------------------------- ///@{
-
-        void setLista(std::map<int, CLASSE> l);
-        
+   
 		//---------------------------------------------------------------------- ///@}
 		/// @name Operações
 		//---------------------------------------------------------------------- ///@{
 		
+        //! @brief Insere a linha no arquivo CSV
         void inserirLinha(std::string linha);
         
+        //! @brief Remove a linha de acordo com o id informado
         void removerLinha(int id);
+
+        //! @brief Retorna a linha de acordo com o id informado
+        std::string consultarLinha(int id);
 
         //! @brief Retorna true se a linha com o id informado existe
         bool existeLinha(int id);
-		
-        //! @brief Retorna o tipo do funcionario de acordo com a linha do arquivo CSV
-		//! @param linha endereço do arquivo CSV
-        std::string getTipoDaLinha(std::string linha);
-
-        std::string getIDDaLinha(std::string linha);
-
+        
+        //! @brief Retorna o conteúdo da coluna x na linha
         std::string getColuna(std::string linha, int coluna);
 
-        int tamanhoMapLinhas();
+        //! @brief Retorna a lista de opções de acordo com a classe passada no template<>
+        std::map<std::string, std::string> gerarOpcoes();
 
-        std::map<std::string, std::string> getOpcoes();
-
+        //! @brief Gera um id válido para não haver repetição
         int gerarId();
-
-        //! @brief 
-        void print();
-
-        CLASSE consultar(int id);
-        std::string consultarLinha(int id);
-
+        
 		//---------------------------------------------------------------------- ///@{
 };
 
@@ -104,37 +81,6 @@ OperacoesCSV<CLASSE>::OperacoesCSV(std::string ea){
 
 
 // ------------------------------------------------------------------------
-//		Getters
-// ------------------------------------------------------------------------
-
-template <class CLASSE>
-std::map<int, CLASSE> OperacoesCSV<CLASSE>::getLista(){
-   return lista;
-}
-
-
-// ------------------------------------------------------------------------
-//		Setters
-// ------------------------------------------------------------------------
-
-template <class CLASSE>
-void OperacoesCSV<CLASSE>::setLista(std::map<int, CLASSE> l){
-
-    std::ofstream of;
-	of.open(enderecoArquivo.c_str());
-	
-    if(of.is_open()){
-        typename std::map<int, CLASSE>::iterator it;
-        for (it = l.begin(); it != l.end(); ++it)
-            of << it->second.getStringFormatoCSV();
-
-	} else {
-		throw Excecao("Erro ao abrir arquivo para escrita.");
-	}
-
-}
-
-// ------------------------------------------------------------------------
 //		Operações
 // ------------------------------------------------------------------------
 
@@ -152,33 +98,6 @@ std::string OperacoesCSV<CLASSE>::getColuna(std::string linha, int coluna){
     }
 
     return scoluna;
-}
-
-template <class CLASSE>
-std::string OperacoesCSV<CLASSE>::getTipoDaLinha(std::string linha){
-    std::string tipo;
-    std::istringstream ss(linha);
-    getline(ss, tipo, ';');
-    getline(ss, tipo, ';');
-    return tipo;
-}
-
-template <class CLASSE>
-std::string OperacoesCSV<CLASSE>::getIDDaLinha(std::string linha){
-    std::string tipo;
-    std::istringstream ss(linha);
-    getline(ss, tipo, ';');
-    return tipo;
-}
-
-template <class CLASSE>
-void OperacoesCSV<CLASSE>::print(){
-
-    typename std::map<int, CLASSE>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        std::cout << "\t" << it->second.getId();
-        std::cout << ". " << it->second.getNome() << std::endl;
-    }
 }
 
 template <class CLASSE>
@@ -234,24 +153,6 @@ bool OperacoesCSV<CLASSE>::existeLinha(int id){
 }
 
 template <class CLASSE>
-int OperacoesCSV<CLASSE>::tamanhoMapLinhas(){
-    
-    return linhas.size();
-}
-
-template <class CLASSE>
-CLASSE OperacoesCSV<CLASSE>::consultar(int id){
-    
-    typename std::map<int, CLASSE>::iterator it;
-    it = lista.find(id);
-
-    if(it == lista.end())
-        throw Excecao("O id informado é inválido. Tente novamente."); 
-
-    return it->second;
-}
-
-template <class CLASSE>
 std::string OperacoesCSV<CLASSE>::consultarLinha(int id){
     
     if(existeLinha(id)){
@@ -262,7 +163,7 @@ std::string OperacoesCSV<CLASSE>::consultarLinha(int id){
 }
 
 template <class CLASSE>
-std::map<std::string, std::string> OperacoesCSV<CLASSE>::getOpcoes(){
+std::map<std::string, std::string> OperacoesCSV<CLASSE>::gerarOpcoes(){
 
     CLASSE classe;
     std::string tipoClasse = classe.getTipo();
@@ -270,6 +171,10 @@ std::map<std::string, std::string> OperacoesCSV<CLASSE>::getOpcoes(){
     std::string tipoLinha;
     std::map<std::string, std::string> opcoes;
     std::pair<std::string, std::string> par;
+
+    par.first = "0";
+    par.second = "VOLTAR";
+    opcoes.insert(par);
 
     typename std::map<int, std::string>::iterator it;    
     for(it = linhas.begin(); it != linhas.end(); ++it){
@@ -285,18 +190,6 @@ std::map<std::string, std::string> OperacoesCSV<CLASSE>::getOpcoes(){
         }
     }
     
-    par.first = "0";
-    par.second = "VOLTAR";
-    opcoes.insert(par);
-/*
-    typename std::map<int, CLASSE>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        int id = it->second.getId();
-        par.first = intParaString(id);
-        par.second = it->second.getNome();
-        opcoes.insert(par);
-    }
-*/
     return opcoes;
 }
 

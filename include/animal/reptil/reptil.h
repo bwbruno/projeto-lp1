@@ -17,7 +17,7 @@ class Reptil : public Animal {
 		//---------------------------------------------------------------------- ///@{
  
 		//! @brief O construtor padrão instancia o animal com a função limpar() já aplicada
-		//! @see limpa
+		//! @see limpar()
 		Reptil();
 		
 		//! @brief Esse construtor instancia o animal com os valores das linhas dos arquivos CSV

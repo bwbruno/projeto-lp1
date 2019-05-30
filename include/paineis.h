@@ -29,7 +29,6 @@
 
 void painelPrincipal();
 void painelAnimais(std::deque<std::string> caminho);
-void painelAnimaisConsulta(std::deque<std::string> caminho);
 void painelFuncionarios(std::deque<std::string> caminho);
 
 template <typename FUNCIONARIO>

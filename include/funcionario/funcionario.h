@@ -106,17 +106,21 @@ class Funcionario{
 		/// @name Métodos utilitários
 		//---------------------------------------------------------------------- ///@{
 
-		//! @brief Seta espaço em branco em todos os atributos do tipo string e -1 em todos os de tipo numérico
+		//! @brief Seta 'espaço' em todos os atributos do tipo string e '-1' em todos os de tipo numérico
+		//! @note Ajuda na hora de imprimir a classe na tela, mesmo que não tenha todos os atributos já definidos.
 		virtual void limpar() = 0;
 
-		//! @brief Retorna o tipo do funcionário
+		//! @brief Retorna o tipo do funcionário, se é Tratador ou Veterinario
+		//! @brief Útil na hora de filtrar as linhas do arquivo CSV de acordo com a classe passada no template<>
 		virtual std::string getTipo() = 0;
 
-		//! @brief Grava no arquivo CSV informado, todos os valores da classe
+		//! @brief Grava no arquivo CSV informado os valores da classe
 		//! @exception Excecao caso o arquivo não exista ou haja alguma falha de execução
 		//! @param enderecoArquivo endereco do arquivo CSV
 		virtual std::string getStringCSV() = 0;
 
+		//! @brief Retorna um vector com os atributos da classe
+		//! @note Útil para exibir as opções na hora de alterar
 		virtual std::vector<std::string> vectorAtributos() = 0;
 		
 		//---------------------------------------------------------------------- ///@}		

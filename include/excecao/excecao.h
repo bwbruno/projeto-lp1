@@ -24,6 +24,7 @@ class Excecao : public std::exception {
 		/// @name Getters
 		//---------------------------------------------------------------------- ///@{
         
+		//! @brief Retorna a mensagem de erro
 		const std::string getMensagem() const;
 
 
@@ -31,6 +32,7 @@ class Excecao : public std::exception {
 		/// @name Setters
 		//---------------------------------------------------------------------- ///@{
        
+		//! @brief Seta a mensagem de erro
 	    void setMensagem(std::string m);
 
 
@@ -38,15 +40,20 @@ class Excecao : public std::exception {
 		/// @name Operadores
 		//---------------------------------------------------------------------- ///@{
 		
+		//! @brief Sobrecarga do operador igual
         Excecao& operator= (Excecao const &e);
 
 
         //---------------------------------------------------------------------- ///@}
 		/// @name Métodos utilitários
 		//---------------------------------------------------------------------- ///@{
+        
+		//! @brief Imprime a mensagem de erro
+		void printMensagem();
 		
+		//! @brief Limpa a mensagem de erro
+		//! @note Útil na hora de remover a mensagem de erro do painel	
         void limparMensagem();
-        void printMensagem();
 };
 
 #endif // __EXCECAO_H__

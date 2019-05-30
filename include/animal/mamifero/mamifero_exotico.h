@@ -12,7 +12,7 @@ class MamiferoExotico : public Mamifero, AnimalExotico {
 		//---------------------------------------------------------------------- ///@{
 
 		//! @brief O construtor padrão instancia o animal com a função limpar() já aplicada
-		//! @see limpa
+		//! @see limpar()
 		MamiferoExotico();
 		
 		//! @brief Esse construtor instancia o animal com os valores das linhas dos arquivos CSV
