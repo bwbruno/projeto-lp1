@@ -77,7 +77,7 @@
 
 #### Diagrama do diretório include
 
-![Diagrama do diretório include](doc/arquivos_include.jpg?raw=true)
+![Diagrama do diretório include](doc/img/arquivos_include.jpg?raw=true)
 
 ## Compilação
 

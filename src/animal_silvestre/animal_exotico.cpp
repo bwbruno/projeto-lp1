@@ -10,10 +10,6 @@ AnimalExotico::AnimalExotico(){
     pais_origem =  "País não definido";
 }
 
-AnimalExotico::AnimalExotico(string PO, string auth){
-    pais_origem =  PO;
-}
-
 
 // ------------------------------------------------------------------------
 //		Getters
@@ -30,13 +26,4 @@ string AnimalExotico::getPaisOrigem(){
 
 void AnimalExotico::setPaisOrigem(string PO){
     pais_origem = PO;
-}
-
-
-// ------------------------------------------------------------------------
-//		Métodos utilitários
-// ------------------------------------------------------------------------
-
-std::string AnimalExotico::tipo(){
-   return "Exotico";
 }

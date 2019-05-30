@@ -16,14 +16,13 @@ class AnimalExotico : public AnimalSilvestre {
 		//---------------------------------------------------------------------- ///@{
  
 		AnimalExotico();
-		AnimalExotico(std::string PO, std::string auth);
-		//~AnimalExotico();
-		
+
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Getters
 		//---------------------------------------------------------------------- ///@{
  
+		//! @brief Retorna o país de origem
 		std::string getPaisOrigem();
 		
 
@@ -31,13 +30,8 @@ class AnimalExotico : public AnimalSilvestre {
 		/// @name Setters
 		//---------------------------------------------------------------------- ///@{
  
+		//! @brief Seta o país de origem
  		void setPaisOrigem(std::string PO);
-
-		//---------------------------------------------------------------------- ///@}
-		/// @name Métodos utilitários
-		//---------------------------------------------------------------------- ///@{
-
-		std::string tipo();
 		
 		//---------------------------------------------------------------------- ///@}
 };

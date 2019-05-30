@@ -16,14 +16,13 @@ class AnimalNativo : public AnimalSilvestre {
 		//---------------------------------------------------------------------- ///@{
  
 		AnimalNativo();
-		AnimalNativo(std::string UO, std::string auth);
-		//~AnimalNativo();
 		
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Getters
 		//---------------------------------------------------------------------- ///@{
  
+		//! @brief Retorna o estado de origem
 		std::string getUfOrigem();		
 		
 
@@ -31,13 +30,8 @@ class AnimalNativo : public AnimalSilvestre {
 		/// @name Setters
 		//---------------------------------------------------------------------- ///@{
 
+		//! @brief Seta o estado de origem
 		void setUfOrigem(std::string UO);
-
-		//---------------------------------------------------------------------- ///@}
-		/// @name Métodos utilitários
-		//---------------------------------------------------------------------- ///@{
-
-		std::string tipo();
 		
 		//---------------------------------------------------------------------- ///@}
 };

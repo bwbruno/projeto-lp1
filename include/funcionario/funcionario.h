@@ -106,9 +106,6 @@ class Funcionario{
 		/// @name Métodos utilitários
 		//---------------------------------------------------------------------- ///@{
 
-		//! @brief Imprime o id e o nome do funcionário no formato "\tID. NOME"
-		virtual void printIdNome();
-
 		//! @brief Seta espaço em branco em todos os atributos do tipo string e -1 em todos os de tipo numérico
 		virtual void limpar() = 0;
 

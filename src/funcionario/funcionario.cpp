@@ -83,12 +83,3 @@ void Funcionario::setEspecialidade(string e){
 void Funcionario::setContadorCin(int c){
 	contador_cin = c;
 }
-
-// ------------------------------------------------------------------------
-//		Métodos utilitários
-// ------------------------------------------------------------------------
-
-void Funcionario::printIdNome(){
-	cout << "\t" << id;
-    cout << ". " << nome << endl;
-}

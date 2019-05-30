@@ -13,15 +13,14 @@ class AnimalSilvestre {
 		/// @name Construtores e destrutor
 		//---------------------------------------------------------------------- ///@{
  
-		AnimalSilvestre(std::string auth);
 		AnimalSilvestre();
-		//~AnimalSilvestre();
-	
+
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Getters
 		//---------------------------------------------------------------------- ///@{
- 
+     	
+		//! @brief Retorna a autorização do ibama
 		std::string getAutorizacaoIbama();
 
 		
@@ -29,14 +28,9 @@ class AnimalSilvestre {
 		/// @name Setters
 		//---------------------------------------------------------------------- ///@{
 			
+		//! @brief Seta a autorização do ibama
 		void setAutorizacaoIbama(std::string auth);
 
-		//---------------------------------------------------------------------- ///@}
-		/// @name Métodos utilitários
-		//---------------------------------------------------------------------- ///@{
-
-		virtual std::string tipo() = 0;
-		
 		//---------------------------------------------------------------------- ///@}
 };
 

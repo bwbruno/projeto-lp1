@@ -53,7 +53,6 @@ crud.o:
 	g++ -c ./src/crud/consultar.cpp -I ./include -o ./build/consultar.o
 	g++ -c ./src/crud/remover.cpp -I ./include -o ./build/remover.o
 	g++ -c ./src/crud/alterar.cpp -I ./include -o ./build/alterar.o
-	g++ -c ./src/crud/teste.cpp -I ./include -o ./build/teste.o
 
 clear:
 	rm ./build/*.o

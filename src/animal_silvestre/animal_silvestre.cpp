@@ -10,10 +10,6 @@ AnimalSilvestre::AnimalSilvestre(){
     autorizacao_ibama = "NULL";
 }
 
-AnimalSilvestre::AnimalSilvestre(string auth){
-    autorizacao_ibama = auth;
-}
-
 
 // ------------------------------------------------------------------------
 //		Getters

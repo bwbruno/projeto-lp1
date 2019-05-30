@@ -9,8 +9,9 @@ class Veterinario : public Funcionario {
 		std::string crmv; ///< Código CRMV
 
 	public:
-		///@name Construtores e destrutor
-		///@{
+		//---------------------------------------------------------------------- ///@}
+		/// @name Construtores e destrutor
+		//---------------------------------------------------------------------- ///@{
 
 		//! @brief Construtor padrão seta os valores nulos da função limpar()
 		//! @see limpar()
@@ -40,29 +41,49 @@ class Veterinario : public Funcionario {
 		//! @param linhaCSV linha do arquivo CSV
 		Veterinario(std::string linhaCSV);
 
-		///@}
-		///@name Métodos getters
-		///@{
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Getters
+		//---------------------------------------------------------------------- ///@{
 
 		//! @brief Retorna o código CRMV do veterinário.
 		std::string getCRMV();
 
-		///@}
-		///@name Métodos setters
-		///@{
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Setters
+		//---------------------------------------------------------------------- ///@{
 
 		//! @brief Esse método permite que o usuário especifique o código CRMV do veterinário
 		//! @param c código CRMV do veterinário
 		void setCRMV(std::string c);
 	
-		///@}
-		///@name Métodos
-		///@{
-	
+		//---------------------------------------------------------------------- ///@}
+		/// @name Métodos
+		//---------------------------------------------------------------------- ///@{
+
 		//! @brief Seta 'espaço' em todos os atributos do tipo string e '-1' em todos os de tipo numérico
 		//! @note Ajuda na hora de imprimir a classe na tela, mesmo que não tenha todos os atributos já definidos.
 		//! @see operator<<()
 		void limpar();
+
+		//! @brief Retorna o tipo do funcionário, se é Tratador ou Veterinario
+		//! @brief Útil na hora de filtrar as linhas do arquivo CSV de acordo com a classe passada no template<>
+		std::string getTipo();
+
+		//! @brief Grava no arquivo CSV informado os valores da classe
+		//! @exception Excecao caso o arquivo não exista ou haja alguma falha de execução
+		//! @param enderecoArquivo endereco do arquivo CSV
+		std::string getStringCSV();
+
+		//! @brief Retorna um vector com os atributos da classe
+		//! @note Útil para exibir as opções na hora de alterar
+		std::vector<std::string> vectorAtributos();
+
+
+		//---------------------------------------------------------------------- ///@}
+		/// @name Operadores
+		//---------------------------------------------------------------------- ///@{
 	
 		//! @brief Operador de inserção da classe. Só insere um atributo por vez.
 		/**
@@ -83,18 +104,7 @@ class Veterinario : public Funcionario {
 		//! @brief Operador de extração da classe.
 		friend std::ostream& operator<< (std::ostream &o, Veterinario const v);
 
-		//! @brief Grava no arquivo CSV informado, 'todos os valores da classe'
-		//! @exception "Erro ao abrir arquivo para cadastro." caso o arquivo não exista ou haja alguma falha de execução
-		//! @param enderecoArquivo endereco do arquivo CSV
-		void inserirCSV(std::string enderecoArquivo);
-
-		std::string getTipo();
-
-		std::string getStringCSV();
-
-		std::vector<std::string> vectorAtributos();
-		
-		///@}
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __VETERINARIO_H__

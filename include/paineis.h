@@ -9,7 +9,6 @@
 
 #include "painel/painel.h"
 #include "crud/cadastrar.h"
-#include "crud/teste.h"
 #include "crud/consultar.h"
 #include "crud/remover.h"
 #include "crud/alterar.h"
@@ -131,29 +130,7 @@ void painelCrudAnimais(std::string titulo, std::deque<std::string> caminho){
 Painel getPainelTipo(std::string titulo, std::deque<std::string> caminho);
 
 template <typename ANIMAIS>
-void painelTipo(std::string titulo, std::deque<std::string> caminho){
-	
-	Painel painel = getPainelTipo(titulo, caminho);
-	std::string opcao;
-
-	while(painel.getAbrir()){
-
-		try{
-			std::cout << painel;
-			std::cin >> opcao;
-			painel.setResposta(opcao);
-
-			if(opcao == "1"){
-				
-			} else if(opcao == "2"){
-
-			}
-		}
-		catch(Excecao& e){
-			painel.setExcecao(e);
-		}
-	}
-}
+void painelTipo(std::string titulo, std::deque<std::string> caminho){ }
 
 
 

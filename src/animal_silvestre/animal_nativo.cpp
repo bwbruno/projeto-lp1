@@ -10,10 +10,6 @@ AnimalNativo::AnimalNativo(){
     uf_origem = "UF de origem não definida";
 }
 
-AnimalNativo::AnimalNativo(string UO, string auth){
-    uf_origem = UO;
-}
-
 
 // ------------------------------------------------------------------------
 //		Getters
@@ -30,13 +26,4 @@ string AnimalNativo::getUfOrigem(){
 
 void AnimalNativo::setUfOrigem(string UO){
     uf_origem = UO;
-}
-
-
-// ------------------------------------------------------------------------
-//		Métodos utilitários
-// ------------------------------------------------------------------------
-
-std::string AnimalNativo::tipo(){
-   return "Nativo";
 }

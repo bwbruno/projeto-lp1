@@ -74,10 +74,19 @@ class Tratador : public Funcionario {
 		//! @note Ajuda na hora de imprimir a classe na tela, mesmo que não tenha todos os atributos já definidos.
 		//! @see operator<<()
 		void limpar();
-		
+
+		//! @brief Retorna o tipo do funcionário, se é Tratador ou Veterinario
+		//! @brief Útil na hora de filtrar as linhas do arquivo CSV de acordo com a classe passada no template<>
 		std::string getTipo();
 
+		//! @brief Grava no arquivo CSV informado os valores da classe
+		//! @exception Excecao caso o arquivo não exista ou haja alguma falha de execução
+		//! @param enderecoArquivo endereco do arquivo CSV
 		std::string getStringCSV();
+
+		//! @brief Retorna um vector com os atributos da classe
+		//! @note Útil para exibir as opções na hora de alterar
+		std::vector<std::string> vectorAtributos();
 
 		//---------------------------------------------------------------------- ///@}
 		/// @name Operadores
@@ -102,9 +111,7 @@ class Tratador : public Funcionario {
 		//! @brief Operador de extração da classe.
 		friend std::ostream& operator<< (std::ostream &o, Tratador const t);
 
-		std::vector<std::string> vectorAtributos();
-
-		///@}
+		//---------------------------------------------------------------------- ///@}
 };
 
 #endif // __TRATADOR_H__
