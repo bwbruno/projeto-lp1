@@ -4,6 +4,9 @@
 #include "animal/animal.h"
 
 /// Animal que possui registro do tamanho do bico em cm e a envergadura das asas.
+/**
+ * ![Diagrama de classe Ave](ave.png)
+ */
 class Ave : public Animal {
 	protected:
 		double tamanho_do_bico_cm; ///< Tamanho do bico em CM

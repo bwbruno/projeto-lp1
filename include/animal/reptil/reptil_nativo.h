@@ -5,6 +5,9 @@
 #include "animal_silvestre/animal_nativo.h"
 
 /// Classe réptil nativo
+/**
+ * ![Diagrama de classe ReptilNativo](reptilnativo.png)
+ */
 class ReptilNativo : public Reptil, AnimalNativo {
 	public:
 		//---------------------------------------------------------------------- ///@}

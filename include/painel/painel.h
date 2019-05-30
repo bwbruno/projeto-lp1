@@ -5,8 +5,8 @@
 #include "excecao/excecao.h"
 
 /// Responsável por gerar um painel de controle a partir de um vector de strings
-/** 
- * 
+/**
+ * ![Diagrama de classe Painel](painel.png)
  */
 class Painel{
 	private:

@@ -6,6 +6,9 @@
 #include <iterator>
 
 /// Classe que manipula arquivos CSV
+/**
+ * ![Diagrama de classe OperacoesCSV](operacoescsv.png)
+ */
 template<class CLASSE>
 class OperacoesCSV {
 	private:
@@ -185,7 +188,7 @@ std::map<std::string, std::string> OperacoesCSV<CLASSE>::gerarOpcoes(){
         
         if(tipoClasse == tipoLinha){
             par.first = intParaString(id);
-            par.second = it->second;
+            par.second = getColuna(it->second, 3);
             opcoes.insert(par);
         }
     }

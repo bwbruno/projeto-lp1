@@ -10,6 +10,9 @@
 #include "utilitarios.h"
 
 /// Classe abstrata que possui o conjunto de atributos comuns a todos os funcionarios da Pet Fera.
+/**
+ * ![Diagrama de classe Funcionario](funcionario.png)
+ */
 class Funcionario{
 	protected:
 		int id; ///< Identificador do funcionário

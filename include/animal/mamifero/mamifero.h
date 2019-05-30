@@ -6,6 +6,9 @@
 #include "animal/animal.h"
 
 /// Animal que também possui registro da cor do pelo.
+/**
+ * ![Diagrama de classe Mamífero](mamifero.png)
+ */
 class Mamifero : public Animal {
 	protected:
 		std::string cor_pelo; ///< Cor do pelo

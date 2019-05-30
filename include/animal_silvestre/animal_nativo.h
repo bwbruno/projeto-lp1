@@ -6,6 +6,9 @@
 #include "animal_silvestre/animal_silvestre.h"
 
 ///  Classe onde se registra o uf de origem de animais nativos, além da autorização do IBAMA.
+/**
+ * ![Diagrama de classe Animal Silvestre](animalsilvestre.png)
+ */
 class AnimalNativo : public AnimalSilvestre {
 	protected:
 		std::string uf_origem; ///< Estado de origem

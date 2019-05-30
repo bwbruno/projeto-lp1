@@ -4,6 +4,9 @@
 #include <string>
 
 /// Classe onde se registra as permissões para manutenção e o uso das diferentes espécies.
+/**
+ * ![Diagrama de classe Animal Silvestre](animalsilvestre.png)
+ */
 class AnimalSilvestre {
 	protected:
 		std::string autorizacao_ibama; ///< Autorização do IBAMA

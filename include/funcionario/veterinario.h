@@ -4,6 +4,9 @@
 #include "funcionario/funcionario.h"
 
 /// Essa classe representa o funcionario que possui um 'código CRMV'.
+/**
+ * ![Diagrama de classe Veterinario](veterinario.png)
+ */
 class Veterinario : public Funcionario {
 	private:
 		std::string crmv; ///< Código CRMV

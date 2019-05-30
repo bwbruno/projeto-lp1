@@ -6,6 +6,7 @@
 /// Essa classe representa o funcionario que possui um 'nivel de segurança' para tratar os animais.
 /**
  * Nível de segurança representa o grau de experiência do tratador na manipulação de certos animais.
+ * ![Diagrama de classe Tratador](tratador.png)
  */
 class Tratador : public Funcionario {
 	private:

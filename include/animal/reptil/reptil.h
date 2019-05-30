@@ -6,6 +6,9 @@
 #include "animal/animal.h"
 
 /// Animal que também possui registro sobre a produção de veneno ou não.
+/**
+ * ![Diagrama de classe Réptil](reptil.png)
+ */
 class Reptil : public Animal {
 	protected:
 		bool venenoso; ///< Se é venenoso ou não

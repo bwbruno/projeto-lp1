@@ -4,6 +4,9 @@
 #include "animal/animal.h"
 
 /// Animal que possui também registro da última data de troca de pele e do total de mudas que sofreu.
+/**
+ * ![Diagrama de classe Anfíbio](anfibio.png)
+ */
 class Anfibio : public Animal {
 	protected:
 		int total_de_mudas; ///< Indica o total de vezes que a pele do anfíbio foi trocada.

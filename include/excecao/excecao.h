@@ -5,6 +5,10 @@
 #include <iostream>
 #include <string>
 
+/// Classe exceção
+/**
+ * ![Diagrama de classe Excecao](excecao.png)
+ */
 class Excecao : public std::exception {
 	private:
 		std::string mensagem;

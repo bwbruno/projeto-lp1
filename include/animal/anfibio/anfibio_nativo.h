@@ -5,6 +5,9 @@
 #include "animal_silvestre/animal_nativo.h"
 
 /// Classe anfíbio nativo
+/**
+ * ![Diagrama de classe Anfíbio Exotico](anfibioexotico.png)
+ */
 class AnfibioNativo : public Anfibio, AnimalNativo {
 	public:
 		//---------------------------------------------------------------------- ///@}

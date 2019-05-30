@@ -10,6 +10,9 @@
 #include "funcionario/tratador.h"
 
 /// Classe Animal
+/**
+ * ![Diagrama de classe Animal](animal.png)
+ */
 class Animal{
 	protected:
 		int id; ///< Identificador do animal
