@@ -7,17 +7,17 @@
  * @section is Introdução
  *  Programa de cadastro de animais para a loja de animais silvestres Pet Fera.
  * 
- * @section cs Compilação
- *  Descrevemos aqui, como compilar esse código usando Make
+ * @section cs Compilação e Execução
+ * @code
+ *  // Compilar
+ *  make
  * 
- * @subsection Make
- *  Abra o terminal, acesse a passa raiz deste projeto e use o comando make
- * 
- * @bug
- * @warning
+ *  // Executar
+ *  make run
+ * @endcode
  * 
  * @section ds Diagramas
- * @subsection Diagrama do diretório include
+ * @subsection ddi Diagrama do diretório include
  * ![Diagrama do diretório include](arquivos_include.jpg) width=1000px
  * 
  */

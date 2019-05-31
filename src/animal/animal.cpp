@@ -71,6 +71,8 @@ void Animal::setNome_Cientifico(string cientific_name){
 }
 
 void Animal::setSexo(char gender){
+   if(gender != 'M' && gender != 'F')
+      throw Excecao("Sexo inválido. Tente Novamente.");
    sexo = gender;
 }
 

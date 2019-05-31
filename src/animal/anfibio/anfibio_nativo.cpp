@@ -62,8 +62,10 @@ istream& operator>> (istream &i, AnfibioNativo &t) {
 			break;
 
 		case 3:
-			cout << "\nINSERIR SEXO: ";
-			i >> t.sexo;
+			cout << "\nINSERIR SEXO [M/F]: ";
+			char sexo;
+			i >> sexo;
+			t.setSexo(sexo);
 			break;
 
 		case 4:
@@ -77,14 +79,14 @@ istream& operator>> (istream &i, AnfibioNativo &t) {
 			break;
 		}
 		case 6: {
-			cout << "\nINSERIR VETERINÁRIO RESPONSÁVEL [ID/-1]: ";
+			cout << "\nINSERIR VETERINÁRIO RESPONSÁVEL [ID/0]: ";
 			int id;
             i >> id;
             t.veterinario.setId(id);
 			break;
 		}
 		case 7:
-			cout << "\nINSERIR TRATADOR RESPONSÁVEL: [ID/-1]";
+			cout << "\nINSERIR TRATADOR RESPONSÁVEL [ID/0]: ";
 			int id;
             i >> id;
             t.tratador.setId(id);

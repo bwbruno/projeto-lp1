@@ -75,8 +75,10 @@ istream& operator>> (istream &i, Mamifero &m) {
 			break;
 
 		case 3:
-			cout << "\nINSERIR SEXO: ";
-			i >> m.sexo;
+			cout << "\nINSERIR SEXO [M/F]: ";
+			char sexo;
+			i >> sexo;
+			m.setSexo(sexo);
 			break;
 
 		case 4:
@@ -90,14 +92,14 @@ istream& operator>> (istream &i, Mamifero &m) {
 			break;
 		}
 		case 6: {
-			cout << "\nINSERIR VETERINÁRIO RESPONSÁVEL [ID/-1]: ";
+			cout << "\nINSERIR VETERINÁRIO RESPONSÁVEL [ID/0]: ";
 			int id;
             i >> id;
             m.veterinario.setId(id);
 			break;
 		}
 		case 7:
-			cout << "\nINSERIR TRATADOR RESPONSÁVEL: [ID/-1]";
+			cout << "\nINSERIR TRATADOR RESPONSÁVEL [ID/0]: ";
 			int id;
             i >> id;
             m.tratador.setId(id);
