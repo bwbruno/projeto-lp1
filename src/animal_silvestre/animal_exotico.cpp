@@ -2,28 +2,17 @@
 
 using namespace std;
 
-// ------------------------------------------------------------------------
-//		Construtores e destrutor
-// ------------------------------------------------------------------------
-
-AnimalExotico::AnimalExotico(){
+AnimalExotico::AnimalExotico()
+{
     pais_origem =  "País não definido";
 }
 
-
-// ------------------------------------------------------------------------
-//		Getters
-// ------------------------------------------------------------------------
-
-string AnimalExotico::getPaisOrigem(){
+string AnimalExotico::getPaisOrigem()
+{
     return pais_origem;
 }
 
-
-// ------------------------------------------------------------------------
-//		Setters
-// ------------------------------------------------------------------------
-
-void AnimalExotico::setPaisOrigem(string PO){
+void AnimalExotico::setPaisOrigem(string PO)
+{
     pais_origem = PO;
 }
